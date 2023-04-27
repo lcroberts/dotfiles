@@ -1,0 +1,91 @@
+1682084933978	Sync.SyncScheduler	DEBUG	Next sync in 600000 ms. (why=schedule)
+1682085087608	Sync.Engine.Tabs.Tracker	DEBUG	Detected a tab change: scheduling a quick-write in 5000ms
+1682085087964	Sync.Engine.Tabs.Tracker	DEBUG	Detected a tab change, but a quick-write is already scheduled
+1682085087966	Sync.Engine.Tabs.Tracker	DEBUG	Detected a tab change, but a quick-write is already scheduled
+1682085088259	Sync.Engine.Tabs.Tracker	DEBUG	Detected a tab change, but a quick-write is already scheduled
+1682085088260	Sync.Engine.Tabs.Tracker	DEBUG	Detected a tab change, but a quick-write is already scheduled
+1682085088717	Sync.Engine.Tabs.Tracker	DEBUG	Detected a tab change, but a quick-write is already scheduled
+1682085088721	Sync.Engine.Tabs.Tracker	DEBUG	Detected a tab change, but a quick-write is already scheduled
+1682085088732	Sync.Engine.Tabs.Tracker	DEBUG	Detected a tab change, but a quick-write is already scheduled
+1682085089248	Sync.Engine.Tabs.Tracker	DEBUG	Detected a tab change, but a quick-write is already scheduled
+1682085092634	Sync.Engine.Tabs	INFO	Uploading 1 outgoing records
+1682085092635	Sync.Engine.Tabs	INFO	Posting 1 records of 279 bytes with batch=true
+1682085092635	FirefoxAccounts	DEBUG	FxAccountsProfileClient: Requested profile
+1682085092635	FirefoxAccounts	DEBUG	getOAuthToken enter
+1682085092635	FirefoxAccounts	TRACE	getCachedToken returning cached token
+1682085092635	FirefoxAccounts	DEBUG	getOAuthToken returning a cached token
+1682085092636	Services.Common.RESTRequest	DEBUG	GET request to https://profile.accounts.firefox.com/v1/profile
+1682085092636	Sync.Collection	DEBUG	POST Length: 279
+1682085092783	Sync.Collection	DEBUG	POST success 200 https://sync-1-us-west1-g.sync.services.mozilla.com/1.5/200089978/storage/tabs?batch=true&commit=true
+1682085092797	Sync.Telemetry	INFO	Observed notification weave:engine:sync:uploaded but no current sync is being recorded.
+1682085093009	Services.Common.RESTRequest	DEBUG	GET https://profile.accounts.firefox.com/v1/profile 304
+1682085474352	Sync.Engine.Tabs.Tracker	DEBUG	Detected a tab change: scheduling a quick-write in 5000ms
+1682085474353	Sync.RemoteTabs	INFO	Doing a tab sync.
+1682085474353	Sync.Service	DEBUG	User-Agent: Firefox/112.0.1 (Linux x86_64) FxSync/1.114.0.20230417223520.desktop
+1682085474357	Sync.Service	INFO	Starting sync at 2023-04-21 09:57:54 in browser session AxY_1YSyTl6A
+1682085474357	Sync.SyncScheduler	DEBUG	Clearing sync triggers and the global score.
+1682085474358	Sync.Status	INFO	Resetting Status.
+1682085474358	Sync.Status	DEBUG	Status.service: success.status_ok => success.status_ok
+1682085474362	FirefoxAccounts	DEBUG	FxAccountsProfileClient: Requested profile
+1682085474362	FirefoxAccounts	DEBUG	getOAuthToken enter
+1682085474363	FirefoxAccounts	TRACE	getCachedToken returning cached token
+1682085474363	FirefoxAccounts	DEBUG	getOAuthToken returning a cached token
+1682085474363	Services.Common.RESTRequest	DEBUG	GET request to https://profile.accounts.firefox.com/v1/profile
+1682085474525	Sync.Resource	DEBUG	GET success 200 https://sync-1-us-west1-g.sync.services.mozilla.com/1.5/200089978/info/collections
+1682085474526	Sync.Service	DEBUG	Fetching server configuration: https://sync-1-us-west1-g.sync.services.mozilla.com/1.5/200089978/info/configuration
+1682085474597	Sync.Resource	DEBUG	GET success 200 https://sync-1-us-west1-g.sync.services.mozilla.com/1.5/200089978/info/configuration
+1682085474597	Sync.Service	DEBUG	Fetching global metadata record
+1682085474597	Sync.Service	DEBUG	Weave Version: 1.114.0 Local Storage: 5 Remote Storage: 5
+1682085474597	Sync.Service	DEBUG	Fetching and verifying -- or generating -- symmetric keys.
+1682085474597	Sync.Service	INFO	Testing info/collections: {"addons":1679357842.3,"tabs":1682085092.68,"forms":1682084933.75,"clients":1681937329.31,"history":1682084933.88,"bookmarks":1681958698.27,"extension-storage":1682022956.14,"prefs":1679593267.09,"meta":1665415195.97,"crypto":1665415191.75,"passwords":1679357841.02}
+1682085474597	Sync.CollectionKeyManager	INFO	Testing for updateNeeded. Last modified: 1665415191.75
+1682085474597	Sync.Synchronizer	DEBUG	Refreshing client list.
+1682085474597	Sync.Engine.Clients	DEBUG	Resetting clients last sync time
+1682085474665	Sync.Collection	DEBUG	GET fail 503 https://sync-1-us-west1-g.sync.services.mozilla.com/1.5/200089978/storage/clients?full=1&limit=1000
+1682085474665	Sync.Collection	WARN	GET request to https://sync-1-us-west1-g.sync.services.mozilla.com/1.5/200089978/storage/clients?full=1&limit=1000 failed with status 503
+1682085474666	Sync.ErrorHandler	DEBUG	Got Retry-After: 3600
+1682085474666	Sync.Status	DEBUG	Status.sync: success.sync => error.sync.reason.serverMaintenance
+1682085474666	Sync.Status	DEBUG	Status.service: success.status_ok => error.sync.failed
+1682085474666	Sync.SyncScheduler	DEBUG	Got backoff notification: 3600000ms
+1682085474666	Sync.SyncScheduler	DEBUG	Fuzzed minimum next sync: 1682089074666
+1682085474666	Sync.Status	DEBUG	Status for engine clients: error.engine.reason.record_download_fail
+1682085474666	Sync.Status	DEBUG	Status.service: error.sync.failed => error.sync.failed_partial
+1682085474666	Sync.Collection	WARN	Got exception parsing response body: SyntaxError: JSON.parse: unexpected character at line 1 column 1 of the JSON data(resource://services-sync/resource.sys.mjs:222:21) JS Stack trace: _processResponse/<@resource.sys.mjs:222:21
+format@Log.sys.mjs:639:19
+formatText@Log.sys.mjs:568:44
+format@Log.sys.mjs:586:12
+append@Log.sys.mjs:679:37
+append@logmanager.sys.mjs:143:44
+log@Log.sys.mjs:376:16
+debug@Log.sys.mjs:396:10
+observe@policies.sys.mjs:877:21
+observe@observers.sys.mjs:131:21
+notify@observers.sys.mjs:83:18
+notify@util.sys.mjs:185:19
+WrappedNotify@util.sys.mjs:195:17
+1682085474666	Sync.Collection	DEBUG	Parse fail: Response body starts: <html>
+<head><title>503 Service Unavailable</title></head>
+<body bgcolor="white">
+<center><h1>503 Se
+1682085474666	Sync.ErrorHandler	DEBUG	clients failed: ({data:"<html>\n<head><title>503 Service Unavailable</title></head>\n<body bgcolor=\"white\">\n<center><h1>503 Service Cloudy: Try again later. </h1></center>\n</body>\n</html>\n", url:"https://sync-1-us-west1-g.sync.services.mozilla.com/1.5/200089978/storage/clients?full=1&limit=1000", status:503, success:false, headers:{'alt-svc':"clear", 'content-length':"162", 'content-type':"text/html", date:"Fri, 21 Apr 2023 13:57:54 GMT", etag:"\"6442254e-a2\"", 'retry-after':"3600", server:"openresty/1.15.8.2", via:"1.1 google", 'x-firefox-spdy':"h2"}, get obj() {
+    [native code]
+}, failureCode:"error.engine.reason.record_download_fail"})
+1682085474666	Sync.Synchronizer	INFO	Updating enabled engines: 4 clients.
+1682085474667	Sync.Synchronizer	INFO	Syncing specified engines: ["tabs"]
+1682085474688	Sync.Engine.Tabs	INFO	Records: 0 applied, 0 successfully, 0 failed to apply, 0 newly failed to apply, 0 reconciled.
+1682085474688	Sync.Engine.Tabs	INFO	Uploading 1 outgoing records
+1682085474689	Sync.Engine.Tabs	INFO	Posting 1 records of 279 bytes with batch=true
+1682085474689	Sync.Collection	DEBUG	POST Length: 279
+1682085474779	Services.Common.RESTRequest	DEBUG	GET https://profile.accounts.firefox.com/v1/profile 304
+1682085474813	Sync.Collection	DEBUG	POST success 200 https://sync-1-us-west1-g.sync.services.mozilla.com/1.5/200089978/storage/tabs?batch=true&commit=true
+1682085474839	Sync.RemoteTabs	INFO	Generating tab list with filter
+1682085474839	Sync.Synchronizer	INFO	Aborting sync for failure in tabs
+1682085474839	Sync.Doctor	INFO	Skipping consultation: telemetry reporting is disabled
+1682085474839	Sync.Synchronizer	INFO	Sync completed at 2023-04-21 09:57:54 after 0.48 secs.
+1682085474839	Sync.Declined	DEBUG	Handling remote declined: []
+1682085474839	Sync.Declined	DEBUG	Handling local declined: []
+1682085474839	Sync.Declined	DEBUG	Declined changed? false
+1682085474839	Sync.Service	INFO	No change to declined engines. Not reuploading meta/global.
+1682085474840	Sync.ErrorHandler	ERROR	Some engines did not sync correctly.
+1682085474840	Sync.SyncScheduler	DEBUG	Starting client-initiated backoff. Next sync in 4360350.283623652 ms.
+1682085474840	Sync.SyncScheduler	DEBUG	Next sync in 4360350.283623652 ms. (why=client-backoff-schedule)
