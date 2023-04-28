@@ -1,4 +1,0 @@
-https:fonts.googleapis.com:443:.:^userContextId=5&partitionKey=%28https%2Cfedoraproject.org%29:3	0	19435	https:fonts.googleapis.com:443:fonts.googleapis.com:443::n:1681827540:h3:y:1679235537:n:^userContextId=5&partitionKey=%28https%2Cfedoraproject.org%29:|n:y:
-https:discordapp.com:443:.::3	0	19435	https:discordapp.com:443:discordapp.com:443::n:1679235541:h3:n:1679235537:n::|n:y:
-https:fonts.gstatic.com:443:.:^userContextId=5&partitionKey=%28https%2Cfedoraproject.org%29:3	0	19435	https:fonts.gstatic.com:443:fonts.gstatic.com:443::n:1681827540:h3:y:1679235537:n:^userContextId=5&partitionKey=%28https%2Cfedoraproject.org%29:|n:y:
-https:safebrowsing.googleapis.com:443:.:^firstPartyDomain=safebrowsing.86868755-6b82-4842-b301-72671a0db32e.mozilla:3	0	19435	https:safebrowsing.googleapis.com:443:safebrowsing.googleapis.com:443::n:1681827553:h3:y:1679235537:n:^firstPartyDomain=safebrowsing.86868755-6b82-4842-b301-72671a0db32e.mozilla:|n:y:
