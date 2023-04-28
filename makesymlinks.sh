@@ -2,7 +2,6 @@
 
 files=(
 ".zshrc"
-".mozilla"
 "Scripts"
 ".local/share/fonts"
 ".config/i3"
