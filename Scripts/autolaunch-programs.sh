@@ -6,7 +6,7 @@ feh --bg-fill $HOME/Pictures/Wallpapers/CyberpunkCity.png &
 /usr/bin/kitty 2>&1 &
 /usr/bin/firefox 2>&1 &
 /usr/bin/keepassxc 2>&1 &
-obsidian 2>&1 &
+# obsidian 2>&1 &
 flatpak run com.discordapp.Discord 2>&1 &
 flatpak run com.spotify.Client 2>&1 &
 
