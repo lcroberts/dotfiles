@@ -12,6 +12,8 @@ FLATPAK_APPS=(
 "net.lutris.Lutris"
 "md.obsidian.Obsidian"
 "org.flameshot.Flameshot"
+"com.github.tchx84.Flatseal"
+"org.prismlauncher.PrismLauncher"
 )
 
 for flatpak_app in "${FLATPAK_APPS[@]}"; do
