@@ -10,9 +10,10 @@ files=(
 ".config/polybar"
 ".config/ranger"
 ".config/wofi"
+".config/sway"
 )
 
-repo_dir=/home/logan/GitClones/dotfiles/
+repo_dir=/home/logan/Projects/dotfiles/
 mkdir file_backups
 for file in "${files[@]}"; do
   mv "/home/$USER/"$file file_backups
