@@ -11,6 +11,7 @@ FLATPAK_APPS=(
 "org.videolan.VLC"
 "net.lutris.Lutris"
 "md.obsidian.Obsidian"
+"org.flameshot.Flameshot"
 )
 
 for flatpak_app in "${FLATPAK_APPS[@]}"; do
