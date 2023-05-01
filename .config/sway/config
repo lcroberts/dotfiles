@@ -11,7 +11,7 @@
 
 set $mod Mod4
 set $mod2 Mod1
-set $lock_command /home/$USER/.config/i3/i3lock-multimonitor/lock -i /home/logan/Pictures/Wallpapers/CyberpunkCity.png
+set $lock_command swaylock -i $HOME/Pictures/Wallpapers/currentbg
 
 # Disable title bar
 default_border none
@@ -19,6 +19,8 @@ default_floating_border none
 titlebar_padding 1
 titlebar_border_thickness 0
 
+# Set bg
+exec_always swaybg -i $HOME/Pictures/Wallpapers/currentbg
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 font pango:monospace 0
@@ -29,17 +31,17 @@ font pango:monospace 0
 
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
-exec --no-startup-id dex-autostart --autostart --environment i3
+# exec --no-startup-id dex-autostart --autostart --environment i3
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+# exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 # lock screen keybind
-# bindsym $mod2+Shift+l exec $lock_command
+bindsym $mod2+Shift+l exec $lock_command
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
@@ -232,8 +234,9 @@ client.background       #FFFFFF
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 
-# Polybar
+# System Bar
 # exec_always --no-startup-id $HOME/.config/polybar/launch.sh --grayblocks
+exec_always --no-startup-id $HOME/.config/waybar/launch.sh &
 # Suspend keybind
 # bindsym $mod+Shift+Ctrl+s exec $lock_command && systemctl suspend 
 # Policy Kit

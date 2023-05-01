@@ -4,7 +4,7 @@
     "height": 40,
     "modules-left": ["sway/workspaces", "sway/mode", "sway/window"],
     "modules-center": ["clock"],
-    "modules-right": ["custom/recorder", "tray", "pulseaudio", "backlight", "temperature", "cpu", "memory", "battery", "network", "custom/powermenu"],
+    "modules-right": ["custom/recorder", "tray", "pulseaudio", "temperature", "cpu", "memory", "network"],
     "sway/mode": {
         "format": " {}"
     },
@@ -36,7 +36,7 @@
         // "format": "( {} )"
     },
     "clock": {
-        "format": "{:%a %d %b - %H:%M}",
+        "format": "{:%a %b %d - %H:%M}",
         "tooltip": false
     },
     "cpu": {
