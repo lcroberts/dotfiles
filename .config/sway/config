@@ -9,9 +9,14 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
+# Set variables
 set $mod Mod4
 set $mod2 Mod1
 set $lock_command swaylock -i $HOME/Pictures/Wallpapers/currentbg
+set $term kitty
+
+# Include Scripts or configs
+include /etc/sway/config.d/*
 
 # Disable title bar
 default_border none
@@ -64,8 +69,7 @@ bindsym XF86AudioPrev exec playerctl previous
 floating_modifier $mod
 
 # start a terminal
-#bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+Return exec kitty
+bindsym $mod+Return exec $term
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -120,9 +124,9 @@ bindsym $mod2+Shift+h split v
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+bindsym $mod2+s layout stacking
+bindsym $mod2+w layout tabbed
+bindsym $mod2+e layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -184,6 +188,11 @@ assign [class="obsidian"] $ws8
 assign [class="Steam"] $ws10
 assign [class="RPCS3"] $ws10
 assign [class="Lutris"] $ws10
+# Deal with splash screens
+for_window [class="discord"] move to $ws3
+for_window [class="Spotify"] move to $ws4
+for_window [class="Steam"] move to $ws10
+for_window [class="Lutris"] move to $ws10
 
 # Set default workspace behavior
 workspace_layout stacking
@@ -237,7 +246,12 @@ client.background       #FFFFFF
 # System Bar
 # exec_always --no-startup-id $HOME/.config/polybar/launch.sh --grayblocks
 exec_always --no-startup-id $HOME/.config/waybar/launch.sh &
+
 # Suspend keybind
 # bindsym $mod+Shift+Ctrl+s exec $lock_command && systemctl suspend 
-# Policy Kit
-# exec --no-startup-id lxpolkit
+
+# Scratchpad Keybinds
+	# Move the current window to scratchpad
+	bindsym $mod+Shift+s move scratchpad
+	# Cycle throught windows in scratchpad
+	bindsym $mod+s scratchpad show
