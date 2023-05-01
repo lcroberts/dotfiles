@@ -14,6 +14,9 @@ FLATPAK_APPS=(
 "org.flameshot.Flameshot"
 "com.github.tchx84.Flatseal"
 "org.prismlauncher.PrismLauncher"
+"org.keepassxc.KeePassXC"
+"org.qbittorrent.qBittorrent"
+"org.mozilla.Thunderbird"
 )
 
 for flatpak_app in "${FLATPAK_APPS[@]}"; do
