@@ -4,6 +4,7 @@ files=(
 ".zshrc"
 "Scripts"
 ".local/share/fonts"
+"Pictures/Wallpapers"
 ".config/i3"
 ".config/kitty"
 ".config/nvim"
