@@ -1,6 +1,5 @@
 #!/usr/bin/bash
 
-feh --bg-fill $HOME/Pictures/Wallpapers/CyberpunkCity.png &
 /usr/bin/steam 2>&1 &
 /home/logan/Applications/OneDriveGUI-1.0.2-x86_64_1b84c900adc54250fd543f66395bd957.AppImage &
 /usr/bin/kitty 2>&1 &

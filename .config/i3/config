@@ -11,7 +11,11 @@
 
 set $mod Mod4
 set $mod2 Mod1
-set $lock_command /home/$USER/.config/i3/i3lock-multimonitor/lock -i /home/logan/Pictures/Wallpapers/CyberpunkCity.png
+# set $lock_command /home/$USER/.config/i3/i3lock-multimonitor/lock -i /home/logan/Pictures/Wallpapers/CyberpunkCity.png
+set $lock_command $HOME/.config/i3/i3lock-multimonitor/lock -i $HOME/Pictures/Wallpapers/currentbg
+
+# Set Background
+exec_always feh --bg-fill $HOME/Pictures/Wallpapers/currentbg
 
 # Disable title bar
 new_window 1pixel
