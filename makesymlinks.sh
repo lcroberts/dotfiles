@@ -8,6 +8,7 @@ files=(
 ".config/i3"
 ".config/kitty"
 ".config/nvim"
+".local/share/nvim"
 ".config/polybar"
 ".config/ranger"
 ".config/wofi"
@@ -16,10 +17,11 @@ files=(
 )
 
 repo_dir=/home/logan/Projects/dotfiles/
-mkdir file_backups
+mkdir -p file_backups/.local/share
+mkdir -p file_backups/.config
 for file in "${files[@]}"; do
-  mv "/home/$USER/"$file file_backups
-  ln -sf $repo_dir$file "/home/$USER/$file"
+  mv "$HOME/"$file "file_backups/"$file
+  ln -s -T $repo_dir$file "$HOME/$file"
 done
 
 fc-cache
