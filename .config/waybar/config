@@ -36,8 +36,9 @@
         // "format": "( {} )"
     },
     "clock": {
-        "format": "{:%a %b %d - %H:%M}",
-        "tooltip": false
+        "format": "{:%a %b %d - %H:%M:%S}",
+        "tooltip": false,
+        "interval": 1
     },
     "cpu": {
         "interval": 5,
