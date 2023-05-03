@@ -143,7 +143,7 @@
       "LSP"
     ],
     "source": {
-      "id": "pkg:npm/%40angular/language-server@15.2.1",
+      "id": "pkg:npm/%40angular/language-server@16.0.0",
       "extra_packages": [
         "typescript"
       ]
@@ -235,7 +235,7 @@
       "LSP"
     ],
     "source": {
-      "id": "pkg:github/forcedotcom/salesforcedx-vscode@v57.11.2",
+      "id": "pkg:github/forcedotcom/salesforcedx-vscode@v57.12.0",
       "asset": {
         "file": "salesforcedx-vscode-apex-{{ version | strip_prefix \"v\" }}.vsix"
       }
@@ -330,7 +330,7 @@
       "LSP"
     ],
     "source": {
-      "id": "pkg:npm/%40astrojs/language-server@1.0.0",
+      "id": "pkg:npm/%40astrojs/language-server@1.0.4",
       "extra_packages": [
         "typescript"
       ]
@@ -986,7 +986,7 @@
       "Formatter"
     ],
     "source": {
-      "id": "pkg:pypi/clang-format@16.0.2"
+      "id": "pkg:pypi/clang-format@16.0.3"
     },
     "bin": {
       "clang-format": "pypi:clang-format"
@@ -2272,7 +2272,7 @@
       "LSP"
     ],
     "source": {
-      "id": "pkg:npm/%40elm-tooling/elm-language-server@2.6.0"
+      "id": "pkg:npm/%40elm-tooling/elm-language-server@2.7.0"
     },
     "schemas": {
       "lsp": "vscode:https://raw.githubusercontent.com/elm-tooling/elm-language-client-vscode/master/package.json"
@@ -3461,7 +3461,7 @@
       "LSP"
     ],
     "source": {
-      "id": "pkg:npm/graphql-language-service-cli@3.3.17"
+      "id": "pkg:npm/graphql-language-service-cli@3.3.18"
     },
     "bin": {
       "graphql-lsp": "npm:graphql-lsp"
@@ -3575,8 +3575,8 @@
             "VERSION": "{{version}}"
           },
           "bin": {
-            "ghci-dap": "ghci-dap",
-            "haskell-debug-adapter": "haskell-debug-adapter"
+            "ghci_dap": "ghci-dap",
+            "dap": "haskell-debug-adapter"
           }
         },
         {
@@ -3587,15 +3587,15 @@
             "VERSION": "{{version}}"
           },
           "bin": {
-            "ghci-dap": "ghci-dap.exe",
-            "haskell-debug-adapter": "haskell-debug-adapter.exe"
+            "ghci_dap": "ghci-dap.exe",
+            "dap": "haskell-debug-adapter.exe"
           }
         }
       ]
     },
     "bin": {
-      "ghci-dap": "{{source.build.bin['ghci-dap']}}",
-      "haskell-debug-adapter": "{{source.build.bin['haskell-debug-adapter']}}"
+      "ghci-dap": "{{source.build.bin.ghci_dap}}",
+      "haskell-debug-adapter": "{{source.build.bin.dap}}"
     }
   },
   {
@@ -3623,11 +3623,11 @@
           },
           "bin": {
             "wrapper": "bin/haskell-language-server-wrapper",
-            "8.10.7": "bin/haskell-language-server-8.10.7",
-            "9.0.2": "bin/haskell-language-server-9.0.2",
-            "9.2.7": "bin/haskell-language-server-9.2.7",
-            "9.4.4": "bin/haskell-language-server-9.4.4",
-            "9.6.1": "bin/haskell-language-server-9.6.1"
+            "server_8_10_7": "bin/haskell-language-server-8.10.7",
+            "server_9_0_2": "bin/haskell-language-server-9.0.2",
+            "server_9_2_7": "bin/haskell-language-server-9.2.7",
+            "server_9_4_4": "bin/haskell-language-server-9.4.4",
+            "server_9_6_1": "bin/haskell-language-server-9.6.1"
           }
         },
         {
@@ -3639,22 +3639,22 @@
           },
           "bin": {
             "wrapper": "haskell-language-server-wrapper.exe",
-            "8.10.7": "haskell-language-server-8.10.7.exe",
-            "9.0.2": "haskell-language-server-9.0.2.exe",
-            "9.2.7": "haskell-language-server-9.2.7.exe",
-            "9.4.4": "haskell-language-server-9.4.4.exe",
-            "9.6.1": "haskell-language-server-9.6.1.exe"
+            "server_8_10_7": "haskell-language-server-8.10.7.exe",
+            "server_9_0_2": "haskell-language-server-9.0.2.exe",
+            "server_9_2_7": "haskell-language-server-9.2.7.exe",
+            "server_9_4_4": "haskell-language-server-9.4.4.exe",
+            "server_9_6_1": "haskell-language-server-9.6.1.exe"
           }
         }
       ]
     },
     "bin": {
       "haskell-language-server-wrapper": "{{source.build.bin.wrapper}}",
-      "haskell-language-server-8.10.7": "{{source.build.bin['8.10.7']}}",
-      "haskell-language-server-9.0.2": "{{ source.build.bin['9.0.2'] | take_if_not(is_platform('darwin_arm64')) }}",
-      "haskell-language-server-9.2.7": "{{source.build.bin['9.2.7']}}",
-      "haskell-language-server-9.4.4": "{{source.build.bin['9.4.4']}}",
-      "haskell-language-server-9.6.1": "{{source.build.bin['9.6.1']}}"
+      "haskell-language-server-8.10.7": "{{source.build.bin.server_8_10_7}}",
+      "haskell-language-server-9.0.2": "{{ source.build.bin.server_9_0_2 | take_if_not(is_platform('darwin_arm64')) }}",
+      "haskell-language-server-9.2.7": "{{source.build.bin.server_9_2_7}}",
+      "haskell-language-server-9.4.4": "{{source.build.bin.server_9_4_4}}",
+      "haskell-language-server-9.6.1": "{{source.build.bin.server_9_6_1}}"
     }
   },
   {
@@ -4855,7 +4855,7 @@
       "LSP"
     ],
     "source": {
-      "id": "pkg:github/azdavis/millet@v0.9.4",
+      "id": "pkg:github/azdavis/millet@v0.9.5",
       "asset": [
         {
           "target": "darwin_arm64",
@@ -5180,7 +5180,7 @@
       "LSP"
     ],
     "source": {
-      "id": "pkg:npm/%40nomicfoundation/solidity-language-server@0.7.0"
+      "id": "pkg:npm/%40nomicfoundation/solidity-language-server@0.7.1"
     },
     "bin": {
       "nomicfoundation-solidity-language-server": "npm:nomicfoundation-solidity-language-server"
@@ -5404,7 +5404,7 @@
       "LSP"
     ],
     "source": {
-      "id": "pkg:github/Galarius/opencl-language-server@0.4",
+      "id": "pkg:github/Galarius/opencl-language-server@0.4.1",
       "asset": [
         {
           "target": [
@@ -5784,7 +5784,7 @@
       "LSP"
     ],
     "source": {
-      "id": "pkg:npm/%40prisma/language-server@31.0.2125"
+      "id": "pkg:npm/%40prisma/language-server@31.0.2138"
     },
     "bin": {
       "prisma-language-server": "npm:prisma-language-server"
@@ -6094,7 +6094,7 @@
       "LSP"
     ],
     "source": {
-      "id": "pkg:cargo/pylyzer@0.0.24"
+      "id": "pkg:cargo/pylyzer@0.0.25"
     },
     "bin": {
       "pylyzer": "cargo:pylyzer"
@@ -6155,7 +6155,7 @@
       "LSP"
     ],
     "source": {
-      "id": "pkg:npm/pyright@1.1.305"
+      "id": "pkg:npm/pyright@1.1.306"
     },
     "schemas": {
       "lsp": "vscode:https://raw.githubusercontent.com/microsoft/pyright/{{version}}/packages/vscode-pyright/package.json"
@@ -7376,7 +7376,7 @@
       "LSP"
     ],
     "source": {
-      "id": "pkg:gem/sorbet@0.5.10800",
+      "id": "pkg:gem/sorbet@0.5.10801",
       "supported_platforms": [
         "darwin_x64",
         "darwin_arm64",
@@ -7651,7 +7651,7 @@
       "Linter"
     ],
     "source": {
-      "id": "pkg:npm/stylelint@15.6.0"
+      "id": "pkg:npm/stylelint@15.6.1"
     },
     "bin": {
       "stylelint": "npm:stylelint"
@@ -8726,7 +8726,7 @@
       "LSP"
     ],
     "source": {
-      "id": "pkg:github/forcedotcom/salesforcedx-vscode@v57.11.2",
+      "id": "pkg:github/forcedotcom/salesforcedx-vscode@v57.12.0",
       "asset": {
         "file": "salesforcedx-vscode-visualforce-{{ version | strip_prefix \"v\" }}.vsix"
       }
