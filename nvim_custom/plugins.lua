@@ -14,6 +14,6 @@ local plugins = {
         "bash-language-server",
       },
     },
-  }
+  },
 }
 return plugins

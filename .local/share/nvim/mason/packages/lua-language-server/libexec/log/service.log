@@ -1,9 +1,9 @@
-[19:29:36.540][info] [#0:/home/logan/Projects/dotfiles/.local/share/nvim/mason/packages/lua-language-server/libexec/main.lua:66]: Lua Lsp startup, root: 	/home/logan/Projects/dotfiles/.local/share/nvim/mason/packages/lua-language-server/libexec
-[19:29:36.540][info] [#0:/home/logan/Projects/dotfiles/.local/share/nvim/mason/packages/lua-language-server/libexec/main.lua:67]: ROOT:	/home/logan/Projects/dotfiles/.local/share/nvim/mason/packages/lua-language-server/libexec
-[19:29:36.540][info] [#0:/home/logan/Projects/dotfiles/.local/share/nvim/mason/packages/lua-language-server/libexec/main.lua:68]: LOGPATH:	/home/logan/Projects/dotfiles/.local/share/nvim/mason/packages/lua-language-server/libexec/log
-[19:29:36.540][info] [#0:/home/logan/Projects/dotfiles/.local/share/nvim/mason/packages/lua-language-server/libexec/main.lua:69]: METAPATH:	/home/logan/Projects/dotfiles/.local/share/nvim/mason/packages/lua-language-server/libexec/meta
-[19:29:36.540][info] [#0:/home/logan/Projects/dotfiles/.local/share/nvim/mason/packages/lua-language-server/libexec/main.lua:70]: VERSION:	3.6.19
-[19:29:36.551][info] [#0:script/service/service.lua:144]: 
+[21:03:40.636][info] [#0:/home/logan/Projects/dotfiles/.local/share/nvim/mason/packages/lua-language-server/libexec/main.lua:66]: Lua Lsp startup, root: 	/home/logan/Projects/dotfiles/.local/share/nvim/mason/packages/lua-language-server/libexec
+[21:03:40.636][info] [#0:/home/logan/Projects/dotfiles/.local/share/nvim/mason/packages/lua-language-server/libexec/main.lua:67]: ROOT:	/home/logan/Projects/dotfiles/.local/share/nvim/mason/packages/lua-language-server/libexec
+[21:03:40.636][info] [#0:/home/logan/Projects/dotfiles/.local/share/nvim/mason/packages/lua-language-server/libexec/main.lua:68]: LOGPATH:	/home/logan/Projects/dotfiles/.local/share/nvim/mason/packages/lua-language-server/libexec/log
+[21:03:40.636][info] [#0:/home/logan/Projects/dotfiles/.local/share/nvim/mason/packages/lua-language-server/libexec/main.lua:69]: METAPATH:	/home/logan/Projects/dotfiles/.local/share/nvim/mason/packages/lua-language-server/libexec/meta
+[21:03:40.636][info] [#0:/home/logan/Projects/dotfiles/.local/share/nvim/mason/packages/lua-language-server/libexec/main.lua:70]: VERSION:	3.6.19
+[21:03:40.647][info] [#0:script/service/service.lua:144]: 
 ========= Medical Examination Report =========
     --------------- Memory ---------------
         Total: 2.117 MB
@@ -25,7 +25,7 @@
         Holdon:   0
         Waiting:  0
 ==============================================
-[19:29:36.553][info] [#0:script/client.lua:657]: Client init	{
+[21:03:40.649][info] [#0:script/client.lua:657]: Client init	{
   capabilities = {
     textDocument = {
       callHierarchy = {
@@ -177,7 +177,7 @@
     version = "0.9.0"
   },
   initializationOptions = {},
-  processId = 239353,
+  processId = 253304,
   rootPath = "/home/logan/Projects/dotfiles",
   rootUri = "file:///home/logan/Projects/dotfiles",
   trace = "off",
@@ -186,7 +186,7 @@
       uri = "file:///home/logan/Projects/dotfiles"
     } }
 }
-[19:29:36.553][info] [#0:script/language.lua:137]: VSC language: nil
-[19:29:36.553][info] [#0:script/language.lua:138]: LS  language: en-us
-[19:29:36.553][info] [#0:script/workspace/workspace.lua:38]: Workspace init root: 	file:///home/logan/Projects/dotfiles
-[19:29:36.553][info] [#0:script/workspace/workspace.lua:42]: Log path: 	/home/logan/Projects/dotfiles/.local/share/nvim/mason/packages/lua-language-server/libexec/log/file_home_logan_Projects_dotfiles.log
+[21:03:40.649][info] [#0:script/language.lua:137]: VSC language: nil
+[21:03:40.649][info] [#0:script/language.lua:138]: LS  language: en-us
+[21:03:40.649][info] [#0:script/workspace/workspace.lua:38]: Workspace init root: 	file:///home/logan/Projects/dotfiles
+[21:03:40.649][info] [#0:script/workspace/workspace.lua:42]: Log path: 	/home/logan/Projects/dotfiles/.local/share/nvim/mason/packages/lua-language-server/libexec/log/file_home_logan_Projects_dotfiles.log
