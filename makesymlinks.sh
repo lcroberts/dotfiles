@@ -8,7 +8,8 @@ files=(
 ".config/i3"
 ".config/kitty"
 ".config/nvim"
-".local/share/nvim"
+# don't think local is necessary
+# ".local/share/nvim"
 ".config/polybar"
 ".config/ranger"
 ".config/wofi"
