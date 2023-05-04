@@ -1,2 +1,2 @@
 #!/usr/bin/bash
-xrandr --output DP-4 --auto --right-of DP-2
+xrandr --output DisplayPort-0 --auto --right-of DisplayPort-2
