@@ -242,13 +242,32 @@ client.background       #FFFFFF
 
 
 # System Bar
-exec_always --no-startup-id $HOME/.config/waybar/launch.sh &
+exec_always $HOME/.config/waybar/launch.sh &
 
 # Suspend keybind
 bindsym $mod+Shift+Ctrl+s exec $lock_command && systemctl suspend 
 
 # Scratchpad Keybinds
-	# Move the current window to scratchpad
-	bindsym $mod+Shift+s move scratchpad
-	# Cycle throught windows in scratchpad
-	bindsym $mod+s scratchpad show
+# Move the current window to scratchpad
+bindsym $mod+Shift+s move scratchpad
+# Cycle throught windows in scratchpad
+bindsym $mod+s scratchpad show
+
+# Kanshi
+exec_always pkill kanshi; exec kanshi
+# Adaptive Sync
+output * adaptive_sync on
+
+# Launch apps on startup
+exec steam &
+exec flatpak run com.discordapp.Discord &
+exec flatpak run com.spotify.Client &
+exec flatpak run org.flameshot.Flameshot &
+exec flatpak run org.mozilla.firefox &
+exec flatpak run org.keepassxc.KeePassXC &
+exec kitty &
+exec $HOME/Applications/OneDriveGUI-1.0.2-x86_64_1b84c900adc54250fd543f66395bd957.AppImage &
+
+# Move Workspaces
+exec $HOME/Scripts/moveworkspaces.sh
+
