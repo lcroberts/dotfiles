@@ -262,7 +262,7 @@ output * adaptive_sync on
 exec steam &
 exec flatpak run com.discordapp.Discord &
 exec flatpak run com.spotify.Client &
-exec flatpak run org.flameshot.Flameshot &
+exec flameshot &
 exec flatpak run org.mozilla.firefox &
 exec flatpak run org.keepassxc.KeePassXC &
 exec kitty &
