@@ -16,3 +16,10 @@ lspconfig.bashls.setup({
   filetypes = {"sh"},
   root_dir = lspconfig.util.find_git_ancestor()
 })
+
+lspconfig.pylsp.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = { "python" },
+  root_dir = lspconfig.util.find_git_ancestor()
+})

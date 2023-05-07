@@ -180,18 +180,20 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 # Assign Workspaces
 # to get window class "xprop | grep CLASS"
 assign [class="kitty"] $ws1
+assign [app_id="kitty"] $ws1
 assign [class="firefox"] $ws2
 assign [class="KeePassXC"] $ws2
+assign [app_id="org.keepassxc.KeePassXC"] $ws2
 assign [class="discord"] $ws3
 assign [class="Spotify"] $ws4
 assign [class="obsidian"] $ws8
-assign [class="Steam"] $ws10
+assign [class="steam"] $ws10
 assign [class="RPCS3"] $ws10
 assign [class="Lutris"] $ws10
 # Deal with splash screens
 for_window [class="discord"] move to $ws3
 for_window [class="Spotify"] move to $ws4
-for_window [class="Steam"] move to $ws10
+for_window [class="steam"] move to $ws10
 for_window [class="Lutris"] move to $ws10
 
 # Set default workspace behavior
@@ -245,7 +247,7 @@ client.background       #FFFFFF
 exec_always $HOME/.config/waybar/launch.sh &
 
 # Suspend keybind
-bindsym $mod+Shift+Ctrl+s exec $lock_command && systemctl suspend 
+bindsym $mod+Shift+Ctrl+s exec systemctl suspend 
 
 # Scratchpad Keybinds
 # Move the current window to scratchpad
@@ -270,4 +272,5 @@ exec $HOME/Applications/OneDriveGUI-1.0.2-x86_64_1b84c900adc54250fd543f66395bd95
 
 # Move Workspaces
 exec $HOME/Scripts/moveworkspaces.sh
-
+# Swayidle
+# exec_always swayidle before-sleep $lock_command 
