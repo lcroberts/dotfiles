@@ -260,17 +260,8 @@ exec_always pkill kanshi; exec kanshi
 # Adaptive Sync
 output * adaptive_sync on
 
-# Launch apps on startup
-exec steam &
-exec flatpak run com.discordapp.Discord &
-exec flatpak run com.spotify.Client &
-exec flameshot &
-exec flatpak run org.mozilla.firefox &
-exec flatpak run org.keepassxc.KeePassXC &
-exec kitty &
-exec $HOME/Applications/OneDriveGUI-1.0.2-x86_64_1b84c900adc54250fd543f66395bd957.AppImage &
+# Launch programs and move workspaces
+exec $HOME/Scripts/startup.sh
 
-# Move Workspaces
-exec $HOME/Scripts/moveworkspaces.sh
 # Swayidle
 # exec_always swayidle before-sleep $lock_command 
