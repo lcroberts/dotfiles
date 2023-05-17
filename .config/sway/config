@@ -12,7 +12,7 @@
 # Set variables
 set $mod Mod4
 set $mod2 Mod1
-set $lock_command swaylock -i $HOME/Pictures/Wallpapers/currentbg
+set $lock_command "swaylock -i $HOME/Pictures/Wallpapers/currentbg"
 set $term kitty
 
 # Include Scripts or configs
@@ -185,6 +185,7 @@ assign [class="firefox"] $ws2
 assign [class="KeePassXC"] $ws2
 assign [app_id="org.keepassxc.KeePassXC"] $ws2
 assign [class="discord"] $ws3
+assign [app_id="discord"] $ws3
 assign [class="Spotify"] $ws4
 assign [class="obsidian"] $ws8
 assign [class="steam"] $ws10
@@ -192,6 +193,7 @@ assign [class="RPCS3"] $ws10
 assign [class="Lutris"] $ws10
 # Deal with splash screens
 for_window [class="discord"] move to $ws3
+for_window [app_id="discord"] move to $ws3
 for_window [class="Spotify"] move to $ws4
 for_window [class="steam"] move to $ws10
 for_window [class="Lutris"] move to $ws10
@@ -264,4 +266,4 @@ output * adaptive_sync on
 exec $HOME/Scripts/startup.sh
 
 # Swayidle
-# exec_always swayidle before-sleep $lock_command 
+exec swayidle -w before-sleep "swaylock -i $HOME/Pictures/Wallpapers/currentbg"
