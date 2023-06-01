@@ -15,6 +15,7 @@ files=(
 ".config/wofi"
 ".config/sway"
 ".config/waybar"
+".config/kanshi"
 )
 
 repo_dir=/home/logan/Projects/dotfiles/
