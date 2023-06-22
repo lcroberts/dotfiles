@@ -116,11 +116,11 @@ bindkey -v
 #spicetify added to path
 export PATH=$PATH:/home/logan/.spicetify
 
-# tar multithread alias
-# alias tar="tar --use-compress-program=pigz"
-
 # kitty ssh alias
 alias ssh="kitty +kitten ssh"
 
 # gameserver alias
 gameserver="74.207.235.31"
+
+# tar multithreading
+alias tar="tar --use-compress-program=pigz"

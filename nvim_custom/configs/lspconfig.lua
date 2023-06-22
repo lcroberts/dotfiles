@@ -23,3 +23,10 @@ lspconfig.pylsp.setup({
   filetypes = { "python" },
   root_dir = lspconfig.util.find_git_ancestor()
 })
+
+lspconfig.yamlls.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = { "yaml", "yaml.docker.compose" },
+  root_dir = lspconfig.util.find_git_ancestor()
+})

@@ -12,7 +12,9 @@ local plugins = {
       ensure_installed = {
         "rust-analyzer",
         "bash-language-server",
-        "python-lsp-server"
+        "python-lsp-server",
+        "yaml-language-server",
+        "yamllint"
       },
     },
   },

@@ -20,3 +20,4 @@ swaymsg '[workspace=2]' move workspace to output $main_display
 swaymsg '[workspace=3]' move workspace to output $extra_display
 swaymsg '[workspace=4]' move workspace to output $extra_display
 swaymsg '[workspace=10]' move workspace to output $main_display
+pkill swaybg; swaybg -i /home/logan/Pictures/Wallpapers/currentbg
