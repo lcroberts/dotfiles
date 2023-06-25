@@ -16,6 +16,7 @@ files=(
 ".config/waybar"
 ".config/kanshi"
 ".config/MangoHud"
+".config/btop"
 )
 
 repo_dir=/home/logan/Projects/dotfiles/
