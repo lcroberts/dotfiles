@@ -124,3 +124,6 @@ gameserver="74.207.235.31"
 
 # tar multithreading
 alias tar="tar --use-compress-program=pigz"
+
+# Neofetch on new shell
+cat ~/.cache/neofetch
