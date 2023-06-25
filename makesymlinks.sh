@@ -5,7 +5,7 @@ files=(
 ".screenlayout"
 "Scripts"
 ".local/share/fonts"
-"Pictures/Wallpapers"
+"Pictures/RepoImages"
 ".config/i3"
 ".config/kitty"
 ".config/nvim"
