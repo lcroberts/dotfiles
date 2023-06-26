@@ -1,5 +1,6 @@
 #!/bin/bash
 
-rpm-ostree install zsh exa distrobox kitty ranger onedrive btop neovim
+sudo dnf install fastfetch steam lutris winetricks
+
 ./flatpak_apps.sh
-# ./makesymlinks.sh
+./makesymlinks.sh

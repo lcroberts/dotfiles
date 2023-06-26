@@ -8,15 +8,11 @@ FLATPAK_APPS=(
 "com.spotify.Client"
 "com.valvesoftware.Steam"
 "net.davidotek.pupgui2"
-"org.videolan.VLC"
-"net.lutris.Lutris"
 "md.obsidian.Obsidian"
-"org.flameshot.Flameshot"
 "com.github.tchx84.Flatseal"
 "org.prismlauncher.PrismLauncher"
 "org.keepassxc.KeePassXC"
 "org.qbittorrent.qBittorrent"
-"org.mozilla.Thunderbird"
 )
 
 for flatpak_app in "${FLATPAK_APPS[@]}"; do
