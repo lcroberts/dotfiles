@@ -120,10 +120,16 @@ export PATH=$PATH:/home/logan/.spicetify
 alias ssh="kitty +kitten ssh"
 
 # gameserver alias
-gameserver="74.207.235.31"
+gameserver="45.79.214.190"
 
 # tar multithreading
 alias tar="tar --use-compress-program=pigz"
 
 # Fastfetch on new shell
-fastfetch --load-config paleofetch --kitty ~/Pictures/RepoImages/fetchimage
+alias fastfetch="fastfetch --load-config paleofetch"
+fastfetch
+
+alias clear="clear; fastfetch"
+
+
+
