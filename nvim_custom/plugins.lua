@@ -15,7 +15,17 @@ local plugins = {
         "python-lsp-server",
         "yaml-language-server",
         "yamllint",
-        "cfn-lint"
+        "cfn-lint",
+        --NVChad Defaults
+        "clang-format",
+        "clangd",
+        "css-lsp",
+        "deno",
+        "html-lsp",
+        "lua-language-server",
+        "prettier",
+        "stylua",
+        "typescript-language-server",
       },
     },
   },
