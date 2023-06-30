@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # General Packages
-sudo dnf install -y fastfetch yt-dlp zsh
+sudo dnf install -y fastfetch yt-dlp zsh ranger btop kitty mogrify
 # Gaming Packages
 sudo dnf -y install steam lutris winetricks gamemode goverlay mangohud
 # Neovim Packages
