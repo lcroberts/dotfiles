@@ -25,7 +25,6 @@ local plugins = {
         "lua-language-server",
         "prettier",
         "stylua",
-        "typescript-language-server",
       },
     },
   },

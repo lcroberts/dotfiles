@@ -131,5 +131,5 @@ fastfetch
 
 alias clear="clear; fastfetch"
 
-
-
+# Add rust to path
+export PATH=$HOME/.cargo/bin:$PATH
