@@ -4,7 +4,7 @@
     "height": 40,
     "modules-left": ["sway/workspaces", "sway/mode", "sway/window"],
     "modules-center": ["clock"],
-    "modules-right": ["custom/recorder", "tray", "pulseaudio", "cpu", "memory", "network"],
+    "modules-right": ["custom/recorder", "tray", "pulseaudio", "cpu", "memory", "network", "custom/powermenu"],
     "sway/mode": {
         "format": " {}"
     },
@@ -41,23 +41,23 @@
         "interval": 1
     },
     "cpu": {
-        "interval": 5,
+        "interval": 3,
         "format": "︁ {}%",
         "max-length": 10
     },
     "memory": {
-        "interval": 15,
+        "interval": 3,
         "format": "<span font='Font Awesome 5 Free 9'>︁</span> {used:0.1f}G/{total:0.1f}G",
         "tooltip": false
     },
     "custom/powermenu": {
         "return-type": "json",
-        "exec": "/home/marco/.config/waybar/modules/powermenu.sh",
+        "exec": "$HOME/.config/waybar/modules/powermenu.sh",
         "format": "<span font='Font Awesome 5 Free 9'>{icon}</span>  {}",
         "format-icons": [""],
         "interval": 3600,
         "escape": true,
-        "on-click": "/home/marco/.config/wofi/wofi-power.sh"
+        "on-click": "$HOME/.config/wofi/wofi-power.sh"
     },
     "custom/recorder": {
 		"format": "!",
