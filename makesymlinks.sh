@@ -17,6 +17,7 @@ files=(
 ".config/kanshi"
 ".config/MangoHud"
 ".config/btop"
+".config/fastfetch"
 )
 
 repo_dir=/home/logan/Projects/dotfiles/

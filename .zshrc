@@ -126,9 +126,7 @@ gameserver="45.79.214.190"
 alias tar="tar --use-compress-program=pigz"
 
 # Fastfetch on new shell
-alias fastfetch="fastfetch --load-config neofetch"
 fastfetch
-
 alias clear="clear; fastfetch"
 
 # Add rust to path
