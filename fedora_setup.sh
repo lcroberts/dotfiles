@@ -9,13 +9,18 @@ sudo dnf install -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-rel
 # Flatpak Setup
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
+# Add vscode repo
+sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
+sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
+dnf check-update
+
 # Multimedia Libraries
 sudo dnf install -y gstreamer1-plugins-{bad-\*,good-\*,base} gstreamer1-plugin-openh264 gstreamer1-libav --exclude=gstreamer1-plugins-bad-free-devel
 sudo dnf install -y lame\* --exclude=lame-devel
 sudo dnf group upgrade --with-optional Multimedia
 
 # General Packages
-sudo dnf install -y fastfetch yt-dlp zsh ranger btop kitty mogrify lxpolkit mpv java-17-openjdk-devel appimagelauncher onedrive
+sudo dnf install -y fastfetch yt-dlp zsh ranger btop kitty mogrify lxpolkit mpv java-17-openjdk-devel appimagelauncher onedrive code
 # Gaming Packages
 sudo dnf -y install steam lutris winetricks gamemode goverlay mangohud
 # Neovim Packages
