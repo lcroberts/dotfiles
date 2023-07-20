@@ -18,6 +18,7 @@ files=(
 ".config/MangoHud"
 ".config/btop"
 ".config/fastfetch"
+".config/tmux"
 )
 
 repo_dir=/home/logan/Projects/dotfiles/
