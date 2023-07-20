@@ -6,7 +6,7 @@ main_display=DP-1
 extra_display=DP-3
 
 steam 2>&1 &
-Discord 2>&1 &
+flatpak run com.discordapp.Discord 2>&1 &
 flatpak run com.spotify.Client 2>&1 &
 flatpak run org.mozilla.firefox 2>&1 &
 flatpak run org.keepassxc.KeePassXC 2>&1 &
