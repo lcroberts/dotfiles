@@ -22,9 +22,9 @@ sudo dnf group upgrade --with-optional Multimedia
 # General Packages
 sudo dnf install -y fastfetch yt-dlp zsh ranger btop kitty mogrify lxpolkit mpv java-17-openjdk-devel appimagelauncher onedrive code
 # Gaming Packages
-sudo dnf -y install steam lutris winetricks gamemode goverlay mangohud
+sudo dnf install -y steam lutris winetricks gamemode goverlay mangohud
 # Neovim Packages
-sudo dnf -y install neovim npm gcc lua ripgrep
+sudo dnf install -y neovim npm gcc lua ripgrep
 # Virtualization Packages
 sudo dnf group install -y --with-optional virtualization
 sudo systemctl start libvirtd
