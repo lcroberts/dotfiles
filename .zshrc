@@ -131,5 +131,3 @@ alias clear="clear; fastfetch"
 
 # Add rust to path
 export PATH=$HOME/.cargo/bin:$PATH
-# Add Discord RPC
-export WINEDLLPATH=$WINEDLLPATH:/opt/discord-rpc/bin64:/opt/discord-rpc/bin32/
