@@ -25,6 +25,7 @@ local plugins = {
         "lua-language-server",
         "prettier",
         "stylua",
+        "jdtls",
       },
     },
   },
@@ -93,6 +94,13 @@ local plugins = {
       table.insert(M.sources, {name = "crates"})
       return M
     end,
-  }
+  },
+  {
+    "wincent/terminus",
+    lazy = false,
+  },
+  {
+    "mfussenegger/nvim-jdtls",
+  },
 }
 return plugins
