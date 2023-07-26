@@ -1,20 +1,9 @@
 local M = {}
 
-M.general = {
-  n = {
-    ["<C-h>"] = { "<cmd> TmuxNavigatorLeft<CR>", "window left" },
-    ["<C-l>"] = { "<cmd> TmuxNavigatorRight<CR>", "window right" },
-    ["<C-j>"] = { "<cmd> TmuxNavigatorDown<CR>", "window down" },
-    ["<C-k>"] = { "<cmd> TmuxNavigatorUp<CR>", "window up" },
-  }
-}
-
 M.dap = {
+  plugin = true,
   n = {
-    ["<leader>db"] = {
-      "<cmd> DapToggleBreakpoint <CR>",
-      "Toggle breakpoint",
-    },
+    ["<leader>db"] = { "<cmd> DapToggleBreakpoint <CR>" },
     ["<leader>dus"] = {
       function ()
         local widgets = require('dap.ui.widgets');
@@ -22,11 +11,12 @@ M.dap = {
         sidebar.open();
       end,
       "Open debugging sidebar"
-    },
+    }
   }
 }
 
 M.crates = {
+  plugin = true,
   n = {
     ["<leader>rcu"] = {
       function ()
@@ -38,3 +28,4 @@ M.crates = {
 }
 
 return M
+
