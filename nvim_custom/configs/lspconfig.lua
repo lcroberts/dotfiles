@@ -24,6 +24,12 @@ lspconfig.yamlls.setup({
   root_dir = util.find_git_ancestor()
 })
 
+-- lspconfig.jdtls.setup({
+--   on_attach = on_attach,
+--   capabilities = capabilities,
+--   filetypes = { "java" },
+--  })
+
 -- lspconfig.rust_analyzer.setup({
 --   on_attach = on_attach,
 --   capabilities = capabilities,

@@ -22,7 +22,7 @@ files=(
 ".config/tmux"
 )
 
-repo_dir=/home/logan/Projects/dotfiles/
+repo_dir=$HOME/Projects/dotfiles/
 mkdir -p file_backups/.local/share
 mkdir -p file_backups/.config
 for file in "${files[@]}"; do
@@ -37,8 +37,14 @@ done
 
 if [ ! -L .config/nvim/lua/custom ]; then
   rm -r .config/nvim/lua/custom
-  ln -sf -T $repo_dir/nvim_custom $repo_dir/.config/nvim/lua/custom
+  ln -sf -T "${repo_dir}nvim_custom" "${repo_dir}.config/nvim/lua/custom"
   echo nvim custom symlink made
+fi
+
+if [ ! -L .config/nvim/ftplugin ]; then
+  rm -r .config/nvim/ftplugin
+  ln -sf -T "${repo_dir}nvim_custom/ftplugin" "${repo_dir}.config/nvim/ftplugin"
+  echo nvim ftplugin symlink made
 fi
 
 fc-cache
