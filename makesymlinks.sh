@@ -2,6 +2,7 @@
 
 files=(
 ".zshrc"
+".zshenv"
 ".screenlayout"
 "Scripts"
 ".local/share/fonts"
