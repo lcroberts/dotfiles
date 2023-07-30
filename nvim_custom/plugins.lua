@@ -26,6 +26,8 @@ local plugins = {
         "prettier",
         "stylua",
         "jdtls",
+        "java-debug-adapter",
+        "java-test",
       },
     },
   },
@@ -33,9 +35,40 @@ local plugins = {
     "hrsh7th/nvim-cmp",
     opts = function()
       local M = require "plugins.configs.cmp"
-      table.insert(M.sources, { name = "crates" })
+      M.completion.completeopt = "menu,menuone,noselect"
+      M.mapping["<CR>"] = cmp.mapping.confirm {
+        behavior = cmp.ConfirmBehavior.Insert,
+        select = false,
+      }
+      table.insert(M.sources, {name = "crates"})
       return M
     end,
+  },
+  {
+    "mfussenegger/nvim-dap",
+    -- Needs lldb package
+    init = function()
+      require("core.utils").load_mappings("dap")
+    end
+  },
+  {
+    "theHamsta/nvim-dap-virtual-text",
+    lazy = false,
+    config = function(_, opts)
+      require("nvim-dap-virtual-text").setup()
+    end
+  },
+  -- {
+  --   "wincent/terminus",
+  --   lazy = false,
+  -- },
+  {
+    "tpope/vim-surround",
+    lazy = false,
+  },
+  {
+    "tpope/vim-fugitive",
+    lazy = false,
   },
   {
     "simrat39/rust-tools.nvim",
@@ -46,13 +79,6 @@ local plugins = {
     end,
     config = function(_, opts)
       require('rust-tools').setup(opts)
-    end
-  },
-  {
-    "mfussenegger/nvim-dap",
-    -- Needs lldb package
-    init = function()
-      require("core.utils").load_mappings("dap")
     end
   },
   {
@@ -76,31 +102,11 @@ local plugins = {
     end
   },
   {
-    "theHamsta/nvim-dap-virtual-text",
-    lazy = false,
-    config = function(_, opts)
-      require("nvim-dap-virtual-text").setup()
-    end
-  },
-  {
-    "hrsh7th/nvim-cmp",
-    opts = function()
-      local M = require "plugins.configs.cmp"
-      M.completion.completeopt = "menu,menuone,noselect"
-      M.mapping["<CR>"] = cmp.mapping.confirm {
-        behavior = cmp.ConfirmBehavior.Insert,
-        select = false,
-      }
-      table.insert(M.sources, {name = "crates"})
-      return M
-    end,
-  },
-  {
-    "wincent/terminus",
-    lazy = false,
-  },
-  {
     "mfussenegger/nvim-jdtls",
+    ft = {"java"},
+    init = function()
+      require("core.utils").load_mappings("jdtls")
+    end,
   },
 }
 return plugins

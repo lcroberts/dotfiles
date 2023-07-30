@@ -1,20 +1,17 @@
-local jdtls_path = vim.fn.stdpath('data') .. "/mason/packages/jdtls"
-local path_to_lsp_server = jdtls_path .. "/config_linux"
-local path_to_plugins = jdtls_path .. "/plugins/"
-local path_to_jar = path_to_plugins .. "org.eclipse.equinox.launcher_1.6.500.v20230622-2056.jar"
+local mason_share = vim.fn.stdpath('data') .. "/mason/share"
+local java_debug_path = mason_share .. "/java-debug-adapter/com.microsoft.java.debug.plugin.jar"
+local jdtls_path = mason_share .. "/jdtls"
+local path_to_lsp_config = jdtls_path .. "/config"
+local path_to_jar = jdtls_path .. "/plugins/org.eclipse.equinox.launcher.jar"
 local lombok_path = jdtls_path .. "/lombok.jar"
-local root_markers = { ".git", "mvnw", "gradlew", "pom.xml", "build.gradle" }
+local root_markers = { ".git", "mvnw", "gradlew", "pom.xml", "build.gradle", "build.xml" }
 local root_dir = require("jdtls.setup").find_root(root_markers)
 if root_dir == "" then
   return
 end
 
--- local on_attach = require("plugins.configs.lspconfig").on_attach
--- local capabilities = require("plugins.configs.lspconfig").capabilities
-
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
 local workspace_dir = vim.fn.expand('~/.cache/jdtls-workspace/') .. project_name
--- os.execute("mkdir -p " .. workspace_dir)
 
 local config = {
   cmd = {
@@ -31,14 +28,18 @@ local config = {
     '--add-opens', 'java.base/java.lang=ALL-UNNAMED',
 
     '-jar', path_to_jar,
-    '-configuration', path_to_lsp_server,
+    '-configuration', path_to_lsp_config,
     '-data', workspace_dir,
   },
 
-  -- capabilities = capabilities,
-  -- on_attach = on_attach,
-
   root_dir = root_dir,
+
+  init_options = {
+    bundles = {
+      java_debug_path,
+      vim.fn.glob(mason_share .. "/java-test/*"),
+    }
+  },
 
   settings = {
     java = {
@@ -51,11 +52,11 @@ local config = {
       updateBuildConfiguration = "interactive",
       runtimes = {
         {
-          name = "openjdk-17",
+          name = "JavaSE-17",
           path = "/usr/lib/jvm/java-17-openjdk",
         },
         {
-          name = "openjdk-8",
+          name = "JavaSE-1.8",
           path = "/usr/lib/jvm/java-1.8.0-openjdk",
         }
       }
@@ -75,7 +76,7 @@ local config = {
     format = {
       enabled = true,
       settings = {
-        url = vim.fn.stdpath "config" .. "/lua/custom/formats/intellij-java-google-style.xml",
+        url = vim.fn.stdpath('config') .. "/lua/custom/formats/intellij-java-google-style.xml",
         profile = "GoogleStyle",
       },
     },

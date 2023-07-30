@@ -36,5 +36,21 @@ M.crates = {
   }
 }
 
+M.jdtls = {
+  plugin = true,
+  n = {
+    ["<A-o>"] = { "<Cmd>lua require'jdtls'.organize_imports()<CR>", "Organize Imports"},
+    ["crv"] = { "<cmd> lua require('jdtls').extract_variable() <CR>", "Extract Variable" },
+    ["crc"] = {"<cmd>lua require('jdtls').extract_constant()<CR>", "Extract Constant"},
+    ["<leader>df"] = {"<cmd>lua require'jdtls'.test_class()<CR>", "Test Class"},
+    ["<leader>dn"] = {"<cmd>lua require'jdtls'.test_nearest_method()<CR>", "Test Nearest Method"},
+  },
+  v = {
+    ["crv"] = { "<cmd> lua require('jdtls').extract_variable(true) <CR>", "Extract Variable" },
+    ["crc"] = {"<cmd>lua require('jdtls').extract_constant(true)<CR>", "Extract Constant"},
+    ["crm"] = {"<Esc><cmd>lua require('jdtls').extract_method(true)<CR>", "Extract Method"},
+  }
+}
+
 return M
 
