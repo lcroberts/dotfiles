@@ -29,7 +29,7 @@ if [ -v file_type ] && [ -v output_type ];then
     mv $file "$current_time_millis.$file_type"
     current_time_millis=$(($current_time_millis + 1))
   done
-  N=80
+  N=10
   for file in *.$file_type; do
     ((i=i%N)); ((i++==0)) && wait
     convert_video $file 
