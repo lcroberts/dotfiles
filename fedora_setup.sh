@@ -20,7 +20,7 @@ sudo dnf install -y lame\* --exclude=lame-devel
 sudo dnf group upgrade --with-optional Multimedia
 
 # General Packages
-sudo dnf install -y fastfetch yt-dlp zsh ranger btop kitty mogrify lxpolkit mpv java-17-openjdk-devel appimagelauncher onedrive code
+sudo dnf install -y fastfetch yt-dlp zsh ranger btop kitty mogrify lxpolkit mpv java-17-openjdk-devel appimagelauncher onedrive code pipx
 # Gaming Packages
 sudo dnf install -y steam lutris winetricks gamemode goverlay mangohud protontricks xdotool xxd xwininfo
 # Neovim Packages
