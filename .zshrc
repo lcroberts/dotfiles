@@ -129,5 +129,8 @@ alias tar="tar --use-compress-program=pigz"
 fastfetch
 alias clear="clear; fastfetch"
 
+# Alias xdg-open to open
+alias open="xdg-open"
+
 # Add rust to path
 export PATH=$HOME/.cargo/bin:$PATH
