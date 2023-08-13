@@ -20,6 +20,7 @@ files=(
 ".config/btop"
 ".config/fastfetch"
 ".config/tmux"
+".config/fcitx5"
 )
 
 repo_dir=$HOME/Projects/dotfiles/

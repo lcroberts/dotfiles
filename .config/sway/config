@@ -273,3 +273,6 @@ exec swayidle -w before-sleep "swaylock -i $HOME/Pictures/RepoImages/currentbg"
 
 # Polkit 
 exec /usr/bin/lxpolkit
+
+# fcitx
+exec fcitx5

@@ -29,6 +29,8 @@ sudo dnf install -y neovim npm gcc lua ripgrep
 sudo dnf group install -y --with-optional virtualization
 sudo systemctl start libvirtd
 sudo systemctl enable libvirtd
+# Japanese Input Packages
+sudo dnf install -y fcitx5 fcitx5-configtool fcitx5-mozc mozc adobe-source-han-code-jp-fonts adobe-source-han-sans-jp-fonts adobe-source-han-serif-jp-fonts
 
 # Symlink monitor scripts
 mkdir -p $HOME/.local/bin/
