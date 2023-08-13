@@ -21,11 +21,14 @@ files=(
 ".config/fastfetch"
 ".config/tmux"
 ".config/fcitx5"
+".local/share/fcitx5/themes"
 )
 
 repo_dir=$HOME/Projects/dotfiles/
 mkdir -p file_backups/.local/share
 mkdir -p file_backups/.config
+mkdir -p file_backups/.local/share/fcitx5
+
 for file in "${files[@]}"; do
   if [ -L "$HOME/"$file ]; then
     echo "$file is already symlinked"
