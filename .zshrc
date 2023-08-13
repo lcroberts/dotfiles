@@ -1,6 +1,4 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:$PATH
-export PATH=/home/logan/.local/bin:/home/logan/Scripts:$PATH
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -113,9 +111,6 @@ alias lx="exa $exa_modifiers --color-scale -lbhHigmuSa@"
 # Vi keybinds
 bindkey -v
 
-#spicetify added to path
-export PATH=$PATH:/home/logan/.spicetify
-
 # kitty ssh alias
 alias ssh="kitty +kitten ssh"
 
@@ -131,9 +126,6 @@ alias clear="clear; fastfetch"
 
 # Alias xdg-open to open
 alias open="xdg-open"
-
-# Add rust to path
-export PATH=$HOME/.cargo/bin:$PATH
 
 # ibus configs
 export GTK_IM_MODULE=ibus
