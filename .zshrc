@@ -119,9 +119,6 @@ alias ssh="kitty +kitten ssh"
 # rm interactive mode alias
 alias rm="rm -I"
 
-# gameserver alias
-gameserver="45.79.214.190"
-
 # tar multithreading
 alias tar="tar --use-compress-program=pigz"
 
