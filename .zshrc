@@ -101,12 +101,14 @@ source $ZSH/oh-my-zsh.sh
 # exa aliases
 exa_modifiers="--git --icons --group-directories-first"
 alias l="exa $exa_modifiers"
-alias ll="exa $exa_modifiers -a"
-alias la="exa $exa_modifiers -lbhHigmuSa --color-scale"
-alias ls="exa $exa_modifiers -l"
+alias ls="exa $exa_modifiers -lh --color-scale"
+alias ll="exa $exa_modifiers -lbhma --color-scale"
+alias la="exa $exa_modifiers -a"
+# alias ll="exa $exa_modifiers -a"
+# alias la="exa $exa_modifiers -lbhHigmuSa --color-scale"
 alias lt="exa $exa_modifiers --tree"
 alias llt="exa $exa_modifiers --tree -a"
-alias lx="exa $exa_modifiers --color-scale -lbhHigmuSa@"
+alias lx="exa $exa_modifiers --color-scale -lbhHgmUa"
 
 # Vi keybinds
 bindkey -v
