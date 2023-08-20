@@ -28,6 +28,7 @@ local plugins = {
         "jdtls",
         "java-debug-adapter",
         "java-test",
+        "taplo",
       },
     },
   },
