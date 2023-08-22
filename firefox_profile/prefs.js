@@ -299,7 +299,7 @@ user_pref("services.sync.prefs.sync.browser.newtabpage.activity-stream.showSpons
 user_pref("services.sync.prefs.syncID", "CFf27tLICgvU");
 user_pref("services.sync.syncInterval", 600000);
 user_pref("services.sync.syncThreshold", 300);
-user_pref("services.sync.username", "loggiebot@outlook.com");
+user_pref("services.sync.username", "");
 user_pref("signon.autofillForms", false);
 user_pref("signon.generation.enabled", false);
 user_pref("signon.rememberSignons", false);
