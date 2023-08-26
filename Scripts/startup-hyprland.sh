@@ -10,3 +10,8 @@ flatpak run com.discordapp.Discord 2>&1 &
 flatpak run com.spotify.Client 2>&1 &
 steam 2>&1 &
 $HOME/Applications/OneDriveGUI-1.0.2-x86_64_1b84c900adc54250fd543f66395bd957.AppImage 2>&1 &
+
+sleep 20
+
+hyprctl keyword windowrule "workspace unset,kitty"
+hyprctl keyword windowrule "workspace unset,firefox"
