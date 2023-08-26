@@ -2,12 +2,9 @@
     "layer": "top",
     "position": "top",
     "height": 40,
-    "modules-left": ["wlr/workspaces", "sway/mode", "sway/window"],
+    "modules-left": ["wlr/workspaces"],
     "modules-center": ["clock"],
-    "modules-right": ["custom/recorder", "tray", "pulseaudio", "cpu", "memory", "network", "custom/powermenu"],
-    "sway/mode": {
-        "format": " {}"
-    },
+    "modules-right": ["custom/recorder", "tray", "pulseaudio", "cpu", "memory", "network"],
     "wlr/workspaces": {
         "disable-scroll": true,
         "all-outputs": false,
@@ -18,22 +15,18 @@
             "2": "2 <span font='Font Awesome 5 Free 14'></span>",
             "3": "3 <span font='Font Awesome 5 Free 14'></span>",
             "4": "4 <span font='Font Awesome 5 Free 14'></span>",
-            "5": "5 <span font='Font Awesome 5 Free 14'></span>",
+            "5": "5 <span font='Font Awesome 5 Free 14'></span>",
             "6": "6 <span font='Font Awesome 5 Free 14'></span>",
             "7": "7 <span font='Font Awesome 5 Free 14'></span>",
             "8": "8 <span font='Font Awesome 5 Free 14'></span>",
             "9": "9 <span font='Font Awesome 5 Free 14'></span>",
             "10": "0 <span font='Font Awesome 5 Free 14'></span>"
-        }
+        },
+        "on-click": "activate",
     },
     "tray": {
         "icon-size": 20,
         "spacing": 8
-    },
-    "sway/window": {
-        "max-length": 60,
-        "tooltip": false
-        // "format": "( {} )"
     },
     "clock": {
         "format": "{:%a %b %d - %H:%M:%S}",

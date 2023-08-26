@@ -1,4 +1,4 @@
 profile {
-    output DP-1 mode 3840x2160@143.999Hz position 1920,0 scale 1.5
-    output DP-3 mode 1920x1080@119.982Hz position 0,250
+    output DP-1 mode 3840x2160@143.999Hz position 1920,0 scale 1.5 adaptive_sync on
+    output DP-3 mode 1920x1080@119.982Hz position 0,250 adaptive_sync on
 }

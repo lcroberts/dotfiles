@@ -22,6 +22,7 @@ files=(
 ".config/tmux"
 ".config/fcitx5"
 ".local/share/fcitx5/themes"
+".config/hypr"
 )
 
 repo_dir=$HOME/Projects/dotfiles/
