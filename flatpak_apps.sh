@@ -18,6 +18,9 @@ FLATPAK_APPS=(
 "com.github.alexkdeveloper.desktop-files-creator"
 "com.github.qarmin.czkawka"
 "com.github.mtkennerly.ludusavi"
+"io.missioncenter.MissionCenter"
+"net.ankiweb.Anki"
+"org.gnome.Evince"
 )
 
 for flatpak_app in "${FLATPAK_APPS[@]}"; do
