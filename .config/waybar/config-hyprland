@@ -84,10 +84,12 @@
         "tooltip": false
     },
     "pulseaudio": {
-        "format": "<span font='Font Awesome 5 Free 11'>{icon:2}</span>{volume}%",
+        "format": "<span font='Font Awesome 5 Free 11'>{icon:2}</span>{volume}% {format_source}",
         "format-alt": "<span font='Font Awesome 5 Free 11'>{icon:2}</span>{volume}%",
         "format-alt-click": "click-right",
         "format-muted": "<span font='Font Awesome 5 Free 11'></span>",
+        "format-source": "Mic On",
+        "format-source-muted": "Mic Off",
         "format-icons": {
             "phone": [" ", " ", " ", " "],
             "default": ["", "", "", ""]
