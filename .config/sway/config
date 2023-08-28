@@ -254,16 +254,15 @@ exec_always $HOME/.config/waybar/launch.sh &
 # Suspend keybind
 bindsym $mod+Shift+Ctrl+s exec systemctl suspend 
 
-# Scratchpad Keybinds
-# Move the current window to scratchpad
-bindsym $mod+Shift+s move scratchpad
-# Cycle throught windows in scratchpad
-bindsym $mod+s scratchpad show
+# Snipping tool
+bindsym $mod+Shift+s exec grimshot copy area
 
 # Kanshi
 exec_always pkill kanshi; exec kanshi
 # Adaptive Sync
 output * adaptive_sync on
+# Mute
+bindsym $mod2+Control+m exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
 # Launch programs and move workspaces
 exec $HOME/Scripts/startup.sh
