@@ -1,6 +1,6 @@
 #/bin/bash
 
-image=~/Pictures/RepoImages/currentbg
+image=~/Pictures/Wallpapers/currentbg
 # swaylock -i $image
 # swaylock-effects -i $image --clock
 gtklock -b $image
