@@ -12,7 +12,7 @@
 # Set variables
 set $mod Mod4
 set $mod2 Mod1
-set $lock_command "swaylock -i $HOME/Pictures/RepoImages/currentbg"
+set $lock_command "~/Scripts/lock.sh"
 set $term kitty 
 
 # Include Scripts or configs
