@@ -41,7 +41,8 @@ ln -s $HOME/Projects/dotfiles/Scripts/reset_monitor.sh $HOME/.local/bin/reset_mo
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 ./flatpak_apps.sh
-./makesymlinks.sh
+../makesymlinks.sh
+./hyprland-install-fedora.sh
 
 echo "Please install onedrive gui from https://github.com/bpozdena/OneDriveGUI"
 echo "Add any other drives to /etc/fstab"
