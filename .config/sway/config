@@ -268,7 +268,7 @@ bindsym $mod2+Control+m exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
 exec $HOME/Scripts/startup.sh
 
 # Swayidle
-exec swayidle -w before-sleep "swaylock -i $HOME/Pictures/RepoImages/currentbg"
+exec swayidle -w before-sleep "~/Scripts/lock.sh"
 
 # Polkit 
 exec /usr/bin/lxpolkit
