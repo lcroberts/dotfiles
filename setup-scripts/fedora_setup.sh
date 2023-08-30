@@ -21,8 +21,8 @@ sudo dnf group upgrade --with-optional Multimedia
 
 # General Packages
 sudo dnf install -y fastfetch yt-dlp zsh ranger btop kitty mogrify lxpolkit mpv java-17-openjdk-devel appimagelauncher onedrive code pipx
-# Gaming Packages
-sudo dnf install -y steam-devices # xdotool xxd xwininfo
+# Gaming Packages (distrobox for gaming container)
+sudo dnf install -y steam-devices distrobox podman # xdotool xxd xwininfo
 # Neovim Packages
 sudo dnf install -y neovim npm gcc lua ripgrep
 # Virtualization Packages
@@ -31,6 +31,15 @@ sudo systemctl start libvirtd
 sudo systemctl enable libvirtd
 # Japanese Input Packages
 sudo dnf install -y fcitx5 fcitx5-configtool fcitx5-mozc mozc adobe-source-han-code-jp-fonts adobe-source-han-sans-jp-fonts adobe-source-han-serif-jp-fonts
+
+# Install bazzite gaming container
+# Info here: https://github.com/ublue-os/bazzite-arch/
+distrobox create --nvidia --image ghcr.io/ublue-os/bazzite-arch --name bazzite-arch
+distrobox-enter -n bazzite-arch -- '  distrobox-export --app steam'
+distrobox-enter -n bazzite-arch -- '  distrobox-export --app lutris'
+distrobox-enter -n bazzite-arch -- '  distrobox-export --app protontricks'
+distrobox-enter -n bazzite-arch -- '  mkdir -p ~/.steam && distrobox-export --bin /usr/bin/steamcmd --export-path ~/.steam && mv ~/.steam/steamcmd ~/.steam/steamcmd.sh'
+distrobox-enter -n bazzite-arch -- '  sudo pacman -S rocm-opencl-runtime rocm-hip-runtime --noconfirm'
 
 # Symlink monitor scripts
 mkdir -p $HOME/.local/bin/
@@ -41,7 +50,7 @@ ln -s $HOME/Projects/dotfiles/Scripts/reset_monitor.sh $HOME/.local/bin/reset_mo
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 ./flatpak_apps.sh
-../makesymlinks.sh
+# ../makesymlinks.sh
 ./hyprland-install-fedora.sh
 
 echo "Please install onedrive gui from https://github.com/bpozdena/OneDriveGUI"
