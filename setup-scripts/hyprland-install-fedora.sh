@@ -2,7 +2,7 @@
 
 sudo dnf copr enable solopasha/hyprland
 
-sudo dnf install -y hyprland hyprland-contrib waybar-hyprland xdg-desktop-portal-hyprland swaybg swaylock rofi-wayland papirus-icon-theme
+sudo dnf install -y hyprland hyprland-contrib waybar-hyprland xdg-desktop-portal-hyprland swaybg swaylock rofi-wayland papirus-icon-theme copyq
 sudo dnf remove -y xdg-desktop-portal-wlr # Hyprland only wants wlr or hyprland portal installed.
 
 git clone https://github.com/Murzchnvok/rofi-collection /dev/shm/rofi-themes/
