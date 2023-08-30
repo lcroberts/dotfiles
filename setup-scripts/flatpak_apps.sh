@@ -21,9 +21,16 @@ FLATPAK_APPS=(
 "io.missioncenter.MissionCenter"
 "net.ankiweb.Anki"
 "org.gnome.Evince"
+"com.valvesoftware.Steam"
+"org.freedesktop.Platform.VulkanLayer.MangoHud"
+"com.valvesoftware.Steam.Utility.gamescope"
+"com.valvesoftware.Steam.Utility.protontricks"
+"net.lutris.Lutris"
 )
 
 for flatpak_app in "${FLATPAK_APPS[@]}"; do
 	flatpak -y install flathub $flatpak_app
 done
 
+# Enable MangoHud for all steam games
+flatpak override --user --env=MANGOHUD=1 com.valvesoftware.Steam
