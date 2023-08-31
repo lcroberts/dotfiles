@@ -32,6 +32,10 @@ sudo systemctl enable libvirtd
 # Japanese Input Packages
 sudo dnf install -y fcitx5 fcitx5-configtool fcitx5-mozc mozc adobe-source-han-code-jp-fonts adobe-source-han-sans-jp-fonts adobe-source-han-serif-jp-fonts
 
+# Install tmux package manager (TPM)
+mkdir -p ../.config/tmux/plugins/tpm/
+git clone https://github.com/tmux-plugins/tpm.git ../.config/tmux/plugins/tpm/
+
 # Install bazzite gaming container
 # Info here: https://github.com/ublue-os/bazzite-arch/
 distrobox create --nvidia --image ghcr.io/ublue-os/bazzite-arch --name bazzite-arch
