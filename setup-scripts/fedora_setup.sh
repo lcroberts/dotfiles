@@ -21,8 +21,8 @@ sudo dnf group upgrade --with-optional Multimedia
 
 # General Packages
 sudo dnf install -y fastfetch yt-dlp zsh ranger btop kitty mogrify lxpolkit mpv java-17-openjdk-devel appimagelauncher onedrive code pipx
-# Gaming Packages (distrobox for gaming container)
-sudo dnf install -y steam-devices distrobox podman # xdotool xxd xwininfo
+# For OS containers 
+sudo dnf install -y distrobox podman 
 # Neovim Packages
 sudo dnf install -y neovim npm gcc lua ripgrep
 # Virtualization Packages
@@ -53,5 +53,6 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 # ../makesymlinks.sh
 ./hyprland-install-fedora.sh
 
-echo "Please install onedrive gui from https://github.com/bpozdena/OneDriveGUI"
 echo "Add any other drives to /etc/fstab"
+echo "Please install onedrive gui from https://github.com/bpozdena/OneDriveGUI"
+echo "Run distrobox-enter -n bazzite-arch to finish it's install process"
