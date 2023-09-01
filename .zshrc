@@ -101,8 +101,8 @@ source $ZSH/oh-my-zsh.sh
 # exa aliases
 exa_modifiers="--git --icons --group-directories-first"
 alias l="exa $exa_modifiers"
-alias ls="exa $exa_modifiers -lh --color-scale"
-alias ll="exa $exa_modifiers -lbhma --color-scale"
+alias ls="exa $exa_modifiers -lhg --color-scale"
+alias ll="exa $exa_modifiers -lbhmag --color-scale"
 alias la="exa $exa_modifiers -a"
 # alias ll="exa $exa_modifiers -a"
 # alias la="exa $exa_modifiers -lbhHigmuSa --color-scale"
