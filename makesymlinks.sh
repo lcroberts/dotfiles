@@ -37,5 +37,3 @@
 # done
 
 stow . --dotfiles -t $HOME/
-
-fc-cache
