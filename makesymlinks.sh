@@ -32,8 +32,6 @@
 #
 # for file in "${files[@]}"; do
 #   mv "$HOME/"$file "file-backups/"$file
-#   ln -sf -T $repo_dir$file "$HOME/$file"
-#   echo "Symlink made for $file"
 # done
 
 stow . --dotfiles -t $HOME/

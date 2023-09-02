@@ -36,6 +36,9 @@ sudo dnf install -y fcitx5 fcitx5-configtool fcitx5-mozc mozc adobe-source-han-c
 mkdir -p ../.config/tmux/plugins/tpm/
 git clone https://github.com/tmux-plugins/tpm.git ../.config/tmux/plugins/tpm/
 
+# Install nvchad
+ git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1 && nvim
+
 # Install bazzite gaming container
 # Info here: https://github.com/ublue-os/bazzite-arch/
 distrobox create --nvidia --image ghcr.io/ublue-os/bazzite-arch --name bazzite-arch
@@ -45,17 +48,14 @@ distrobox-enter -n bazzite-arch -- '  distrobox-export --app protontricks'
 distrobox-enter -n bazzite-arch -- '  mkdir -p ~/.steam && distrobox-export --bin /usr/bin/steamcmd --export-path ~/.steam && mv ~/.steam/steamcmd ~/.steam/steamcmd.sh'
 distrobox-enter -n bazzite-arch -- '  sudo pacman -S rocm-opencl-runtime rocm-hip-runtime --noconfirm'
 
-# Symlink monitor scripts
-mkdir -p $HOME/.local/bin/
-ln -s $HOME/Projects/dotfiles/Scripts/setup_monitor.sh $HOME/.local/bin/setup_monitor
-ln -s $HOME/Projects/dotfiles/Scripts/reset_monitor.sh $HOME/.local/bin/reset_monitor
-
 # Oh my zsh install
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 ./flatpak_apps.sh
-# ../makesymlinks.sh
 ./hyprland-install-fedora.sh
+./fonts.sh
+
+# ../makesymlinks.sh
 
 echo "Add any other drives to /etc/fstab"
 echo "Please install onedrive gui from https://github.com/bpozdena/OneDriveGUI"
