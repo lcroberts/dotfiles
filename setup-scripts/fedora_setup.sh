@@ -25,6 +25,8 @@ sudo dnf install -y fastfetch yt-dlp zsh ranger btop kitty mogrify lxpolkit mpv 
 sudo dnf install -y distrobox podman 
 # Neovim Packages
 sudo dnf install -y neovim npm gcc lua ripgrep
+# Gaming packages
+sudo dnf install -y steam lutris wine protontricks mangohud
 # Virtualization Packages
 sudo dnf group install -y --with-optional virtualization
 sudo systemctl start libvirtd

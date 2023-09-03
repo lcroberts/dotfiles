@@ -19,14 +19,8 @@ FLATPAK_APPS=(
 "com.github.mtkennerly.ludusavi"
 "net.ankiweb.Anki"
 "org.gnome.Evince"
-"com.valvesoftware.Steam"
-"flatpak install org.freedesktop.Platform.VulkanLayer.MangoHud"
-"com.github.Matoking.protontricks"
-"net.lutris.Lutris"
 )
 
 for flatpak_app in "${FLATPAK_APPS[@]}"; do
 	flatpak -y install flathub $flatpak_app
 done
-
-flatpak override --user --env=MANGOHUD=1 com.valvesoftware.Steam
