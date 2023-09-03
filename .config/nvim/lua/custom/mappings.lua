@@ -12,7 +12,14 @@ M.general = {
 M.dap = {
   plugin = true,
   n = {
-    ["<leader>db"] = { "<cmd> DapToggleBreakpoint <CR>", "Toggle Breakpoint"},
+    ["<leader>db"] = {
+      "<cmd> DapToggleBreakpoint <CR>",
+      "Toggle Breakpoint"
+    },
+    ["<leader>dr"] = {
+      "<cmd> DapContinue <CR>",
+      "Start or continue debugger",
+    },
     ["<leader>dus"] = {
       function ()
         local widgets = require('dap.ui.widgets');

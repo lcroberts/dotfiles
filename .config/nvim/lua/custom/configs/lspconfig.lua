@@ -37,22 +37,14 @@ lspconfig.taplo.setup({
   root_dir = util.root_pattern("*.toml", ".git"),
 })
 
--- lspconfig.jdtls.setup({
---   on_attach = on_attach,
---   capabilities = capabilities,
---   filetypes = { "java" },
---  })
-
--- lspconfig.rust_analyzer.setup({
---   on_attach = on_attach,
---   capabilities = capabilities,
---   filetypes = {"rust"},
---   root_dir = util.root_pattern("Cargo.toml"),
---   settings = {
---     ['rust_analyzer'] = {
---       cargo = {
---         allFeatures = true,
---       },
---     },
---   },
--- })
+lspconfig.clangd.setup{
+  on_attach = function (client, bufnr)
+    client.server_capabilities.signgatureHelpProvider = false
+    on_attach(client, bufnr)
+  end,
+  capabilities = capabilities,
+  -- cmd = { "clangd" },
+  -- filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto" },
+  -- root_dir = util.root_pattern('.clangd', '.clang-tidy', '.clang-format', 'compile_commands.json', 'compile_flags.txt', 'configure.ac', '.git'),
+  -- single_file_support = true,
+}

@@ -9,7 +9,6 @@ local plugins = {
     "neovim/nvim-lspconfig",
     config = function()
       require "plugins.configs.lspconfig"
-
       require "custom.configs.lspconfig"
     end,
   },
@@ -30,8 +29,29 @@ local plugins = {
         "java-debug-adapter",
         "java-test",
         "taplo",
+        "clangd",
+        "clang-format",
+        "codelldb",
       },
     },
+  },
+  {
+    "nvim-treesitter",
+    opts = {
+      ensure_installed = {
+        "c",
+        "python",
+        "bash",
+        "regex",
+      },
+    },
+  },
+  {
+    "jose-elias-alvarez/null-ls.nvim",
+    event = "VeryLazy",
+    opts = function ()
+      return require "custom.configs.null-ls"
+    end,
   },
   {
     "hrsh7th/nvim-cmp",
@@ -60,10 +80,36 @@ local plugins = {
       require("nvim-dap-virtual-text").setup()
     end
   },
-  -- {
-  --   "wincent/terminus",
-  --   lazy = false,
-  -- },
+  {
+    "jay-babu/mason-nvim-dap.nvim",
+    dependencies = {
+      "williamboman/mason.nvim",
+      "mfussenegger/nvim-dap",
+    },
+    opts = {
+      handlers = {},
+    },
+    event = "VeryLazy",
+  },
+  {
+    "rcarriga/nvim-dap-ui",
+    dependencies = "mfussenegger/nvim-dap",
+    event = "VeryLazy",
+    config = function ()
+      local dap = require("dap")
+      local dapui = require("dapui")
+      dapui.setup()
+      dap.listeners.after.event_initialized["dapui_config"] = function ()
+        dapui.open()
+      end
+      dap.listeners.before.event_terminated["dapui_config"] = function ()
+        dapui.close()
+      end
+      dap.listeners.before.event_exited["dapui_config"] = function ()
+        dapui.close()
+      end
+    end
+  },
   {
     "tpope/vim-surround",
     lazy = false,
