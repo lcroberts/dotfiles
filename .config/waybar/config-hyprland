@@ -9,7 +9,7 @@
 
     "modules-left": [
         // "custom/launcher",
-        "wlr/workspaces",
+        "hyprland/workspaces",
         // "custom/media",
         "hyprland/window",
     ],
@@ -75,7 +75,6 @@
             "warning": 70,
             "critical": 90,
         },
-        "on-click": "kitty -e 'btm'",
     },
 
     "custom/keyboard-layout": {
@@ -123,18 +122,24 @@
         "max-length": 120
     },
 
-    "wlr/workspaces": {
+    "hyprland/workspaces": {
         "disable-scroll": true,
         "disable-markup" : false,
-        "all-outputs": true,
+        "all-outputs": false,
         "format": "  {icon}  ",
         //"format":"{icon}",
         "format-icons": {
-            "1": "",
-            "2": "",
-            "3": "󰙯",
-            "4": "",
-        }
+            "1": "1 <span font='Font Awesome 5 Free 14'></span>",
+            "2": "2 <span font='Font Awesome 5 Free 14'></span>",
+            "3": "3 <span font='Font Awesome 5 Free 14'></span>",
+            "4": "4 <span font='Font Awesome 5 Free 14'></span>",
+            "5": "5 <span font='Font Awesome 5 Free 14'></span>",
+            "6": "6 <span font='Font Awesome 5 Free 14'></span>",
+            "7": "7 <span font='Font Awesome 5 Free 14'></span>",
+            "8": "8 <span font='Font Awesome 5 Free 14'></span>",
+            "9": "9 <span font='Font Awesome 5 Free 14'></span>",
+            "10": "0 <span font='Font Awesome 5 Free 14'></span>"
+        },
     },
 
     "pulseaudio": {
@@ -162,7 +167,7 @@
         "format": "{format_source}",
         "format-source": " {volume}%",
         "format-source-muted": "",
-        "on-click": "pamixer --default-source -t",
+        "on-click": "pactl set-source-mute @DEFAULT_SOURCE@ toggle", 
         "on-click-right": "pavucontrol",
         "on-scroll-up": "pamixer --default-source -i 5",
         "on-scroll-down": "pamixer --default-source -d 5",
@@ -175,6 +180,7 @@
         "exec": "~/.config/waybar/scripts/weather.sh tampa", 
         "return-type": "json",
         "interval": 600,
+
     },
 
     "tray": {
