@@ -3,7 +3,9 @@ local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
 local opts = {
   sources = {
-    null_ls.builtins.formatting.clang_format,
+    null_ls.builtins.formatting.clang_format.with({
+      extra_args = {"-style '{IndentWidth: 4}'"}
+    }),
   },
   on_attach = function (client, bufnr)
     if client.supports_method("textDocument/formatting") then
