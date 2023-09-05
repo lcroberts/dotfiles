@@ -1,4 +1,4 @@
-file_backups/
+**/file_backups/
 .luarc.json
 **/tmux/plugins/*
 **/dot-config/nvim/
