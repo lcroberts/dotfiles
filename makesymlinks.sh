@@ -32,3 +32,5 @@ for file in "${files[@]}"; do
 done
 
 stow . --dotfiles -t $HOME/
+
+sudo ln -s $HOME/Scripts /usr/local/bin/Scripts
