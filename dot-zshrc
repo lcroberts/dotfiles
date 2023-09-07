@@ -122,10 +122,6 @@ alias rm="rm -I"
 # tar multithreading
 alias tar="tar --use-compress-program=pigz"
 
-# Fastfetch on new shell
-fastfetch
-# alias clear="clear; fastfetch"
-
 # Alias xdg-open to open
 alias open="xdg-open"
 

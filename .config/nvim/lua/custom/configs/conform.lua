@@ -1,8 +1,7 @@
-require("conform.formatters.yamlfix").args = {
+require("conform.formatters.clang_format").args = {
 	"-assume-filename",
 	"$FILENAME",
-	'-style="{BasedOn: llvm, IndentWidth: 4}"',
-	-- arg = { "-assume-filename", "$FILENAME", '-style="{BasedOn: llvm, IndentWidth: 4}"' },
+	"-style={IndentWidth: 4}",
 }
 require("conform").setup({
 	formatters_by_ft = {
@@ -20,6 +19,7 @@ require("conform").setup({
 			formatters = { "clang_format" },
 		},
 	},
+
 	format_on_save = {
 		-- These options will be passed to conform.format()
 		timeout_ms = 500,
