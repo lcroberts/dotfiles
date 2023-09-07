@@ -1,7 +1,9 @@
+local style_path = vim.fn.stdpath("config") .. "/lua/custom/formats/clang-format"
 require("conform.formatters.clang_format").args = {
 	"-assume-filename",
 	"$FILENAME",
-	"-style={IndentWidth: 4}",
+	-- "-style={BasedOnStyle: LLVM, IndentWidth: 4}",
+	"-style=file:" .. style_path,
 }
 require("conform").setup({
 	formatters_by_ft = {
