@@ -8,5 +8,4 @@ export XMODIFIERS='@im=fcitx'
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=/home/logan/.local/bin:/home/logan/Scripts:$PATH
 export PATH=$HOME/.cargo/bin:$PATH
-
 . "$HOME/.cargo/env"

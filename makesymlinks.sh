@@ -24,8 +24,9 @@ files=(
 ".local/share/fcitx5/themes"
 )
 
+sudo rm -Ir file-backups
 mkdir -p file-backups/.local/share/fcitx5
-mkdir -p file-backups/.config
+mkdir -p file-backups/.config/nvim/lua/
 
 for file in "${files[@]}"; do
   mv "$HOME/"$file "file-backups/"$file
@@ -33,4 +34,4 @@ done
 
 stow . --dotfiles -t $HOME/
 
-sudo ln -s $HOME/Scripts /usr/local/bin/Scripts
+sudo ln -sf $HOME/Scripts /usr/local/bin/Scripts
