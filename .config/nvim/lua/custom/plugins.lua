@@ -32,17 +32,22 @@ local plugins = {
 				"clangd",
 				"clang-format",
 				"codelldb",
+				"black",
+				"isort",
 			},
 		},
 	},
 	{
 		"nvim-treesitter",
 		opts = {
+			auto_install = true,
 			ensure_installed = {
 				"c",
 				"python",
 				"bash",
 				"regex",
+				"rust",
+				"java",
 			},
 		},
 	},
