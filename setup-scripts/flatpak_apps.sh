@@ -1,6 +1,13 @@
 #!/bin/bash
 
-flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+# flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+sudo flatpak override --filesystem=$HOME/.themes
+sudo flatpak override --filesystem=$HOME/.icons
+flatpak override --user --filesystem=xdg-config/gtk-4.0
+sudo flatpak override --filesystem=xdg-config/gtk-4.0
+
+sudo flatpak override --env=GTK_THEME=my-theme 
+sudo flatpak override --env=ICON_THEME=Tokyonight-Dark
 
 FLATPAK_APPS=(
 "org.mozilla.firefox"

@@ -58,6 +58,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 ./fonts.sh
 
 # ../makesymlinks.sh
+gsettings set org.gnome.shell.extensions.user-theme name "Tokyonight-Dark-BL-LB"
 
 echo "Add any other drives to /etc/fstab"
 echo "Please install onedrive gui from https://github.com/bpozdena/OneDriveGUI"
