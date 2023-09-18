@@ -6,9 +6,6 @@ sudo flatpak override --filesystem=$HOME/.icons
 flatpak override --user --filesystem=xdg-config/gtk-4.0
 sudo flatpak override --filesystem=xdg-config/gtk-4.0
 
-sudo flatpak override --env=GTK_THEME=my-theme 
-sudo flatpak override --env=ICON_THEME=Tokyonight-Dark
-
 FLATPAK_APPS=(
 "org.mozilla.firefox"
 "com.discordapp.Discord"
