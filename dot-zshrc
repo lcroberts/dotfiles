@@ -122,9 +122,6 @@ alias rm="rm -I"
 # tar multithreading
 alias tar="tar --use-compress-program=pigz"
 
-# Alias xdg-open to open
-alias open="xdg-open"
-
 # ibus configs
 export GTK_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
