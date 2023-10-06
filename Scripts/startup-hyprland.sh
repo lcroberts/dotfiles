@@ -14,5 +14,6 @@ steam 2>&1 &
 
 sleep 20
 
+systemctl restart --user xdg-desktop-portal
 hyprctl keyword windowrule "workspace unset,kitty"
 hyprctl keyword windowrule "workspace unset,firefox"
