@@ -106,6 +106,7 @@ steam
 stow
 sudo
 swaybg
+swayidle
 swtpm
 thunar
 tldr
