@@ -34,6 +34,7 @@ local plugins = {
 				"codelldb",
 				"black",
 				"isort",
+				"tailwindcss-language-server",
 			},
 		},
 	},
