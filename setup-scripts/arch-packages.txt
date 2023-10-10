@@ -2,9 +2,11 @@ adobe-source-han-sans-jp-fonts
 adobe-source-han-serif-jp-fonts
 alsa-plugins
 appimagelauncher
+archlinux-contrib
 ast-firmware
 base
 base-devel
+bleachbit
 btop
 chaotic-keyring
 chaotic-mirrorlist
@@ -83,6 +85,7 @@ ntp
 onedrive-abraunegg-git
 openal
 os-prober
+pacman-contrib
 paru-bin
 pavucontrol
 pigz
@@ -111,6 +114,7 @@ tpm2-tools
 udisks2
 valgrind
 vi
+vim
 virt-manager
 virtio-win
 visual-studio-code-bin
