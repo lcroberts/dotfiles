@@ -1,6 +1,5 @@
 ﻿---
-BasedOnStyle: LLVM
-AllowShortFunctionsOnASingleLine: None
+BasedOnStyle: Google
 ColumnLimit: '0'
 IndentWidth: '4'
 ...
