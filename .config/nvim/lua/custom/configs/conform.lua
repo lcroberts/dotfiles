@@ -1,10 +1,32 @@
 local style_path = vim.fn.stdpath("config") .. "/lua/custom/formats/clang-format"
-require("conform.formatters.clang_format").args = {
-	"-assume-filename",
-	"$FILENAME",
-	-- "-style={BasedOnStyle: LLVM, IndentWidth: 4}",
-	"-style=file:" .. style_path,
-}
+
+local function file_exists(name)
+   local f=io.open(name,"r")
+   if f~=nil then io.close(f) return true else return false end
+end
+local project_root = vim.fn.expand('%:h')
+
+if (file_exists(project_root .. ".clang-format") or file_exists(project_root .. "_clang-format")) then
+    if (file_exists(project_root .. ".clang_format")) then
+        require("conform.formatters.clang_format").args = {
+            "-assume-filename",
+            "$FILENAME",
+            "-style=file:" .. project_root .. ".clang-format"
+        }
+    else
+        require("conform.formatters.clang_format").args = {
+            "-assume-filename",
+            "$FILENAME",
+            "-style=file:" .. project_root .. "_clang-format"
+        }
+    end
+else
+    require("conform.formatters.clang_format").args = {
+        "-assume-filename",
+        "$FILENAME",
+        "-style=file:" .. style_path,
+    }
+end
 require("conform").setup({
 	formatters_by_ft = {
 		lua = { "stylua" },
