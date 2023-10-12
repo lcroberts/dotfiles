@@ -1,5 +1,7 @@
 ﻿---
-BasedOnStyle: Google
-ColumnLimit: '0'
+BasedOnStyle: LLVM
+AllowShortFunctionsOnASingleLine: None
+ColumnLimit: '80'
 IndentWidth: '4'
+
 ...
