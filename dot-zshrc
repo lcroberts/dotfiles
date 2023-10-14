@@ -122,6 +122,9 @@ alias rm="rm -I"
 # tar multithreading
 alias tar="tar --use-compress-program=pigz"
 
+# cat replacement with syntax highlight
+alias cat="bat"
+
 # ibus configs
 export GTK_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
