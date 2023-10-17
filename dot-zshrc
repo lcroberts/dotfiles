@@ -113,8 +113,8 @@ alias lx="eza $eza_modifiers --color-scale -lbhHgmUa"
 # Vi keybinds
 bindkey -v
 
-# kitty ssh alias
-alias ssh="kitty +kitten ssh"
+# kitty ssh alias - not needed in tmux
+# alias ssh="kitty +kitten ssh"
 
 # rm interactive mode alias
 alias rm="rm -I"
