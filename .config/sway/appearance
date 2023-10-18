@@ -1,0 +1,41 @@
+### Appearance
+# window corner radius in px
+corner_radius 10
+
+# Window background blur
+blur off
+blur_xray off
+blur_passes 2
+blur_radius 5
+
+shadows off
+shadows_on_csd off
+shadow_blur_radius 20
+shadow_color #0000007F
+
+# inactive window fade amount. 0.0 = no dimming, 1.0 = fully dimmed
+default_dim_inactive 0.0
+dim_inactive_colors.unfocused #000000FF
+dim_inactive_colors.urgent #900000FF
+
+# Gaps
+gaps inner 3
+gaps outer 5
+
+# Disable title bar
+default_border none
+default_floating_border none
+titlebar_padding 11
+titlebar_border_thickness 0
+# Font for window titles
+font pango:monospace 0
+
+## Colors
+# class                 border  bground text    indicator child_border
+client.focused          #83CAFA #51A2DA #FFFFFF #83CAFA   #51A2DA
+client.focused_inactive #8C8C8C #4C4C4C #FFFFFF #4C4C4C   #8C8C8C
+client.unfocused        #4C4C4C #222222 #888888 #292D2E   #222222
+client.urgent           #EC69A0 #DB3279 #FFFFFF #DB3279   #DB3279
+client.placeholder      #000000 #0C0C0C #FFFFFF #000000   #0C0C0C
+
+client.background       #FFFFFF
