@@ -16,8 +16,11 @@ kitty tmux new-session -As main 2>&1 &
 
 sleep 5
 swaymsg '[workspace=1]' move workspace to output $extra_display
-swaymsg '[workspace=2]' move workspace to output $main_display
+swaymsg '[workspace=2]' move workspace to output $extra_display
 swaymsg '[workspace=3]' move workspace to output $extra_display
 swaymsg '[workspace=4]' move workspace to output $extra_display
+swaymsg '[workspace=5]' move workspace to output $extra_display
 swaymsg '[workspace=10]' move workspace to output $main_display
+
 pkill swaybg; swaybg -i /home/logan/Pictures/RepoImages/currentbg
+pkill waybar; waybar -c ~/.config/waybar.sway/config
