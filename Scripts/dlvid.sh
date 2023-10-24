@@ -1,5 +1,5 @@
 #!/bin/bash
 
 vidname=$(($(date +%s%N)/1000000)).mp4
-
-yt-dlp -o /home/$USER/Videos/$vidname --recode-video mp4 $1
+mkdir -p $HOME/Videos/Shitposts
+yt-dlp -o $HOME/Videos/Shitposts --recode-video mp4 $1
