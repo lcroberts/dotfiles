@@ -130,4 +130,8 @@ export QT_IM_MODULE=ibus
 # Fastfetch on new shell
 fastfetch
 
+# History search
 bindkey '^R' history-incremental-search-backward
+
+# ZSH source alias
+alias zsource="source ~/.zshrc"
