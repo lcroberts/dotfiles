@@ -129,3 +129,5 @@ export QT_IM_MODULE=ibus
 
 # Fastfetch on new shell
 fastfetch
+
+bindkey '^R' history-incremental-search-backward
