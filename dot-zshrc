@@ -128,7 +128,7 @@ export XMODIFIERS=@im=ibus
 export QT_IM_MODULE=ibus
 
 # Fastfetch on new shell
-fastfetch
+# fastfetch
 
 # History search
 bindkey '^R' history-incremental-search-backward
