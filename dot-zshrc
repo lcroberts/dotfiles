@@ -135,3 +135,6 @@ bindkey '^R' history-incremental-search-backward
 
 # ZSH source alias
 alias zsource="source ~/.zshrc"
+
+# Archlinux update
+alias upgrade="sudo pacman -Syu"
