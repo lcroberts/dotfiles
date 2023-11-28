@@ -11,6 +11,7 @@ flatpak run com.discordapp.Discord 2>&1 &
 # flatpak run com.spotify.Client 2>&1 &
 spotify 2>&1 &
 steam 2>&1 &
+corectrl --minimize-systray 2>&1 &
 
 sleep 20
 
