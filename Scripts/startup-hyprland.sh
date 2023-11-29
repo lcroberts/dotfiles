@@ -1,4 +1,5 @@
 #!/bin/bash
+~/.screenlayout/test.sh 2>&1 &
 
 main_display=DP-1
 extra_display=DP-3
