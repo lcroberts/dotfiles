@@ -30,7 +30,7 @@ exec_always pkill swaybg; swaybg -i ~/Pictures/Wallpapers/currentbg
 
 exec_always autotiling
 
-exec ~/Scripts/startup.sh
+exec ~/Scripts/startup-sway.sh
 exec swayidle -w before-sleep "~/Scripts/lock.sh"
 exec fcitx5
 exec nm-applet
