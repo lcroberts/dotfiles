@@ -138,3 +138,6 @@ alias zsource="source ~/.zshrc"
 
 # Archlinux update
 alias upgrade="paru -Syu"
+
+# Alias to enter generic tmux session
+alias tenter="tmux new -As main"
