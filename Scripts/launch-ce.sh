@@ -1,9 +1,28 @@
 #!/bin/bash
 
 # A wrapper script to launch cheat engine within a certain steam wine prefix.
-# To use it provide the steam appid as the only argument to the program. The
-# ce_executable path may need to be changed depending on what version of CE
+# To use it you need to provide an argument matching one of the values in the
+# case statement. It will automatically launch it within the wine prefix.
+# The ce_executable path may need to be changed depending on what version of CE
 # you have intsalled. `protonhax init %command%` needs to be present in your
 # steam launch options as well.
 ce_executable="$HOME/.wine/drive_c/Program Files/Cheat Engine 7.5/cheatengine-x86_64.exe"
-protonhax run $1 "$ce_executable"
+
+case $1 in
+    ds3)
+        app_id=374320
+        ;;
+    dsr)
+        app_id=570940
+        ;;
+    remnant2)
+        app_id=1282100
+        ;;
+    *)
+        echo "Invalid argument. Please input one of the following programs:"
+        echo "ds3 (Dark Souls III), dsr (Dark Souls Remastered), remnant2"
+        exit
+        ;;
+esac
+
+protonhax run $app_id "$ce_executable"
