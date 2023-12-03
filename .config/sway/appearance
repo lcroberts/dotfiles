@@ -1,6 +1,7 @@
 ### Appearance
 # window corner radius in px
 # corner_radius 10
+# titlebar_padding 11
 # 
 # # Window background blur
 # blur off
@@ -25,7 +26,6 @@ gaps outer 5
 # Disable title bar
 default_border none
 default_floating_border none
-titlebar_padding 11
 titlebar_border_thickness 0
 # Font for window titles
 font pango:monospace 0
