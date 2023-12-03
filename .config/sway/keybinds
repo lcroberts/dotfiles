@@ -45,7 +45,7 @@ bindsym $mod+Shift+m exec reset-monitor.sh
 bindsym $mod+Shift+n exec setup-monitor.sh
 
 # Screenshot
-bindsym $mod+Shift+s exec grimblash copy area
+bindsym $mod+Shift+s exec grimblast copy area
 
 # Drag floating windows by holding down $mod and left mouse button.
 # Resize them with right mouse button + $mod.

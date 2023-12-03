@@ -25,5 +25,4 @@ swaymsg '[workspace=4]' move workspace to output $extra_display
 swaymsg '[workspace=5]' move workspace to output $extra_display
 swaymsg '[workspace=10]' move workspace to output $main_display
 
-# pkill swaybg; swaybg -i /home/logan/Pictures/RepoImages/currentbg
-# pkill waybar; waybar -c ~/.config/waybar.sway/config
+swaymsg reload
