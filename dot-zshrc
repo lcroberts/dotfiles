@@ -99,16 +99,16 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # eza aliases
-eza_modifiers="--git --icons --group-directories-first"
+eza_modifiers="--git --icons --color-scale --group-directories-first"
 alias l="eza $eza_modifiers"
-alias ls="eza $eza_modifiers -lhg --color-scale"
-alias ll="eza $eza_modifiers -lbhmag --color-scale"
+alias ls="eza $eza_modifiers -lhg"
+alias ll="eza $eza_modifiers -lbhmag"
 alias la="eza $eza_modifiers -a"
 # alias ll="eza $eza_modifiers -a"
 # alias la="eza $eza_modifiers -lbhHigmuSa --color-scale"
 alias lt="eza $eza_modifiers --tree"
 alias llt="eza $eza_modifiers --tree -a"
-alias lx="eza $eza_modifiers --color-scale -lbhHgmUa"
+alias lx="eza $eza_modifiers -lbhHgmUa"
 
 # Vi keybinds
 bindkey -v
