@@ -20,12 +20,15 @@ case $1 in
     remnant2)
         app_id=1282100
         ;;
+    mhw)
+        app_id=582010
+        ;;
     +([0-9]) ) # Match any number which should be a steam app id
         app_id=$1
         ;;
     *)
         echo "Invalid argument. Please input one of the following programs, or input a valid steam app id:"
-        echo "ds3 (Dark Souls III), dsr (Dark Souls Remastered), remnant2"
+        echo "ds3 (Dark Souls III), dsr (Dark Souls Remastered), remnant2, mhw (Monster Hunter World)"
         exit
         ;;
 esac
