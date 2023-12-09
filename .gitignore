@@ -2,3 +2,4 @@ file-backups/
 .luarc.json
 **/tmux/plugins/*
 **/dot-config/nvim/
+**/lazy-lock.json
