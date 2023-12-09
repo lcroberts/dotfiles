@@ -2,6 +2,14 @@
 
 image=~/Pictures/Wallpapers/currentbg
 # swaylock -i $image
-swaylock -i $image --clock --indicator --line-color 1a1b26 --line-clear-color 1a1b26 --line-ver-color 1a1b26 --inside-color 292e42 --inside-clear-color 292e42 --inside-ver-color 292e42 --ring-color c0caf5 --ring-clear-color c0caf5  --ring-ver-color c0caf5 \
-    --line-wrong-color 1a1b26 --ring-wrong-color F28B82 --inside-wrong-color 292e42 --bs-hl-color F28B82 --key-hl-color 81C995 --separator-color 1a1b26 --text-color FDD633 --text-clear-color FDD633 --text-ver-color FDD633 --text-wrong-color F28B82
+
+inside=1a1b26
+text=c0caf5
+wrong=F28B82
+ring=bb9af7
+line=292e42
+keypress=c0caf5
+swaylock -i $image --clock --indicator --line-color $line --line-clear-color $line --line-ver-color $line --inside-color $inside --inside-clear-color $inside --inside-ver-color $inside --ring-color $ring --ring-clear-color $ring  --ring-ver-color $ring \
+    --line-wrong-color $line --ring-wrong-color $wrong --inside-wrong-color $inside --bs-hl-color $wrong --key-hl-color $keypress --separator-color $line --text-color $text --text-clear-color $text --text-ver-color $text --text-wrong-color $wrong
+
 # gtklock -b $image
