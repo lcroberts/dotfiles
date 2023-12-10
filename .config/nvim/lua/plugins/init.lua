@@ -1,0 +1,183 @@
+-- You can add your own plugins here or in other files in this directory!
+--  I promise not to create any merge conflicts in this directory :)
+--
+-- See the kickstart.nvim README for more information
+return {
+  {
+    'christoomey/vim-tmux-navigator',
+    lazy = false,
+  },
+
+  {
+    'williamboman/mason.nvim',
+    opts = {
+      max_concurrent_installers = 10,
+      automatic_installation = true,
+    },
+    config = function(_, opts)
+      require('mason').setup(opts)
+      vim.api.nvim_create_user_command('MasonInstallAll', function()
+        vim.cmd('MasonInstall ' .. table.concat(opts.ensure_installed, ' '))
+      end, {})
+      vim.g.mason_binaries_list = opts.ensure_installed
+    end,
+  },
+
+  {
+    'williamboman/mason-lspconfig.nvim',
+    opts = {
+      ensure_installed = {
+        'rust_analyzer',
+        'bashls',
+        'pylsp',
+        'yamlls',
+        'lua_ls',
+        'taplo',
+        'clangd',
+        'tailwindcss',
+      },
+    },
+    dependencies = {
+      'williamboman/mason.nvim',
+    },
+    config = function(_, opts)
+      require('mason-lspconfig').setup(opts)
+    end,
+  },
+
+  {
+    'mfussenegger/nvim-lint',
+    dependencies = {
+      'williamboman/mason.nvim',
+    },
+  },
+
+  {
+    'rshkarin/mason-nvim-lint',
+    opts = {
+      ensure_installed = {
+        'black',
+        'isort',
+        'vale',
+        'cspell',
+        'trivy',
+        'yamllint',
+        'prettier',
+        'clang-format',
+        'stylua',
+        'codelldb',
+      },
+      automatic_installation = true,
+    },
+    dependencies = {
+      'williamboman/mason.nvim',
+      'mfussenegger/nvim-lint',
+    },
+  },
+
+  {
+    -- LSP Configuration & Plugins
+    'neovim/nvim-lspconfig',
+    dependencies = {
+      'williamboman/mason.nvim',
+      'williamboman/mason-lspconfig.nvim',
+      'hrsh7th/nvim-cmp',
+      -- Useful status updates for LSP
+      -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
+      { 'j-hui/fidget.nvim', opts = {} },
+
+      -- Additional lua configuration, makes nvim stuff amazing!
+      {
+        'folke/neodev.nvim',
+        config = function()
+          require('neodev').setup()
+        end,
+      },
+    },
+    config = function()
+      require 'plugins.configs.lspconfig'
+    end,
+  },
+
+  {
+    'mhartington/formatter.nvim',
+    event = 'VeryLazy',
+    opts = function()
+      return require 'plugins.configs.formatter'
+    end,
+  },
+
+  -- Useful plugin to show you pending keybinds.
+  { 'folke/which-key.nvim', opts = {} },
+
+  -- Git related plugins
+  'tpope/vim-fugitive',
+  'tpope/vim-rhubarb',
+
+  -- Detect tabstop and shiftwidth automatically
+  'tpope/vim-sleuth',
+
+  {
+    -- Add indentation guides even on blank lines
+    'lukas-reineke/indent-blankline.nvim',
+    -- Enable `lukas-reineke/indent-blankline.nvim`
+    -- See `:help ibl`
+    main = 'ibl',
+    opts = {},
+  },
+
+  -- "gc" to comment visual regions/lines
+  {
+    'numToStr/Comment.nvim',
+  },
+
+  -- Fuzzy Finder (files, lsp, etc)
+  {
+    'nvim-telescope/telescope.nvim',
+    branch = '0.1.x',
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      -- Fuzzy Finder Algorithm which requires local dependencies to be built.
+      -- Only load if `make` is available. Make sure you have the system
+      -- requirements installed.
+      {
+        'nvim-telescope/telescope-fzf-native.nvim',
+        -- NOTE: If you are having trouble with this installation,
+        --       refer to the README for telescope-fzf-native for more instructions.
+        build = 'make',
+        cond = function()
+          return vim.fn.executable 'make' == 1
+        end,
+      },
+    },
+  },
+
+  {
+    -- Highlight, edit, and navigate code
+    'nvim-treesitter/nvim-treesitter',
+    dependencies = {
+      'nvim-treesitter/nvim-treesitter-textobjects',
+    },
+    build = ':TSUpdate',
+  },
+
+  {
+    'windwp/nvim-autopairs',
+    -- Optional dependency
+    dependencies = { 'hrsh7th/nvim-cmp' },
+    config = function()
+      require('nvim-autopairs').setup {}
+      -- If you want to automatically add `(` after selecting a function or method
+      local cmp_autopairs = require 'nvim-autopairs.completion.cmp'
+      local cmp = require 'cmp'
+      cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
+    end,
+  },
+
+  {
+    'NvChad/nvterm',
+    config = function()
+      require('nvterm').setup()
+    end,
+  },
+}
