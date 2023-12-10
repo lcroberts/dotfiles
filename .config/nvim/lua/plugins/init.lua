@@ -9,6 +9,11 @@ return {
   },
 
   {
+    'tpope/vim-surround',
+    lazy = false,
+  },
+
+  {
     'williamboman/mason.nvim',
     opts = {
       max_concurrent_installers = 10,
@@ -27,7 +32,7 @@ return {
     'williamboman/mason-lspconfig.nvim',
     opts = {
       ensure_installed = {
-        'rust_analyzer',
+        -- 'rust_analyzer',
         'bashls',
         'pylsp',
         'yamlls',
@@ -50,6 +55,9 @@ return {
     dependencies = {
       'williamboman/mason.nvim',
     },
+    config = function()
+      require 'plugins.configs.lint'
+    end,
   },
 
   {
@@ -89,9 +97,7 @@ return {
       -- Additional lua configuration, makes nvim stuff amazing!
       {
         'folke/neodev.nvim',
-        config = function()
-          require('neodev').setup()
-        end,
+        opts = {},
       },
     },
     config = function()
@@ -129,6 +135,12 @@ return {
   -- "gc" to comment visual regions/lines
   {
     'numToStr/Comment.nvim',
+    opts = {
+      mappings = {
+        basic = false,
+        extra = false,
+      },
+    },
   },
 
   -- Fuzzy Finder (files, lsp, etc)
