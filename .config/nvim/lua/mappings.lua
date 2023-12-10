@@ -30,14 +30,20 @@ vim.keymap.set('n', '<leader>x', '<cmd> bdelete<cr>', { desc = 'Close current bu
 
 -- Save for Ctrl+s
 vim.keymap.set('n', '<C-s>', '<cmd> w<cr>', { desc = 'Save file' })
+-- Copy file
+vim.keymap.set('n', '<C-c>', '<cmd> %y+<cr>', { desc = 'Copy file contents' })
 
 -- Vim Tmux navigation
 vim.keymap.set('n', '<C-h>', '<cmd> TmuxNavigateLeft<CR>', { desc = 'window left' })
 vim.keymap.set('n', '<C-l>', '<cmd> TmuxNavigateRight<CR>', { desc = 'window right' })
 vim.keymap.set('n', '<C-j>', '<cmd> TmuxNavigateDown<CR>', { desc = 'window down' })
 vim.keymap.set('n', '<C-k>', '<cmd> TmuxNavigateUp<CR>', { desc = 'window up' })
+vim.keymap.set('t', '<C-h>', '<cmd> TmuxNavigateLeft<CR>', { desc = 'window left' })
+vim.keymap.set('t', '<C-l>', '<cmd> TmuxNavigateRight<CR>', { desc = 'window right' })
+vim.keymap.set('t', '<C-j>', '<cmd> TmuxNavigateDown<CR>', { desc = 'window down' })
+vim.keymap.set('t', '<C-k>', '<cmd> TmuxNavigateUp<CR>', { desc = 'window up' })
 
--- Navigate in insert mode, doesn't work currently
+-- Navigate in insert mode
 vim.keymap.set('i', '<C-h>', '<Left>', { desc = 'Move left' })
 vim.keymap.set('i', '<C-l>', '<Right>', { desc = 'Move right' })
 vim.keymap.set('i', '<C-j>', '<Down>', { desc = 'Move down' })
@@ -85,3 +91,8 @@ vim.keymap.set('v', '<leader>b/', "<ESC><cmd>lua require('Comment.api').toggle.b
 
 -- Nvterm
 vim.keymap.set('n', '<A-h>', '<cmd>lua require("nvterm.terminal").toggle "horizontal"<cr>', { desc = 'Toggle horizontal terminal' })
+vim.keymap.set('t', '<A-h>', '<cmd>lua require("nvterm.terminal").toggle "horizontal"<cr>', { desc = 'Toggle horizontal terminal' })
+vim.keymap.set('n', '<A-v>', '<cmd>lua require("nvterm.terminal").toggle "vertical"<cr>', { desc = 'Toggle vertical terminal' })
+vim.keymap.set('t', '<A-v>', '<cmd>lua require("nvterm.terminal").toggle "vertical"<cr>', { desc = 'Toggle vertical terminal' })
+vim.keymap.set('n', '<A-i>', '<cmd>lua require("nvterm.terminal").toggle "float"<cr>', { desc = 'Toggle floating terminal' })
+vim.keymap.set('t', '<A-i>', '<cmd>lua require("nvterm.terminal").toggle "float"<cr>', { desc = 'Toggle floating terminal' })
