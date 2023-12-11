@@ -12,6 +12,7 @@ wk.register {
   ['<leader>t'] = { name = '[T]oggle', _ = 'which_key_ignore' },
   ['<leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
   ['<leader>b'] = { name = '[B]lock', _ = 'which_key_ignore' },
+  ['<leader>n'] = { name = '[N]avigate', _ = 'which_key_ignore' },
 }
 -- register which-key VISUAL mode
 -- required for visual <leader>hs (hunk stage) to work
@@ -130,3 +131,25 @@ end, { desc = 'Upgrade crates' })
 -- UFO
 vim.keymap.set('n', 'zR', require('ufo').openAllFolds, { desc = 'Open all folds' })
 vim.keymap.set('n', 'zM', require('ufo').closeAllFolds, { desc = 'Close all folds' })
+
+-- Harpoon
+local harpoon = require 'harpoon'
+vim.keymap.set('n', '<leader>na', function()
+  harpoon:list():append()
+end, { desc = 'Harpoon append' })
+vim.keymap.set('n', '<leader>nl', function()
+  harpoon.ui:toggle_quick_menu(harpoon:list())
+end, { desc = 'Harpoon list' })
+
+vim.keymap.set('n', '<leader>1', function()
+  harpoon:list():select(1)
+end, {desc = 'Navigate to first harpoon file'})
+vim.keymap.set('n', '<leader>2', function()
+  harpoon:list():select(2)
+end, {desc = 'Navigate to second harpoon file'})
+vim.keymap.set('n', '<leader>3', function()
+  harpoon:list():select(3)
+end, {desc = 'Navigate to third harpoon file'})
+vim.keymap.set('n', '<leader>4', function()
+  harpoon:list():select(4)
+end, {desc = 'Navigate to fourth harpoon file'})
