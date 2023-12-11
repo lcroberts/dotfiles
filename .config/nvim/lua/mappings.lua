@@ -5,14 +5,13 @@ wk.register {
   ['<leader>c'] = { name = '[C]ode', _ = 'which_key_ignore' },
   ['<leader>d'] = { name = '[D]ebug and [D]iagnostics', _ = 'which_key_ignore' },
   ['<leader>g'] = { name = '[G]it and [G]oto', _ = 'which_key_ignore' },
-  ['<leader>h'] = { name = 'Git [H]unk', _ = 'which_key_ignore' },
+  ['<leader>h'] = { name = '[H]arpoon', _ = 'which_key_ignore' },
   ['<leader>r'] = { name = '[R]ename and [R]ust', _ = 'which_key_ignore' },
   -- ['<leader>s'] = { name = '[S]earch', _ = 'which_key_ignore' },
   ['<leader>f'] = { name = '[F]ind and [F]ormat', _ = 'which_key_ignore' },
   ['<leader>t'] = { name = '[T]oggle', _ = 'which_key_ignore' },
   ['<leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
   ['<leader>b'] = { name = '[B]lock', _ = 'which_key_ignore' },
-  ['<leader>n'] = { name = '[N]avigate', _ = 'which_key_ignore' },
 }
 -- register which-key VISUAL mode
 -- required for visual <leader>hs (hunk stage) to work
@@ -34,7 +33,7 @@ vim.keymap.set('n', '<C-n>', '<cmd> NvimTreeToggle<cr>', { desc = 'Toggle filetr
 vim.keymap.set('n', '<leader>e', '<cmd> NvimTreeFocus<cr>', { desc = 'Focus filetree' })
 
 -- Undo Tree
-vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle, {desc = 'Toggle undo tree'})
+vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle, { desc = 'Toggle undo tree' })
 
 -- Buffer tabthrough
 vim.keymap.set('n', '<Tab>', '<cmd> bnext<cr>', { desc = 'Move to next buffer' })
@@ -140,10 +139,10 @@ vim.keymap.set('n', 'zM', require('ufo').closeAllFolds, { desc = 'Close all fold
 
 -- Harpoon
 local harpoon = require 'harpoon'
-vim.keymap.set('n', '<leader>na', function()
+vim.keymap.set('n', '<leader>ha', function()
   harpoon:list():append()
 end, { desc = 'Harpoon append' })
-vim.keymap.set('n', '<leader>nl', function()
+vim.keymap.set('n', '<leader>hl', function()
   harpoon.ui:toggle_quick_menu(harpoon:list())
 end, { desc = 'Harpoon list' })
 
@@ -159,3 +158,6 @@ end, { desc = 'Navigate to third harpoon file' })
 vim.keymap.set('n', '<leader>4', function()
   harpoon:list():select(4)
 end, { desc = 'Navigate to fourth harpoon file' })
+
+-- Glow previewer
+vim.keymap.set('n', '<leader>tg', vim.cmd.Glow, { desc = 'Toggle glow md preview' })
