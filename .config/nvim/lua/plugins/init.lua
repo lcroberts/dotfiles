@@ -12,6 +12,18 @@ return {
     'tpope/vim-surround',
     lazy = false,
   },
+  --
+  -- Useful plugin to show you pending keybinds.
+  { 'folke/which-key.nvim', opts = {} },
+
+  -- Git related plugins
+  'tpope/vim-fugitive',
+  'tpope/vim-rhubarb',
+
+  -- Detect tabstop and shiftwidth automatically
+  'tpope/vim-sleuth',
+
+  'mbbill/undotree',
 
   {
     'williamboman/mason.nvim',
@@ -113,16 +125,6 @@ return {
     end,
   },
 
-  -- Useful plugin to show you pending keybinds.
-  { 'folke/which-key.nvim', opts = {} },
-
-  -- Git related plugins
-  'tpope/vim-fugitive',
-  'tpope/vim-rhubarb',
-
-  -- Detect tabstop and shiftwidth automatically
-  'tpope/vim-sleuth',
-
   {
     -- Add indentation guides even on blank lines
     'lukas-reineke/indent-blankline.nvim',
@@ -170,8 +172,9 @@ return {
 
   {
     'NvChad/nvterm',
-    config = function()
-      require('nvterm').setup()
-    end,
+    opts = {},
+    -- config = function()
+    --   require('nvterm').setup()
+    -- end,
   },
 }

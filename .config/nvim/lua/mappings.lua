@@ -33,6 +33,9 @@ vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = tr
 vim.keymap.set('n', '<C-n>', '<cmd> NvimTreeToggle<cr>', { desc = 'Toggle filetree' })
 vim.keymap.set('n', '<leader>e', '<cmd> NvimTreeFocus<cr>', { desc = 'Focus filetree' })
 
+-- Undo Tree
+vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle, {desc = 'Toggle undo tree'})
+
 -- Buffer tabthrough
 vim.keymap.set('n', '<Tab>', '<cmd> bnext<cr>', { desc = 'Move to next buffer' })
 vim.keymap.set('n', '<S-Tab>', '<cmd> bprevious<cr>', { desc = 'Move to previous buffer' })
@@ -94,6 +97,9 @@ end, { desc = '[f]uzzily search [/] in current buffer' })
 -- vim.keymap.set('n', '<leader>ss', require('telescope.builtin').builtin, { desc = '[S]earch [S]elect Telescope' })
 vim.keymap.set('n', '<leader>gf', require('telescope.builtin').git_files, { desc = 'Search [G]it [F]iles' })
 
+-- Vim Fugitive (Git)
+vim.keymap.set('n', '<leader>gs', vim.cmd.Git, { desc = 'Open git' })
+
 -- Comment.nvim
 vim.keymap.set('n', '<leader>/', "<ESC><cmd>lua require('Comment.api').toggle.linewise.current()<CR>", { desc = 'Toggle line comment' })
 vim.keymap.set('n', '<leader>b/', "<ESC><cmd>lua require('Comment.api').toggle.blockwise(vim.fn.visualmode())<CR>", { desc = 'Toggle block comment' })
@@ -143,13 +149,13 @@ end, { desc = 'Harpoon list' })
 
 vim.keymap.set('n', '<leader>1', function()
   harpoon:list():select(1)
-end, {desc = 'Navigate to first harpoon file'})
+end, { desc = 'Navigate to first harpoon file' })
 vim.keymap.set('n', '<leader>2', function()
   harpoon:list():select(2)
-end, {desc = 'Navigate to second harpoon file'})
+end, { desc = 'Navigate to second harpoon file' })
 vim.keymap.set('n', '<leader>3', function()
   harpoon:list():select(3)
-end, {desc = 'Navigate to third harpoon file'})
+end, { desc = 'Navigate to third harpoon file' })
 vim.keymap.set('n', '<leader>4', function()
   harpoon:list():select(4)
-end, {desc = 'Navigate to fourth harpoon file'})
+end, { desc = 'Navigate to fourth harpoon file' })
