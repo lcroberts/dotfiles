@@ -1,15 +1,17 @@
+-- Lsp keymaps are in lspconfig
 -- document existing key chains
 local wk = require 'which-key'
 wk.register {
   ['<leader>c'] = { name = '[C]ode', _ = 'which_key_ignore' },
-  ['<leader>d'] = { name = '[D]ocument', _ = 'which_key_ignore' },
+  ['<leader>d'] = { name = '[D]ebug and [D]iagnostics', _ = 'which_key_ignore' },
   ['<leader>g'] = { name = '[G]it and [G]oto', _ = 'which_key_ignore' },
   ['<leader>h'] = { name = 'Git [H]unk', _ = 'which_key_ignore' },
-  ['<leader>r'] = { name = '[R]ename', _ = 'which_key_ignore' },
-  ['<leader>s'] = { name = '[S]earch', _ = 'which_key_ignore' },
+  ['<leader>r'] = { name = '[R]ename and [R]ust', _ = 'which_key_ignore' },
+  -- ['<leader>s'] = { name = '[S]earch', _ = 'which_key_ignore' },
   ['<leader>f'] = { name = '[F]ind and [F]ormat', _ = 'which_key_ignore' },
   ['<leader>t'] = { name = '[T]oggle', _ = 'which_key_ignore' },
   ['<leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
+  ['<leader>b'] = { name = '[B]lock', _ = 'which_key_ignore' },
 }
 -- register which-key VISUAL mode
 -- required for visual <leader>hs (hunk stage) to work
@@ -17,6 +19,14 @@ wk.register({
   ['<leader>'] = { name = 'VISUAL <leader>' },
   ['<leader>h'] = { 'Git [H]unk' },
 }, { mode = 'v' })
+
+-- Keymaps for better default experience
+-- See `:help vim.keymap.set()`
+vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
+
+-- Remap for dealing with word wrap
+vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
 -- Nvim Tree
 vim.keymap.set('n', '<C-n>', '<cmd> NvimTreeToggle<cr>', { desc = 'Toggle filetree' })
@@ -71,6 +81,8 @@ vim.keymap.set('n', '<leader>fh', require('telescope.builtin').help_tags, { desc
 vim.keymap.set('n', '<leader>fw', require('telescope.builtin').grep_string, { desc = '[f]ind current [w]ord' })
 vim.keymap.set('n', '<leader>fg', require('telescope.builtin').live_grep, { desc = '[f]ind by [g]rep' })
 vim.keymap.set('n', '<leader>fG', ':LiveGrepGitRoot<cr>', { desc = '[f]ind by [G]rep on Git Root' })
+vim.keymap.set('n', '<leader>fd', require('telescope.builtin').diagnostics, { desc = '[f]ind [d]iagnostics' })
+vim.keymap.set('n', '<leader>fr', require('telescope.builtin').resume, { desc = '[f]ind [r]esume' })
 vim.keymap.set('n', '<leader>f/', function()
   -- You can pass additional configuration to telescope to change theme, layout, etc.
   require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
@@ -78,9 +90,7 @@ vim.keymap.set('n', '<leader>f/', function()
     previewer = false,
   })
 end, { desc = '[f]uzzily search [/] in current buffer' })
-vim.keymap.set('n', '<leader>ss', require('telescope.builtin').builtin, { desc = '[S]earch [S]elect Telescope' })
-vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
-vim.keymap.set('n', '<leader>sr', require('telescope.builtin').resume, { desc = '[S]earch [R]esume' })
+-- vim.keymap.set('n', '<leader>ss', require('telescope.builtin').builtin, { desc = '[S]earch [S]elect Telescope' })
 vim.keymap.set('n', '<leader>gf', require('telescope.builtin').git_files, { desc = 'Search [G]it [F]iles' })
 
 -- Comment.nvim
@@ -96,3 +106,27 @@ vim.keymap.set('n', '<A-v>', '<cmd>lua require("nvterm.terminal").toggle "vertic
 vim.keymap.set('t', '<A-v>', '<cmd>lua require("nvterm.terminal").toggle "vertical"<cr>', { desc = 'Toggle vertical terminal' })
 vim.keymap.set('n', '<A-i>', '<cmd>lua require("nvterm.terminal").toggle "float"<cr>', { desc = 'Toggle floating terminal' })
 vim.keymap.set('t', '<A-i>', '<cmd>lua require("nvterm.terminal").toggle "float"<cr>', { desc = 'Toggle floating terminal' })
+
+-- Diagnostic
+vim.keymap.set('n', '<leader>dp', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
+vim.keymap.set('n', '<leader>dn', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
+vim.keymap.set('n', '<leader>df', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
+vim.keymap.set('n', '<leader>dl', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
+
+-- DAP
+vim.keymap.set('n', '<leader>db', '<cmd> DapToggleBreakpoint <CR>', { desc = 'Toggle breakpoint' })
+vim.keymap.set('n', '<leader>dc', '<cmd> DapContinue <CR>', { desc = 'DAP continue' })
+vim.keymap.set('n', '<leader>dsu', function()
+  local widgets = require 'dap.ui.widgets'
+  local sidebar = widgets.sidebar(widgets.scopes)
+  sidebar.open()
+end, { desc = 'Open debug sidebar' })
+
+-- Rust crates
+vim.keymap.set('n', '<leader>rcu', function()
+  require('crates').upgrade_all_crates()
+end, { desc = 'Upgrade crates' })
+
+-- UFO
+vim.keymap.set('n', 'zR', require('ufo').openAllFolds, { desc = 'Open all folds' })
+vim.keymap.set('n', 'zM', require('ufo').closeAllFolds, { desc = 'Close all folds' })
