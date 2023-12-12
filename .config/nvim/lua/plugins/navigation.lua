@@ -73,11 +73,15 @@ local M = {
     dependencies = {
       'nvim-lua/plenary.nvim',
     },
-    opts = {},
+    opts = {
+      settings = {
+        save_on_toggle = true,
+        save_on_ui_close = true,
+      },
+    },
   },
 }
 
 return M
-
 
 
