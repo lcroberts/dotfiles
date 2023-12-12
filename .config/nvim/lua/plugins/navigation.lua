@@ -23,10 +23,11 @@ local M = {
 
   {
     'kazhala/close-buffers.nvim',
+    opts = {},
     config = function()
       -- Auto command to remove buffers with no name
       vim.api.nvim_create_autocmd('BufAdd', {
-        command = "lua require('close_buffers').delete { type = 'nameless' }",
+        command = "lua require('close_buffers').delete({ type = 'nameless', force = true })",
       })
     end,
   },
@@ -77,3 +78,6 @@ local M = {
 }
 
 return M
+
+
+
