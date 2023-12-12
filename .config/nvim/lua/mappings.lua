@@ -28,6 +28,11 @@ vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
+-- Format
+vim.keymap.set('n', '<leader>fm', function()
+  vim.lsp.buf.format { async = false }
+end, { desc = 'LSP Formatting' })
+
 -- Nvim Tree
 vim.keymap.set('n', '<C-n>', '<cmd> NvimTreeToggle<cr>', { desc = 'Toggle filetree' })
 vim.keymap.set('n', '<leader>e', '<cmd> NvimTreeFocus<cr>', { desc = 'Focus filetree' })

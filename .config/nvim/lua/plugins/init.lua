@@ -1,3 +1,4 @@
+---@diagnostic disable: mixed_table, mixed_table
 -- You can add your own plugins here or in other files in this directory!
 --  I promise not to create any merge conflicts in this directory :)
 --
@@ -41,6 +42,34 @@ return {
   },
 
   {
+    'jay-babu/mason-null-ls.nvim',
+    event = { 'BufReadPre', 'BufNewFile' },
+    dependencies = {
+      'williamboman/mason.nvim',
+      'nvimtools/none-ls.nvim',
+    },
+    opts = {
+      ensure_installed = {
+        'stylua',
+        'cpplint',
+        'selene',
+        'vale',
+        'typos',
+        'vale',
+        'trivy',
+        'cpplint',
+        'clang_format',
+        'prettier',
+      },
+    },
+    automatic_installation = true,
+    config = function(_, opts)
+      require('mason-null-ls').setup(opts)
+      require 'plugins.configs.null-ls'
+    end,
+  },
+
+  {
     'williamboman/mason-lspconfig.nvim',
     opts = {
       ensure_installed = {
@@ -63,39 +92,6 @@ return {
   },
 
   {
-    'mfussenegger/nvim-lint',
-    dependencies = {
-      'williamboman/mason.nvim',
-    },
-    config = function()
-      require 'plugins.configs.lint'
-    end,
-  },
-
-  {
-    'rshkarin/mason-nvim-lint',
-    opts = {
-      ensure_installed = {
-        'black',
-        'isort',
-        'vale',
-        'cspell',
-        'trivy',
-        'yamllint',
-        'prettier',
-        'clang-format',
-        'stylua',
-        'codelldb',
-      },
-      automatic_installation = true,
-    },
-    dependencies = {
-      'williamboman/mason.nvim',
-      'mfussenegger/nvim-lint',
-    },
-  },
-
-  {
     -- LSP Configuration & Plugins
     'neovim/nvim-lspconfig',
     dependencies = {
@@ -114,14 +110,6 @@ return {
     },
     config = function()
       require 'plugins.configs.lspconfig'
-    end,
-  },
-
-  {
-    'mhartington/formatter.nvim',
-    event = 'VeryLazy',
-    opts = function()
-      return require 'plugins.configs.formatter'
     end,
   },
 
@@ -173,8 +161,5 @@ return {
   {
     'NvChad/nvterm',
     opts = {},
-    -- config = function()
-    --   require('nvterm').setup()
-    -- end,
   },
 }
