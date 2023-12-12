@@ -11,11 +11,14 @@ null_ls.setup {
     null_ls.builtins.diagnostics.trivy,
     null_ls.builtins.diagnostics.selene,
     null_ls.builtins.diagnostics.cpplint,
+    null_ls.builtins.diagnostics.shellcheck,
 
     null_ls.builtins.formatting.clang_format,
     null_ls.builtins.formatting.stylua,
     null_ls.builtins.formatting.prettier,
     null_ls.builtins.formatting.trim_whitespace,
+    null_ls.builtins.formatting.rustfmt,
+    null_ls.builtins.formatting.beautysh,
   },
 
   on_attach = function(client, bufnr)

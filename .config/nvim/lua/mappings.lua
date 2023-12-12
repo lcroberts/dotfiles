@@ -105,18 +105,28 @@ vim.keymap.set('n', '<leader>gf', require('telescope.builtin').git_files, { desc
 vim.keymap.set('n', '<leader>gs', vim.cmd.Git, { desc = 'Open git' })
 
 -- Comment.nvim
-vim.keymap.set('n', '<leader>/', "<ESC><cmd>lua require('Comment.api').toggle.linewise.current()<CR>", { desc = 'Toggle line comment' })
-vim.keymap.set('n', '<leader>b/', "<ESC><cmd>lua require('Comment.api').toggle.blockwise(vim.fn.visualmode())<CR>", { desc = 'Toggle block comment' })
-vim.keymap.set('v', '<leader>/', "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>", { desc = 'Toggle line comment' })
-vim.keymap.set('v', '<leader>b/', "<ESC><cmd>lua require('Comment.api').toggle.blockwise(vim.fn.visualmode())<CR>", { desc = 'Toggle block comment' })
+vim.keymap.set('n', '<leader>/', "<ESC><cmd>lua require('Comment.api').toggle.linewise.current()<CR>",
+  { desc = 'Toggle line comment' })
+vim.keymap.set('n', '<leader>b/', "<ESC><cmd>lua require('Comment.api').toggle.blockwise(vim.fn.visualmode())<CR>",
+  { desc = 'Toggle block comment' })
+vim.keymap.set('v', '<leader>/', "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
+  { desc = 'Toggle line comment' })
+vim.keymap.set('v', '<leader>b/', "<ESC><cmd>lua require('Comment.api').toggle.blockwise(vim.fn.visualmode())<CR>",
+  { desc = 'Toggle block comment' })
 
 -- Nvterm
-vim.keymap.set('n', '<A-h>', '<cmd>lua require("nvterm.terminal").toggle "horizontal"<cr>', { desc = 'Toggle horizontal terminal' })
-vim.keymap.set('t', '<A-h>', '<cmd>lua require("nvterm.terminal").toggle "horizontal"<cr>', { desc = 'Toggle horizontal terminal' })
-vim.keymap.set('n', '<A-v>', '<cmd>lua require("nvterm.terminal").toggle "vertical"<cr>', { desc = 'Toggle vertical terminal' })
-vim.keymap.set('t', '<A-v>', '<cmd>lua require("nvterm.terminal").toggle "vertical"<cr>', { desc = 'Toggle vertical terminal' })
-vim.keymap.set('n', '<A-i>', '<cmd>lua require("nvterm.terminal").toggle "float"<cr>', { desc = 'Toggle floating terminal' })
-vim.keymap.set('t', '<A-i>', '<cmd>lua require("nvterm.terminal").toggle "float"<cr>', { desc = 'Toggle floating terminal' })
+vim.keymap.set('n', '<A-h>', '<cmd>lua require("nvterm.terminal").toggle "horizontal"<cr>',
+  { desc = 'Toggle horizontal terminal' })
+vim.keymap.set('t', '<A-h>', '<cmd>lua require("nvterm.terminal").toggle "horizontal"<cr>',
+  { desc = 'Toggle horizontal terminal' })
+vim.keymap.set('n', '<A-v>', '<cmd>lua require("nvterm.terminal").toggle "vertical"<cr>',
+  { desc = 'Toggle vertical terminal' })
+vim.keymap.set('t', '<A-v>', '<cmd>lua require("nvterm.terminal").toggle "vertical"<cr>',
+  { desc = 'Toggle vertical terminal' })
+vim.keymap.set('n', '<A-i>', '<cmd>lua require("nvterm.terminal").toggle "float"<cr>',
+  { desc = 'Toggle floating terminal' })
+vim.keymap.set('t', '<A-i>', '<cmd>lua require("nvterm.terminal").toggle "float"<cr>',
+  { desc = 'Toggle floating terminal' })
 
 -- Diagnostic
 vim.keymap.set('n', '<leader>dp', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })

@@ -21,6 +21,16 @@ local M = {
     end,
   },
 
+  {
+    'kazhala/close-buffers.nvim',
+    config = function()
+      -- Auto command to remove buffers with no name
+      vim.api.nvim_create_autocmd('BufAdd', {
+        command = "lua require('close_buffers').delete { type = 'nameless' }",
+      })
+    end,
+  },
+
   -- Fuzzy Finder (files, lsp, etc)
   {
     'nvim-telescope/telescope.nvim',

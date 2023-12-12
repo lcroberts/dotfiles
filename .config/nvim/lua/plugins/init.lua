@@ -60,6 +60,8 @@ return {
         'cpplint',
         'clang_format',
         'prettier',
+        'beautysh',
+        'shellcheck',
       },
     },
     automatic_installation = true,
