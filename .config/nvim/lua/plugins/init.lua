@@ -1,8 +1,5 @@
----@diagnostic disable: mixed_table, mixed_table
--- You can add your own plugins here or in other files in this directory!
---  I promise not to create any merge conflicts in this directory :)
---
--- See the kickstart.nvim README for more information
+local utils = require 'utils'
+
 return {
   {
     'christoomey/vim-tmux-navigator',
@@ -13,11 +10,37 @@ return {
     'tpope/vim-surround',
     lazy = false,
   },
-  --
+
   -- Useful plugin to show you pending keybinds.
   {
     'folke/which-key.nvim',
-    opts = {},
+    event = 'VeryLazy',
+    init = function()
+      vim.o.timeout = true
+      vim.o.timeoutlen = 300
+    end,
+    config = function()
+      require('which-key').register {
+        ['<leader>c'] = { name = '[C]ode', _ = 'which_key_ignore' },
+        ['<leader>d'] = { name = '[D]ebug and [D]iagnostics', _ = 'which_key_ignore' },
+        ['<leader>g'] = { name = '[G]it and [G]oto', _ = 'which_key_ignore' },
+        ['<leader>h'] = { name = '[H]arpoon', _ = 'which_key_ignore' },
+        ['<leader>r'] = { name = '[R]ename and [R]ust', _ = 'which_key_ignore' },
+        ['<leader>f'] = { name = '[F]ind and [F]ormat', _ = 'which_key_ignore' },
+        ['<leader>t'] = { name = '[T]oggle', _ = 'which_key_ignore' },
+        ['<leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
+        ['<leader>b'] = { name = '[B]lock', _ = 'which_key_ignore' },
+      }
+
+      -- register which-key VISUAL mode
+      -- required for visual <leader>hs (hunk stage) to work
+      require('which-key').register({
+        ['<leader>'] = { name = 'VISUAL <leader>' },
+        ['<leader>b'] = { name = '[B]lock', _ = 'which_key_ignore' },
+        -- ['<leader>h'] = { 'Git [H]unk' },
+      }, { mode = 'v' })
+      require('which-key').setup {}
+    end,
   },
 
   -- Git related plugins
@@ -37,10 +60,6 @@ return {
     },
     config = function(_, opts)
       require('mason').setup(opts)
-      vim.api.nvim_create_user_command('MasonInstallAll', function()
-        vim.cmd('MasonInstall ' .. table.concat(opts.ensure_installed, ' '))
-      end, {})
-      vim.g.mason_binaries_list = opts.ensure_installed
     end,
   },
 
@@ -168,5 +187,6 @@ return {
     opts = {},
   },
 }
+
 
 

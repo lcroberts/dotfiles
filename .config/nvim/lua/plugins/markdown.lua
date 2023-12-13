@@ -1,3 +1,4 @@
+local utils = require 'utils'
 return {
   {
     'tadmccorkle/markdown.nvim',
@@ -15,5 +16,11 @@ return {
       style = 'dark',
     },
     cmd = 'Glow',
+    init = function()
+      utils.load_mappings 'glow'
+    end,
   },
 }
+
+
+

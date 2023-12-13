@@ -1,3 +1,5 @@
+local utils = require 'utils'
+
 local M = {
   {
     'nvim-tree/nvim-tree.lua',
@@ -53,6 +55,7 @@ local M = {
     },
     config = function()
       require 'plugins.configs.telescope'
+      utils.load_mappings 'telescope'
     end,
   },
 
@@ -79,9 +82,13 @@ local M = {
         save_on_ui_close = true,
       },
     },
+    init = function()
+      utils.load_mappings 'harpoon'
+    end,
   },
 }
 
 return M
+
 
 

@@ -1,3 +1,4 @@
+local utils = require 'utils'
 return {
   {
     'simrat39/rust-tools.nvim',
@@ -20,6 +21,7 @@ return {
         sources = { { name = 'crates' } },
       }
       crates.show()
+      utils.load_mappings 'crates'
     end,
   },
   {
@@ -27,3 +29,6 @@ return {
     ft = 'rust',
   },
 }
+
+
+

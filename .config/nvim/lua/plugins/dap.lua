@@ -1,7 +1,10 @@
+local utils = require 'utils'
 return {
   {
     'mfussenegger/nvim-dap',
-    -- Needs lldb package
+    init = function()
+      utils.load_mappings 'dap'
+    end,
   },
   {
     'theHamsta/nvim-dap-virtual-text',
@@ -41,3 +44,5 @@ return {
     end,
   },
 }
+
+

@@ -1,164 +1,228 @@
 -- Lsp keymaps are in lspconfig
--- document existing key chains
-local wk = require 'which-key'
-wk.register {
-  ['<leader>c'] = { name = '[C]ode', _ = 'which_key_ignore' },
-  ['<leader>d'] = { name = '[D]ebug and [D]iagnostics', _ = 'which_key_ignore' },
-  ['<leader>g'] = { name = '[G]it and [G]oto', _ = 'which_key_ignore' },
-  ['<leader>h'] = { name = '[H]arpoon', _ = 'which_key_ignore' },
-  ['<leader>r'] = { name = '[R]ename and [R]ust', _ = 'which_key_ignore' },
-  -- ['<leader>s'] = { name = '[S]earch', _ = 'which_key_ignore' },
-  ['<leader>f'] = { name = '[F]ind and [F]ormat', _ = 'which_key_ignore' },
-  ['<leader>t'] = { name = '[T]oggle', _ = 'which_key_ignore' },
-  ['<leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
-  ['<leader>b'] = { name = '[B]lock', _ = 'which_key_ignore' },
+
+-- This config uses the nvchad mapping configuration style. Here is an example:
+-- opts is an optional parameter
+-- ["keys"] = {"action", "description", opts = {}},
+--
+-- ["<C-n>"] = {"<cmd> NvimTreeToggle <CR>", "Toggle nvimtree"},
+-- ["<leader>ff"] = {"<cmd> Telescope <CR>", "Telescope"},
+
+-- opts can have the props: buffer, silent, noremap, nowait and so on.
+-- All standard key binding opts are supported.
+-- [";"] = { ":", "enter cmdline", opts = { nowait = true } },
+
+-- For a more complex keymap
+-- ["<leader>tt"] = {
+--   function()
+--      require("base46").toggle_transparency()
+--   end,
+--   "toggle transparency",
+-- },
+-- For more information go here: https://nvchad.com/docs/config/mappings
+
+local M = {}
+
+-- general mapping section, not plugin specific. Loaded by calling utils.load_mappings with no args
+M.general = {
+  -- Normal mode
+  n = {
+    -- Vim Tmux navigation
+    ['<C-h>'] = { '<cmd> TmuxNavigateLeft<CR>', 'window left' },
+    ['<C-l>'] = { '<cmd> TmuxNavigateRight<CR>', 'window right' },
+    ['<C-j>'] = { '<cmd> TmuxNavigateDown<CR>', 'window down' },
+    ['<C-k>'] = { '<cmd> TmuxNavigateUp<CR>', 'window up' },
+    ['<leader>fm'] = {
+      function()
+        vim.lsp.buf.format { async = false }
+      end,
+      'LSP Formatting',
+    },
+
+    -- Keymaps for better default experience
+    ['<Space>'] = { '<Nop>', opts = { silent = true } },
+    -- Clear highlights
+    ['<Esc>'] = { '<cmd> noh<cr>', 'Clear highlights' },
+    -- Remap for dealing with word wrap
+    ['k'] = { "v:count == 0 ? 'gk' : 'k'", opts = { expr = true, silent = true } },
+    ['j'] = { "v:count == 0 ? 'gj' : 'j'", opts = { expr = true, silent = true } },
+
+    -- Buffer tabthrough
+    ['<Tab>'] = { '<cmd> bnext<cr>', 'Move to next buffer' },
+    ['<S-Tab>'] = { '<cmd> bprevious<cr>', 'Move to previous buffer' },
+    -- Buffer close
+    ['<leader>x'] = { '<cmd> bdelete<cr>', 'Close current buffer' },
+
+    -- Save for Ctrl+s
+    ['<C-s>'] = { '<cmd> w<cr>', 'Save file' },
+    -- Copy file
+    ['<C-c>'] = { '<cmd> %y+<cr>', 'Copy file contents' },
+
+    -- UFO
+    ['zR'] = { require('ufo').openAllFolds, 'Open all folds' },
+    ['zM'] = { require('ufo').closeAllFolds, 'Close all folds' },
+
+    -- Nvim Tree
+    ['<C-n>'] = { '<cmd> NvimTreeToggle<cr>', 'Toggle filetree' },
+    ['<leader>e'] = { '<cmd> NvimTreeFocus<cr>', 'Focus filetree' },
+
+    -- Undo Tree
+    ['<leader>u'] = { vim.cmd.UndotreeToggle, 'Toggle undo tree' },
+
+    -- Comments
+    ['<leader>/'] = { "<ESC><cmd>lua require('Comment.api').toggle.linewise.current()<CR>", 'Toggle line comment' },
+    ['<leader>b/'] = { "<ESC><cmd>lua require('Comment.api').toggle.blockwise(vim.fn.visualmode())<CR>", 'Toggle block comment' },
+
+    -- Nvterm
+    ['<A-h>'] = { '<cmd>lua require("nvterm.terminal").toggle "horizontal"<cr>', 'Toggle horizontal terminal' },
+    ['<A-v>'] = { '<cmd>lua require("nvterm.terminal").toggle "vertical"<cr>', 'Toggle vertical terminal' },
+    ['<A-i>'] = { '<cmd>lua require("nvterm.terminal").toggle "float"<cr>', 'Toggle floating terminal' },
+
+    -- Vim Fugitive (Git)
+    ['<leader>gs'] = { vim.cmd.Git, 'Open git' },
+
+    -- Diagnostic
+    ['<leader>dp'] = { vim.diagnostic.goto_prev, 'Go to previous diagnostic message' },
+    ['<leader>dn'] = { vim.diagnostic.goto_next, 'Go to next diagnostic message' },
+    ['<leader>df'] = { vim.diagnostic.open_float, 'floating diagnostic message' },
+    ['<leader>dl'] = { vim.diagnostic.setloclist, 'Open diagnostics list' },
+  },
+
+  -- Visual mode
+  v = {
+    ['<Space>'] = { '<Nop>', opts = { silent = true } },
+
+    ['<leader>/'] = { "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>", 'Toggle line comment' },
+    ['<leader>b/'] = { "<ESC><cmd>lua require('Comment.api').toggle.blockwise(vim.fn.visualmode())<CR>", 'Toggle block comment' },
+  },
+
+  -- Insert mode
+  i = {
+    -- Navigate in insert mode
+    ['<C-h>'] = { '<Left>', 'Move left' },
+    ['<C-l>'] = { '<Right>', 'Move right' },
+    ['<C-j>'] = { '<Down>', 'Move down' },
+    ['<C-k>'] = { '<Up>', 'Move up' },
+    ['<C-b>'] = { '<Esc>_i', 'Beginning of line' },
+    ['<C-e>'] = { '<End>', 'Beginning of line' },
+  },
+
+  -- Terminal mode
+  t = {
+    -- Vim Tmux navigation
+    ['<C-h>'] = { '<cmd> TmuxNavigateLeft<CR>', 'window left' },
+    ['<C-l>'] = { '<cmd> TmuxNavigateRight<CR>', 'window right' },
+    ['<C-j>'] = { '<cmd> TmuxNavigateDown<CR>', 'window down' },
+    ['<C-k>'] = { '<cmd> TmuxNavigateUp<CR>', 'window up' },
+
+    -- Nvterm
+    ['<A-h>'] = { '<cmd>lua require("nvterm.terminal").toggle "horizontal"<cr>', 'Toggle horizontal terminal' },
+    ['<A-v>'] = { '<cmd>lua require("nvterm.terminal").toggle "vertical"<cr>', 'Toggle vertical terminal' },
+    ['<A-i>'] = { '<cmd>lua require("nvterm.terminal").toggle "float"<cr>', 'Toggle floating terminal' },
+  },
 }
 
--- register which-key VISUAL mode
--- required for visual <leader>hs (hunk stage) to work
-wk.register({
-  ['<leader>'] = { name = 'VISUAL <leader>' },
-  -- ['<leader>h'] = { 'Git [H]unk' },
-}, { mode = 'v' })
+local harpoon = require 'harpoon'
+-- Harpoon is a new section and must be loaded by specifying a section with utils.load_mappings
+M.harpoon = {
+  plugin = true,
 
--- Keymaps for better default experience
--- See `:help vim.keymap.set()`
-vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
+  n = {
+    ['<leader>1'] = { '<cmd> lua require("harpoon"):list():select(1)<cr>', 'Harpoon' },
+    ['<leader>2'] = { '<cmd> lua require("harpoon"):list():select(2)<cr>', 'Harpoon' },
+    ['<leader>3'] = { '<cmd> lua require("harpoon"):list():select(3)<cr>', 'Harpoon' },
+    ['<leader>4'] = { '<cmd> lua require("harpoon"):list():select(4)<cr>', 'Harpoon' },
+    ['<leader>5'] = { '<cmd> lua require("harpoon"):list():select(5)<cr>', 'Harpoon' },
+    ['<leader>ha'] = {
+      function()
+        harpoon:list():append()
+      end,
+      'Harpoon append',
+    },
+    ['<leader>hl'] = {
+      function()
+        harpoon.ui:toggle_quick_menu(harpoon:list())
+      end,
+      'Harpoon list',
+    },
+  },
+}
 
--- Remap for dealing with word wrap
-vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
-vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+M.glow = {
+  plugin = true,
+  n = {
+    ['<leader>tg'] = { vim.cmd.Glow, 'Toggle glow md preview' },
+  },
+}
 
--- Format
-vim.keymap.set('n', '<leader>fm', function()
-  vim.lsp.buf.format { async = false }
-end, { desc = 'LSP Formatting' })
+M.dap = {
+  plugin = true,
+  n = {
+    ['<leader>db'] = {
+      '<cmd> DapToggleBreakpoint <CR>',
+      'Toggle Breakpoint',
+    },
+    ['<leader>dc'] = {
+      '<cmd> DapContinue <CR>',
+      'Start or continue debugger',
+    },
+    ['<leader>dsu'] = {
+      function()
+        local widgets = require 'dap.ui.widgets'
+        local sidebar = widgets.sidebar(widgets.scopes)
+        sidebar.open()
+      end,
+      'Open debugging sidebar',
+    },
+  },
+}
 
--- Nvim Tree
-vim.keymap.set('n', '<C-n>', '<cmd> NvimTreeToggle<cr>', { desc = 'Toggle filetree' })
-vim.keymap.set('n', '<leader>e', '<cmd> NvimTreeFocus<cr>', { desc = 'Focus filetree' })
+M.crates = {
+  plugin = true,
+  n = {
+    ['<leader>rcu'] = {
+      function()
+        require('crates').upgrade_all_crates()
+      end,
+      'update crates',
+    },
+  },
+}
 
--- Undo Tree
-vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle, { desc = 'Toggle undo tree' })
-
--- Buffer tabthrough
-vim.keymap.set('n', '<Tab>', '<cmd> bnext<cr>', { desc = 'Move to next buffer' })
-vim.keymap.set('n', '<S-Tab>', '<cmd> bprevious<cr>', { desc = 'Move to previous buffer' })
--- Buffer close
-vim.keymap.set('n', '<leader>x', '<cmd> bdelete<cr>', { desc = 'Close current buffer' })
-
--- Save for Ctrl+s
-vim.keymap.set('n', '<C-s>', '<cmd> w<cr>', { desc = 'Save file' })
--- Copy file
-vim.keymap.set('n', '<C-c>', '<cmd> %y+<cr>', { desc = 'Copy file contents' })
-
--- Vim Tmux navigation
-vim.keymap.set('n', '<C-h>', '<cmd> TmuxNavigateLeft<CR>', { desc = 'window left' })
-vim.keymap.set('n', '<C-l>', '<cmd> TmuxNavigateRight<CR>', { desc = 'window right' })
-vim.keymap.set('n', '<C-j>', '<cmd> TmuxNavigateDown<CR>', { desc = 'window down' })
-vim.keymap.set('n', '<C-k>', '<cmd> TmuxNavigateUp<CR>', { desc = 'window up' })
-vim.keymap.set('t', '<C-h>', '<cmd> TmuxNavigateLeft<CR>', { desc = 'window left' })
-vim.keymap.set('t', '<C-l>', '<cmd> TmuxNavigateRight<CR>', { desc = 'window right' })
-vim.keymap.set('t', '<C-j>', '<cmd> TmuxNavigateDown<CR>', { desc = 'window down' })
-vim.keymap.set('t', '<C-k>', '<cmd> TmuxNavigateUp<CR>', { desc = 'window up' })
-
--- Navigate in insert mode
-vim.keymap.set('i', '<C-h>', '<Left>', { desc = 'Move left' })
-vim.keymap.set('i', '<C-l>', '<Right>', { desc = 'Move right' })
-vim.keymap.set('i', '<C-j>', '<Down>', { desc = 'Move down' })
-vim.keymap.set('i', '<C-k>', '<Up>', { desc = 'Move up' })
--- Navigate to beginning and end of lines
-vim.keymap.set('i', '<C-b>', '<Esc>_i', { desc = 'Beginning of line' })
-vim.keymap.set('i', '<C-e>', '<End>', { desc = 'Beginning of line' })
-
--- Clear highlights
-vim.keymap.set('n', '<Esc>', '<cmd> noh<cr>', { desc = 'Clear highlights' })
-
--- Telsecope keybinds
--- See `:help telescope.builtin`
 local function telescope_live_grep_open_files()
   require('telescope.builtin').live_grep {
     grep_open_files = true,
     prompt_title = 'Live Grep in Open Files',
   }
 end
-vim.keymap.set('n', '<leader>fr', require('telescope.builtin').oldfiles, { desc = '[f]ind [r]ecently opened files' })
-vim.keymap.set('n', '<leader>fb', require('telescope.builtin').buffers, { desc = '[f]ind existing [b]uffers' })
-vim.keymap.set('n', '<leader>ff', require('telescope.builtin').find_files, { desc = '[f]ind [f]iles' })
-vim.keymap.set('n', '<leader>ft', telescope_live_grep_open_files, { desc = '[f]ind [t]ext' })
-vim.keymap.set('n', '<leader>fh', require('telescope.builtin').help_tags, { desc = '[f]ind [h]elp page' })
-vim.keymap.set('n', '<leader>fw', require('telescope.builtin').grep_string, { desc = '[f]ind current [w]ord' })
-vim.keymap.set('n', '<leader>fg', require('telescope.builtin').live_grep, { desc = '[f]ind by [g]rep' })
-vim.keymap.set('n', '<leader>fG', ':LiveGrepGitRoot<cr>', { desc = '[f]ind by [G]rep on Git Root' })
-vim.keymap.set('n', '<leader>fd', require('telescope.builtin').diagnostics, { desc = '[f]ind [d]iagnostics' })
-vim.keymap.set('n', '<leader>fr', require('telescope.builtin').resume, { desc = '[f]ind [r]esume' })
-vim.keymap.set('n', '<leader>f/', function()
-  -- You can pass additional configuration to telescope to change theme, layout, etc.
-  require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
-    winblend = 10,
-    previewer = false,
-  })
-end, { desc = '[f]uzzily search [/] in current buffer' })
--- vim.keymap.set('n', '<leader>ss', require('telescope.builtin').builtin, { desc = '[S]earch [S]elect Telescope' })
-vim.keymap.set('n', '<leader>gf', require('telescope.builtin').git_files, { desc = 'Search [G]it [F]iles' })
+M.telescope = {
+  plugin = true,
+  n = {
+    -- See `:help telescope.builtin`
+    ['<leader>fo'] = { require('telescope.builtin').oldfiles, '[f]ind recently [o]pened files' },
+    ['<leader>fb'] = { require('telescope.builtin').buffers, '[f]ind existing [b]uffers' },
+    ['<leader>ff'] = { require('telescope.builtin').find_files, '[f]ind [f]iles' },
+    ['<leader>ft'] = { telescope_live_grep_open_files, '[f]ind [t]ext' },
+    ['<leader>fh'] = { require('telescope.builtin').help_tags, '[f]ind [h]elp page' },
+    ['<leader>fw'] = { require('telescope.builtin').grep_string, '[f]ind current [w]ord' },
+    ['<leader>fg'] = { require('telescope.builtin').live_grep, '[f]ind by [g]rep' },
+    ['<leader>fG'] = { ':LiveGrepGitRoot<cr>', '[f]ind by [G]rep on Git Root' },
+    ['<leader>fd'] = { require('telescope.builtin').diagnostics, '[f]ind [d]iagnostics' },
+    ['<leader>fr'] = { require('telescope.builtin').resume, '[f]ind [r]esume' },
+    ['<leader>f/'] = {
+      function()
+        -- You can pass additional configuration to telescope to change theme, layout, etc.
+        require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
+          winblend = 10,
+          previewer = false,
+        })
+      end,
+      '[f]uzzily search [/] in current buffer',
+    },
+    ['<leader>gf'] = { require('telescope.builtin').git_files, 'Search [G]it [F]iles' },
+  },
+}
 
--- Vim Fugitive (Git)
-vim.keymap.set('n', '<leader>gs', vim.cmd.Git, { desc = 'Open git' })
+return M
 
--- Comment.nvim
-vim.keymap.set('n', '<leader>/', "<ESC><cmd>lua require('Comment.api').toggle.linewise.current()<CR>", { desc = 'Toggle line comment' })
-vim.keymap.set('n', '<leader>b/', "<ESC><cmd>lua require('Comment.api').toggle.blockwise(vim.fn.visualmode())<CR>", { desc = 'Toggle block comment' })
-vim.keymap.set('v', '<leader>/', "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>", { desc = 'Toggle line comment' })
-vim.keymap.set('v', '<leader>b/', "<ESC><cmd>lua require('Comment.api').toggle.blockwise(vim.fn.visualmode())<CR>", { desc = 'Toggle block comment' })
-
--- Nvterm
-vim.keymap.set('n', '<A-h>', '<cmd>lua require("nvterm.terminal").toggle "horizontal"<cr>', { desc = 'Toggle horizontal terminal' })
-vim.keymap.set('t', '<A-h>', '<cmd>lua require("nvterm.terminal").toggle "horizontal"<cr>', { desc = 'Toggle horizontal terminal' })
-vim.keymap.set('n', '<A-v>', '<cmd>lua require("nvterm.terminal").toggle "vertical"<cr>', { desc = 'Toggle vertical terminal' })
-vim.keymap.set('t', '<A-v>', '<cmd>lua require("nvterm.terminal").toggle "vertical"<cr>', { desc = 'Toggle vertical terminal' })
-vim.keymap.set('n', '<A-i>', '<cmd>lua require("nvterm.terminal").toggle "float"<cr>', { desc = 'Toggle floating terminal' })
-vim.keymap.set('t', '<A-i>', '<cmd>lua require("nvterm.terminal").toggle "float"<cr>', { desc = 'Toggle floating terminal' })
-
--- Diagnostic
-vim.keymap.set('n', '<leader>dp', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
-vim.keymap.set('n', '<leader>dn', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
-vim.keymap.set('n', '<leader>df', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
-vim.keymap.set('n', '<leader>dl', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
-
--- DAP
-vim.keymap.set('n', '<leader>db', '<cmd> DapToggleBreakpoint <CR>', { desc = 'Toggle breakpoint' })
-vim.keymap.set('n', '<leader>dc', '<cmd> DapContinue <CR>', { desc = 'DAP continue' })
-vim.keymap.set('n', '<leader>dsu', function()
-  local widgets = require 'dap.ui.widgets'
-  local sidebar = widgets.sidebar(widgets.scopes)
-  sidebar.open()
-end, { desc = 'Open debug sidebar' })
-
--- Rust crates
-vim.keymap.set('n', '<leader>rcu', function()
-  require('crates').upgrade_all_crates()
-end, { desc = 'Upgrade crates' })
-
--- UFO
-vim.keymap.set('n', 'zR', require('ufo').openAllFolds, { desc = 'Open all folds' })
-vim.keymap.set('n', 'zM', require('ufo').closeAllFolds, { desc = 'Close all folds' })
-
--- Harpoon
-vim.keymap.set('n', '<leader>1', '<cmd> lua require("harpoon"):list():select(1)<cr>', { desc = 'Harpoon' })
-vim.keymap.set('n', '<leader>2', '<cmd> lua require("harpoon"):list():select(2)<cr>', { desc = 'Harpoon' })
-vim.keymap.set('n', '<leader>3', '<cmd> lua require("harpoon"):list():select(3)<cr>', { desc = 'Harpoon' })
-vim.keymap.set('n', '<leader>4', '<cmd> lua require("harpoon"):list():select(4)<cr>', { desc = 'Harpoon' })
-vim.keymap.set('n', '<leader>5', '<cmd> lua require("harpoon"):list():select(5)<cr>', { desc = 'Harpoon' })
-
-local harpoon = require 'harpoon'
-vim.keymap.set('n', '<leader>ha', function()
-  harpoon:list():append()
-end, { desc = 'Harpoon append' })
-vim.keymap.set('n', '<leader>hl', function()
-  harpoon.ui:toggle_quick_menu(harpoon:list())
-end, { desc = 'Harpoon list' })
-
--- Glow previewer
-vim.keymap.set('n', '<leader>tg', vim.cmd.Glow, { desc = 'Toggle glow md preview' })
 
 

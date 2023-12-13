@@ -131,7 +131,9 @@ require('nvim-tree').setup {
 
 -- Create mappings
 -- Lsp keymaps are in lspconfig
-require 'mappings'
+require('utils').load_mappings()
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
+
+
