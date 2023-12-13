@@ -30,7 +30,8 @@ vim.o.clipboard = 'unnamedplus'
 
 -- Enable break indent
 vim.o.breakindent = true
-
+-- Visual indicators
+vim.o.colorcolumn = '80'
 -- Save undo history
 vim.o.undofile = true
 
