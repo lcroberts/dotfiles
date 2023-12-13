@@ -222,6 +222,70 @@ M.telescope = {
   },
 }
 
+M.lspconfig = {
+  plugin = true,
+  n = {
+    ['<leader>rn'] = {
+      function()
+        vim.lsp.buf.rename()
+      end,
+      '[R]e[n]ame',
+    },
+    ['<leader>ca'] = {
+      function()
+        vim.lsp.buf.code_action()
+      end,
+      '[C]ode [A]ction',
+    },
+    ['gd'] = { require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition' },
+    ['gr'] = { require('telescope.builtin').lsp_references, '[G]oto [R]eferences' },
+    ['gi'] = { require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation' },
+    ['<leader>D'] = { require('telescope.builtin').lsp_type_definitions, 'Type [D]efinition' },
+    ['<leader>ds'] = { require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols' },
+    ['<leader>ws'] = { require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols' },
+
+    -- See `:help K` for why this keymap
+    ['K'] = {
+      function()
+        vim.lsp.buf.hover()
+      end,
+      'Hover Documentation',
+    },
+    ['<C-k>'] = {
+      function()
+        vim.lsp.buf.signature_help()
+      end,
+      'Signature Documentation',
+    },
+
+    -- Lesser used LSP functionality
+    ['gD'] = {
+      function()
+        vim.lsp.buf.declaration()
+      end,
+      '[G]oto [D]eclaration',
+    },
+    ['<leader>wa'] = {
+      function()
+        vim.lsp.buf.add_workspace_folder()
+      end,
+      '[W]orkspace [A]dd Folder',
+    },
+    ['<leader>wr'] = {
+      function()
+        vim.lsp.buf.remove_workspace_folder()
+      end,
+      '[W]orkspace [R]emove Folder',
+    },
+    ['<leader>wl'] = {
+      function()
+        print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+      end,
+      '[W]orkspace [L]ist Folders',
+    },
+  },
+}
+
 return M
 
 

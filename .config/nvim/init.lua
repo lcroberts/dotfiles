@@ -4,6 +4,9 @@
 -- [[ Setting options ]]
 -- See `:help vim.o`
 
+vim.opt.cursorline = true
+vim.opt.whichwrap:append '<>[]hl'
+
 -- For nvim-tree
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
@@ -37,6 +40,7 @@ vim.o.smartcase = true
 
 -- Keep signcolumn on by default
 vim.wo.signcolumn = 'yes'
+vim.opt.splitright = true
 
 -- Decrease update time
 vim.o.updatetime = 250
@@ -61,6 +65,9 @@ vim.api.nvim_create_autocmd('FileType', {
 --  NOTE: Must happen before plugins are required (otherwise wrong leader will be used)
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
+--
+-- disable nvim intro
+vim.opt.shortmess:append 'sI'
 
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
@@ -135,5 +142,15 @@ require('utils').load_mappings()
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
+
+local autocmd = vim.api.nvim_create_autocmd
+
+-- dont list quickfix buffers
+autocmd('FileType', {
+  pattern = 'qf',
+  callback = function()
+    vim.opt_local.buflisted = false
+  end,
+})
 
 
