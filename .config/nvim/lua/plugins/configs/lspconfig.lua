@@ -147,4 +147,4 @@ lspconfig.lua_ls.setup {
   capabilities = capabilities,
 }
 
-return M
+
