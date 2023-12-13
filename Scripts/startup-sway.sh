@@ -7,8 +7,8 @@ extra_display=DP-3
 steam 2>&1 &
 # discord 2>&1 &
 flatpak run com.discordapp.Discord 2>&1 &
-# flatpak run com.spotify.Client 2>&1 &
-spotify 2>&1 &
+# spotify 2>&1 &
+flatpak run com.spotify.Client 2>&1 &
 flatpak run org.mozilla.firefox 2>&1 &
 flatpak run org.keepassxc.KeePassXC 2>&1 &
 kitty tmux new-session -As main 2>&1 &
@@ -26,3 +26,9 @@ swaymsg '[workspace=5]' move workspace to output $extra_display
 swaymsg '[workspace=10]' move workspace to output $main_display
 
 swaymsg reload
+
+
+
+
+
+
