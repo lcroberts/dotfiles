@@ -27,17 +27,17 @@ set $right l
 # Kanshi handles display management
 exec_always pkill kanshi; exec kanshi
 # Background
-exec_always pkill swaybg; swaybg -i ~/Pictures/Wallpapers/currentbg
+exec_always pkill swaybg; swaybg -i $HOME/Pictures/Wallpapers/currentbg
 
-exec_always autotiling
+exec autotiling
 
 exec ~/Scripts/startup-sway.sh
-exec swayidle -w before-sleep "~/Scripts/lock.sh"
+exec swayidle -w before-sleep "$HOME/Scripts/lock.sh"
 exec fcitx5
 exec nm-applet
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec ~/.screenlayout/test.sh
-exec_always pkill waybar; waybar -c ~/.config/waybar.sway/config
+exec_always pkill waybar; waybar -c $HOME/.config/waybar.sway/config
 
 # Move minimized windows into Scratchpad (enable|disable)
 # scratchpad_minimize disable
