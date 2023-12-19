@@ -1,7 +1,3 @@
-# Default config for sway
-#
-# Copy this to ~/.config/sway/config and edit it to your liking.
-#
 # Read `man 5 sway` for a complete reference.
 
 # Default sway scripts
@@ -29,6 +25,7 @@ exec_always pkill kanshi; exec kanshi
 # Background
 exec_always pkill swaybg; swaybg -i $HOME/Pictures/Wallpapers/currentbg
 
+# Sway autotiling extension
 exec autotiling
 
 exec ~/Scripts/startup-sway.sh
@@ -38,9 +35,6 @@ exec nm-applet
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec ~/.screenlayout/test.sh
 exec_always pkill waybar; waybar -c $HOME/.config/waybar/config.sway
-
-# Move minimized windows into Scratchpad (enable|disable)
-# scratchpad_minimize disable
 
 # Enable numlock on start
 input type:keyboard xkb_numlock enabled
