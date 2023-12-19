@@ -37,7 +37,7 @@ exec fcitx5
 exec nm-applet
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec ~/.screenlayout/test.sh
-exec_always pkill waybar; waybar -c $HOME/.config/waybar.sway/config
+exec_always pkill waybar; waybar -c $HOME/.config/waybar/config.sway
 
 # Move minimized windows into Scratchpad (enable|disable)
 # scratchpad_minimize disable

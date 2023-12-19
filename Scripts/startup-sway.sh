@@ -9,8 +9,6 @@ flatpak run com.spotify.Client 2>&1 &
 flatpak run org.mozilla.firefox 2>&1 &
 flatpak run org.keepassxc.KeePassXC 2>&1 &
 kitty tmux new-session -As main 2>&1 &
-pkill waybar; waybar -c "$HOME/.config/waybar.sway/config" 2>&1 &
-pkill swaybg; swaybg -i "$HOME"/Pictures/Wallpapers/currentbg 2>&1 &
 
 sleep 2
 swaymsg reload
