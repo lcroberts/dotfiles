@@ -38,15 +38,20 @@ assign [app_id=".*(KeePassXC|keepassxc).*"] $ws5
 assign [class="^(Steam|steam)$"] $ws10
 for_window [class="^(Steam|steam)$"] move to $ws10
 
-for_window [class="^(steam_app)"] move to $ws9
-for_window [class="^(steam_app)"] fullscreen enable
-for_window [app_id="^(steam_app)"] move to $ws9
-for_window [app_id="^(steam_app)"] fullscreen enable
-
-for_window [class="^(gamescope)"] move to $ws9
-for_window [class="^(gamescope)"] fullscreen enable
-for_window [app_id="^(gamescope)"] move to $ws9
-for_window [app_id="^(gamescope)"] fullscreen enable
-
 assign [class="^(lutris|Lutris)$"] $ws10
 for_window [class="^(lutris|Lutris)$"] move to $ws10
+
+for_window [class=".*steam_app.*"] move to workspace 9, workspace 9
+for_window [instance=".*steam_app.*"] move to workspace 9, workspace 9
+
+for_window [class=".*gamescope.*"] move to workspace 9, workspace 9
+for_window [instance=".*gamescope.*"] move to workspace 9, workspace 9
+
+# default floating
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="bubble"] floating enable
+for_window [window_role="task_dialog"] floating enable
+for_window [window_role="Preferences"] floating enable
+for_window [window_type="dialog"] floating enable
+for_window [window_type="menu"] floating enable
+for_window [instance="update_installer"] floating enable
