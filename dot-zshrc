@@ -68,7 +68,7 @@ zstyle ':omz:update' mode auto      # update automatically without asking
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git autojump)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -104,11 +104,27 @@ alias l="eza $eza_modifiers"
 alias ls="eza $eza_modifiers -lhg"
 alias ll="eza $eza_modifiers -lbhmag"
 alias la="eza $eza_modifiers -a"
-# alias ll="eza $eza_modifiers -a"
-# alias la="eza $eza_modifiers -lbhHigmuSa --color-scale"
 alias lt="eza $eza_modifiers --tree"
 alias llt="eza $eza_modifiers --tree -a"
 alias lx="eza $eza_modifiers -lbhHgmUa"
+
+# Movement aliases
+alias -- -='cd -'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+alias ......='cd ../../../../..'
+alias .......='cd ../../../../../..'
+alias ........='cd ../../../../../../..'
+alias .........='cd ../../../../../../../..'
+alias ..........='cd ../../../../../../../../..'
+alias ...........='cd ../../../../../../../../../..'
+alias ............='cd ../../../../../../../../../../..'
+alias .............='cd ../../../../../../../../../../../..'
+alias ..............='cd ../../../../../../../../../../../../..'
+alias ...............='cd ../../../../../../../../../../../../../..'
+alias ................='cd ../../../../../../../../../../../../../../..'
 
 # Vi keybinds
 bindkey -v
@@ -147,6 +163,3 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=$HOME/.local/bin:$HOME/Scripts:$PATH
 export PATH=$HOME/.cargo/bin:$PATH
 . "$HOME/.cargo/env"
-
-
-
