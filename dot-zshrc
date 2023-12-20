@@ -68,7 +68,7 @@ zstyle ':omz:update' mode auto      # update automatically without asking
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git autojump)
+plugins=(git autojump copypath)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -163,3 +163,28 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=$HOME/.local/bin:$HOME/Scripts:$PATH
 export PATH=$HOME/.cargo/bin:$PATH
 . "$HOME/.cargo/env"
+
+# Navigate to git project root
+r () {
+    cd "$(git rev-parse --show-toplevel 2>/dev/null)"
+}
+
+# Jump to git project under dir
+jj () {
+    cd "${1:-.}/$(find . -maxdepth 5 -type d -name .git | sed 's|/.git$||' | fzf --preview 'tree -L 2 ./{}')"
+}
+
+tmp() {
+    r="/tmp/workspaces/$(xxd -l3 -ps /dev/urandom)"
+    mkdir -p "$r"
+    echo "$r"
+}
+
+showme () {
+    [ -z "$1" ] && echo "Pass file to show" && return 1
+    tmp="/tmp/workspaces/$(xxd -l3 -ps /dev/urandom)"
+    mkdir -p "$tmp"
+    7z x "$1" -o"$tmp"
+    cd "$tmp" || return 1
+    clear && echo && echo "$1" && ls
+}
