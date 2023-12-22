@@ -80,23 +80,14 @@ source $ZSH/oh-my-zsh.sh
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+if [[ -n $SSH_CONNECTION ]]; then
+    export EDITOR='vim'
+else
+    export EDITOR='nvim'
+fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # eza aliases
 eza_modifiers="--git --icons --color-scale --group-directories-first"
@@ -129,9 +120,6 @@ alias ................='cd ../../../../../../../../../../../../../../..'
 # Vi keybinds
 bindkey -v
 
-# kitty ssh alias - not needed in tmux
-# alias ssh="kitty +kitten ssh"
-
 # rm interactive mode alias
 alias rm="rm -I"
 
@@ -142,9 +130,6 @@ alias tar="tar --use-compress-program=pigz"
 export GTK_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
 export QT_IM_MODULE=ibus
-
-# Fastfetch on new shell
-# fastfetch
 
 # History search
 bindkey '^R' history-incremental-search-backward
@@ -158,11 +143,9 @@ alias upgrade="paru -Syu"
 # Alias to enter generic tmux session
 alias tenter="tmux new -As main"
 
-# Path Additions
-export PATH=$HOME/bin:/usr/local/bin:$PATH
-export PATH=$HOME/.local/bin:$HOME/Scripts:$PATH
-export PATH=$HOME/.cargo/bin:$PATH
-. "$HOME/.cargo/env"
+# Neovim alias
+alias vim='nvim'
+alias vi='nvim'
 
 # Navigate to git project root
 r () {
@@ -178,6 +161,7 @@ tmp() {
     r="/tmp/workspaces/$(xxd -l3 -ps /dev/urandom)"
     mkdir -p "$r"
     echo "$r"
+    cd "$r"
 }
 
 showme () {
@@ -188,3 +172,9 @@ showme () {
     cd "$tmp" || return 1
     clear && echo && echo "$1" && ls
 }
+
+# Path Additions
+export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/.local/bin:$HOME/Scripts:$PATH
+export PATH=$HOME/.cargo/bin:$PATH
+. "$HOME/.cargo/env"
