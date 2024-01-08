@@ -5,6 +5,8 @@ include /etc/sway/config.d/*
 include keybinds
 include appearance
 include behavior
+# Applies all generated settings
+include ~/.config/sway/.generated_settings/*.conf
 exec "export SWAYSOCK=/run/user/$(id -u)/sway-ipc.$(id -u).$(pgrep -x sway).sock"
 
 
