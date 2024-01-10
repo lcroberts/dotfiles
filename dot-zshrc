@@ -157,10 +157,19 @@ jj () {
     cd "${1:-.}/$(find . -maxdepth 5 -type d -name .git | sed 's|/.git$||' | fzf --preview 'tree -L 2 ./{}')"
 }
 
-# List git repos under dir
-git-list() {
-    # cd "${1:-.}/$(find . -maxdepth 5 -type d -name .git | sed 's|/.git$||' | fzf --preview 'tree -L 2 ./{}')"
-    find . -maxdepth 5  -type d -name .git | sed 's|/.git$||'
+# Pull all git repos in subdirectories
+pull-all() {
+    Blue='\033[0;34m' # Blue
+    Green='\033[0;32m' # Green
+    NC='\033[0m' # No Color
+    for dir in $(find . -maxdepth 5  -type d -name .git | sed 's|/.git$||')
+    do
+        cd $dir
+        echo "${Blue}Entered $(pwd)${NC}"
+        git pull
+        echo "${Green}Finished pull for repo in $dir${NC}"
+        cd -
+    done
 }
 
 tmp() {
