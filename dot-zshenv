@@ -11,4 +11,5 @@ export MANGOHUD=1
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=$HOME/.local/bin:$HOME/Scripts:$PATH
 export PATH=$HOME/.cargo/bin:$PATH
+export PATH=$GOPATH/bin:$PATH
 . "$HOME/.cargo/env"
