@@ -188,6 +188,8 @@ showme () {
     clear && echo && echo "$1" && ls
 }
 
+export GOPATH=$HOME/go
+
 # Path Additions
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=$HOME/.local/bin:$HOME/Scripts:$PATH
