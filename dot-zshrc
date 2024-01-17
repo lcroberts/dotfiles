@@ -143,6 +143,9 @@ alias upgrade="paru -Syu"
 # Alias to enter generic tmux session
 alias tenter="tmux new -As main"
 
+# Hibernate alias
+alias hibernate="systemctl hibernate"
+
 # Neovim alias
 alias vim='nvim'
 alias vi='nvim'
