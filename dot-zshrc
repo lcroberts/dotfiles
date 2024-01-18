@@ -148,7 +148,6 @@ alias hibernate="systemctl hibernate"
 
 # Neovim alias
 alias vim='nvim'
-alias vi='nvim'
 
 # Navigate to git project root
 r () {
