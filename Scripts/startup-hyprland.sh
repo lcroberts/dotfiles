@@ -7,6 +7,7 @@ keepassxc 2>&1 &
 sleep 5
 
 onedrivegui 2>&1 &
+flatpak run com.protonvpn.www 2>&1 &
 
 sleep 20
 
