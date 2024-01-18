@@ -27,9 +27,9 @@
         "battery",
         //"custom/PBPbattery",
         // "backlight#icon",
-        // "backlight#value",
+        "backlight#value",
         "pulseaudio",
-    "pulseaudio#microphone",
+        "pulseaudio#microphone",
     ],
 
     // Modules
@@ -196,7 +196,7 @@
     },
 
     "backlight#value" :{
-         "format": "{percent}%",
+         "format": " {percent}%",
          "on-scroll-down": "brightnessctl -c backlight set 1%-",
          "on-scroll-up": "brightnessctl -c backlight set +1%"
     },
