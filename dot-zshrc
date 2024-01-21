@@ -141,7 +141,7 @@ alias zsource="source ~/.zshrc"
 alias upgrade="paru -Syu"
 
 # Alias to enter generic tmux session
-alias tenter="tmux new -As main"
+alias tmux="tmux new -As main"
 
 # Neovim alias
 alias vim='nvim'
