@@ -68,9 +68,9 @@ zstyle ':omz:update' mode auto      # update automatically without asking
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git autojump copypath direnv)
-
+plugins=(git autojump copypath direnv zsh-autosuggestions)
 source $ZSH/oh-my-zsh.sh
+
 
 # User configuration
 
@@ -119,6 +119,9 @@ alias ................='cd ../../../../../../../../../../../../../../..'
 
 # Vi keybinds
 bindkey -v
+#
+# zsh-autosuggest keybinds
+bindkey '^N' autosuggest-accept
 
 # rm interactive mode alias
 alias rm="rm -I"
