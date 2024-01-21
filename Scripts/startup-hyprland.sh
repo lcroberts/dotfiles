@@ -3,7 +3,8 @@
 
 kitty tmux new -As main 2>&1 &
 # flatpak run org.mozilla.firefox 2>&1 &
-firefox 2>&1 &
+# firefox 2>&1 &
+floorp 2>&1 &
 # flatpak run org.keepassxc.KeePassXC 2>&1 &
 keepassxc 2>&1 &
 flatpak run com.discordapp.Discord 2>&1 &
