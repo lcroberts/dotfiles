@@ -141,7 +141,7 @@ alias zsource="source ~/.zshrc"
 alias upgrade="paru -Syu"
 
 # Alias to enter generic tmux session
-alias tmux="tmux new -As main"
+alias tenter="tmux new -As main"
 
 # Hibernate alias
 alias hibernate="systemctl hibernate"
