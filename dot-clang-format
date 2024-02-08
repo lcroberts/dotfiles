@@ -1,3 +1,2 @@
 ﻿IndentWidth: "4"
-AccessModifierOffset: 0
-IndentAccessModifiers: true
+AccessModifierOffset: -4
