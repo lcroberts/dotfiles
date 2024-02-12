@@ -3,3 +3,4 @@ file-backups/
 **/tmux/plugins/*
 **/dot-config/nvim/
 **/lazy-lock.json
+**/cached_layouts
