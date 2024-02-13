@@ -20,6 +20,8 @@ files=(
     ".config/tmux"
     ".config/waybar"
     ".config/wofi"
+    ".config/starship.toml"
+    ".config/fish"
     ".local/share/fcitx5/themes"
 )
 
@@ -33,6 +35,3 @@ done
 stow . --dotfiles -t "$HOME"/
 
 sudo ln -sf "$HOME"/Scripts /usr/local/bin/Scripts
-
-
-
