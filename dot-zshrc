@@ -157,11 +157,6 @@ r () {
     cd "$(git rev-parse --show-toplevel 2>/dev/null)"
 }
 
-# Jump to git project under dir
-jj () {
-    cd "${1:-.}/$(find . -maxdepth 5 -type d -name .git | sed 's|/.git$||' | fzf --preview 'tree -L 2 ./{}')"
-}
-
 # Pull all git repos in subdirectories
 pull-all() {
     Blue='\033[0;34m' # Blue
