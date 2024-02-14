@@ -1,4 +1,4 @@
-function showme
+function showme --description "Unzip provided archive into tmp directory"
     if test -z $argv
         echo "Pass file to show"
         return 1

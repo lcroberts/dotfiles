@@ -1,4 +1,4 @@
-function pullall
+function pullall --description "Pull git repos within a subdirectory"
     for dir in $(find . -maxdepth 5  -type d -name .git | sed 's|/.git$||')
         cd $dir
         set_color blue
