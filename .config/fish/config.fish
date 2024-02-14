@@ -3,4 +3,5 @@ if status is-interactive
     fish_vi_key_bindings
     starship init fish | source
     bind -M insert \cn accept-autosuggestion
+    bind -M insert \cr history-pager
 end
