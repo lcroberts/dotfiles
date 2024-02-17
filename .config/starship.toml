@@ -1,7 +1,7 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
 format = """
-$all${custom.direnv}
+$all
 ${custom.date}$os$shell$character
 """
 
