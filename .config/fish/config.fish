@@ -44,6 +44,5 @@ if status is-interactive
     fish_vi_key_bindings
     bind -M insert \cn accept-autosuggestion
     direnv hook fish | source
-    set -g direnv_fish_mode eval_on_arrow
     starship init fish | source
 end

@@ -32,9 +32,6 @@ truncation_length = 8
 truncation_symbol = ".../"
 style = 'cyan'
 
-[direnv]
-disabled = false
-
 [shell]
 disabled = false
 fish_indicator = "[󰈺](green)" # Use nerd font symbols
