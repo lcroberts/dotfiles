@@ -36,7 +36,7 @@ style = 'cyan'
 disabled = false
 fish_indicator = "[󰈺](green)" # Use nerd font symbols
 bash_indicator = "[](green)"
-zsh_indicator = "[󰬇](green)"
+zsh_indicator = "[󰞷](green)"
 
 [os]
 disabled = false
