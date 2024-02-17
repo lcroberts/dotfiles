@@ -44,5 +44,6 @@ if status is-interactive
         echo "$r"
         cd "$r"
     end
+    direnv hook fish | source
     starship init fish | source
 end

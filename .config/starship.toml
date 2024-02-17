@@ -1,7 +1,7 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
 format = """
-$all
+$all${custom.direnv}
 ${custom.date}$os$shell$character
 """
 
@@ -31,9 +31,6 @@ style = 'magenta'
 truncation_length = 8
 truncation_symbol = ".../"
 style = 'cyan'
-
-[direnv]
-disabled = false
 
 [shell]
 disabled = false
