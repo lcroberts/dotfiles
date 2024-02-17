@@ -2,7 +2,7 @@
 
 format = """
 $all
-$time$os$shell$character
+${custom.date}$os$shell$character
 """
 
 add_newline = false
@@ -53,10 +53,10 @@ disabled = true
 [character]
 error_symbol = '[✗](bold red) '
 
-[time]
-disabled = false
-format = "[$time ]($style)"
-style = 'magenta'
-
 [fill]
 symbol = " "
+
+[custom.date]
+command = 'date +%a" "%b" "%d" "%H:%M:%S'
+when = true
+style = 'magenta'
