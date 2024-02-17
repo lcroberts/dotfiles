@@ -1,5 +1,10 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
+format = """
+$all
+$time$os$shell$character
+"""
+
 add_newline = false
 
 [username]
@@ -7,3 +12,35 @@ show_always = true
 
 [hostname]
 ssh_only = false
+
+[directory]
+truncation_length = 8
+truncation_symbol = ".../"
+
+[direnv]
+disabled = false
+
+[shell]
+disabled = false
+fish_indicator = "[󰈺](green)" # Use nerd font symbols
+bash_indicator = "[](green)"
+zsh_indicator = "[󰬇](green)"
+
+[os]
+disabled = false
+
+symbols.Arch = "[󰣇](blue) "
+symbols.EndeavourOS = "[󰣇](blue) "
+
+[line_break]
+disabled = true
+
+[character]
+error_symbol = '[✗](bold red) '
+
+[time]
+disabled = false
+format = "[$time ]($style)"
+
+[fill]
+symbol = " "
