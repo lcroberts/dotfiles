@@ -20,6 +20,10 @@ alias lt="eza $eza_modifiers --tree"
 alias llt="eza $eza_modifiers --tree -a"
 alias lx="eza $eza_modifiers -lbhHgmUa"
 
+# git aliases
+alias gs="git status"
+alias gl="git log"
+
 # Movement aliases
 alias ..='cd ..'
 alias ...='cd ../..'
@@ -37,6 +41,9 @@ alias ..............='cd ../../../../../../../../../../../../..'
 alias ...............='cd ../../../../../../../../../../../../../..'
 alias ................='cd ../../../../../../../../../../../../../../..'
 
+function take --wraps mkdir --description 'Make directory and enter'
+    mkdir -p $argv && cd $argv
+end
 
 function j --wraps autojump --description 'cd autojump'
     cd $(autojump $argv)
@@ -80,7 +87,7 @@ function tmp --description "Make a temporary workspace"
 end
 
 function sd
-    set dirr $(fd $argv | fzf-tmux -p 70%,75% --preview " [ -f {} ] && bat -f {} || eza -lah --color=always --tree {}")
-    [ -f $dirr ] && nvim $dirr && return
+    set dirr $(find $argv | fzf-tmux -p 70%,75% --preview " [ -f {} ] && bat -f {} || eza -lah --color=always --tree {}")
     [ -d $dirr ] && cd $dirr && return
+    [ -f $dirr ] && nvim $dirr && return
 end
