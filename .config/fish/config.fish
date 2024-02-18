@@ -44,6 +44,12 @@ if status is-interactive
         echo "$r"
         cd "$r"
     end
+
+    function sd
+        set dirr $(fd $argv | fzf-tmux -p 70%,75% --preview " [ -f {} ] && bat -f {} || eza -lah --color=always --tree {}")
+        [ -f $dirr ] && nvim $dirr && return
+        [ -d $dirr ] && cd $dirr && return
+    end
     direnv hook fish | source
     starship init fish | source
 end
