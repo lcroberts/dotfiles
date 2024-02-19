@@ -1,12 +1,16 @@
-alias vim='nvim'
+abbr vim nvim
 # Archlinux update
-alias upgrade="paru -Syu"
+abbr upgrade paru -Syu
 # Alias to enter generic tmux session
-alias tenter="tmux new -As main"
+abbr tenter tmux new -As main
 # Hibernate alias
-alias hibernate="systemctl hibernate"
+abbr hibernate systemctl hibernate
 # rm interactive mode alias
-alias rm="rm -I"
+abbr rm rm -I
+# git aliases
+abbr gs git status
+abbr gl git log
+
 # tar multithreading
 alias tar="tar --use-compress-program=pigz"
 
@@ -20,26 +24,23 @@ alias lt="eza $eza_modifiers --tree"
 alias llt="eza $eza_modifiers --tree -a"
 alias lx="eza $eza_modifiers -lbhHgmUa"
 
-# git aliases
-alias gs="git status"
-alias gl="git log"
-
 # Movement aliases
-alias ..='cd ..'
-alias ...='cd ../..'
-alias ....='cd ../../..'
-alias .....='cd ../../../..'
-alias ......='cd ../../../../..'
-alias .......='cd ../../../../../..'
-alias ........='cd ../../../../../../..'
-alias .........='cd ../../../../../../../..'
-alias ..........='cd ../../../../../../../../..'
-alias ...........='cd ../../../../../../../../../..'
-alias ............='cd ../../../../../../../../../../..'
-alias .............='cd ../../../../../../../../../../../..'
-alias ..............='cd ../../../../../../../../../../../../..'
-alias ...............='cd ../../../../../../../../../../../../../..'
-alias ................='cd ../../../../../../../../../../../../../../..'
+abbr - cd -
+abbr .. cd ..
+abbr ... cd ../..
+abbr .... cd ../../..
+abbr ..... cd ../../../..
+abbr ...... cd ../../../../..
+abbr ....... cd ../../../../../..
+abbr ........ cd ../../../../../../..
+abbr ......... cd ../../../../../../../..
+abbr .......... cd ../../../../../../../../..
+abbr ........... cd ../../../../../../../../../..
+abbr ............ cd ../../../../../../../../../../..
+abbr ............. cd ../../../../../../../../../../../..
+abbr .............. cd ../../../../../../../../../../../../..
+abbr ............... cd ../../../../../../../../../../../../../..
+abbr ................ cd ../../../../../../../../../../../../../../..
 
 function take --wraps mkdir --description 'Make directory and enter'
     mkdir -p $argv && cd $argv

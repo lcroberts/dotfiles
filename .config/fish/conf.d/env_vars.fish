@@ -8,7 +8,9 @@ set -gx PATH $PATH $GOPATH/bin
 
 set -gx MANGOHUD 1
 
-set GTK_IM_MODULE 'fcitx'
-set QT_IM_MODULE 'fcitx'
-set SDL_IM_MODULE 'fcitx'
-set XMODIFIERS '@im=fcitx'
+set -gx GTK_IM_MODULE 'fcitx'
+set -gx QT_IM_MODULE 'fcitx'
+set -gx SDL_IM_MODULE 'fcitx'
+set -gx XMODIFIERS '@im=fcitx'
+
+set -gx VISUAL "nvim"
