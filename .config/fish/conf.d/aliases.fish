@@ -10,6 +10,9 @@ abbr rm rm -I
 # git aliases
 abbr gs git status
 abbr gl git log
+abbr ga git add
+abbr gp git pull
+abbr gc git commit
 
 # tar multithreading
 alias tar="tar --use-compress-program=pigz"
