@@ -5,13 +5,13 @@ function __fish_list_current_token -d "List contents of token under the cursor i
     set -l val (commandline -t | string replace -r '^~' "$HOME")
     printf "\n"
     if test -d $val
-        la $val
+        l $val
     else
         set -l dir (dirname -- $val)
         if test $dir != . -a -d $dir
-            la $dir
+            l $dir
         else
-            la
+            l
         end
     end
 
