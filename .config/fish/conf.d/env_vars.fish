@@ -14,3 +14,4 @@ set -gx SDL_IM_MODULE 'fcitx'
 set -gx XMODIFIERS '@im=fcitx'
 
 set -gx VISUAL "nvim"
+set -gx BROWSER "floorp"
