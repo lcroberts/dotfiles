@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 ~/.screenlayout/test.sh 2>&1 &
 
 kitty tmux new -As main 2>&1 &

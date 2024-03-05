@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Modified versions of a script found in ThePrimagen's dots
 if [[ $# -eq 1 ]]; then # Switch to session name if name is provided

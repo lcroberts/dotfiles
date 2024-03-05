@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 kanshi 2>&1 &
 
 # discord 2>&1 &
