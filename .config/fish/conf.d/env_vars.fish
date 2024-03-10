@@ -15,3 +15,5 @@ set -gx XMODIFIERS '@im=fcitx'
 
 set -gx VISUAL "nvim"
 set -gx BROWSER "floorp"
+
+set -gx QT_QPA_PLATFORMTHEME "qt6ct"
