@@ -125,6 +125,8 @@ PACKAGES=(
 	"make"
 	"ripgrep"
 	"rustup"
+	"valgrind"
+	"gdb"
 )
 
 install() {
