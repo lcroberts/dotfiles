@@ -35,7 +35,7 @@ sudo pacman -Syu --noconfirm
 echo "Ranking mirrors"
 sudo pacman -S --noconfirm reflector
 sudo cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
-sudo reflector --latest 150 --sort rate --save /etc/pacman.d/mirrorlist
+sudo reflector --latest 50 --sort rate --save /etc/pacman.d/mirrorlist
 sudo pacman -Syu --noconfirm
 
 # Install paru
