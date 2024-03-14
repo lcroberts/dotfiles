@@ -8,42 +8,42 @@
 
 # Set up time and ntp
 ln -sf /usr/share/zoneinfo/America/New_York /etc/localtime
-echo "NTP=0.arch.pool.ntp.org 1.arch.pool.ntp.org 2.arch.pool.ntp.org 3.arch.pool.ntp.org" | sudo tee -a /etc/systemd/timesyncd.conf
-echo "FallbackNTP=0.pool.ntp.org 1.pool.ntp.org 0.fr.pool.ntp.org" | sudo tee -a /etc/systemd/timesyncd.conf
-sudo systemctl enable --now systemd-timesyncd.service
-sudo timedatectl set-ntp true
+echo "NTP=0.arch.pool.ntp.org 1.arch.pool.ntp.org 2.arch.pool.ntp.org 3.arch.pool.ntp.org" | tee -a /etc/systemd/timesyncd.conf
+echo "FallbackNTP=0.pool.ntp.org 1.pool.ntp.org 0.fr.pool.ntp.org" | tee -a /etc/systemd/timesyncd.conf
+systemctl enable --now systemd-timesyncd.service
+timedatectl set-ntp true
 
 # Set up locale information
-sudo sed -i 's/#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/g' /etc/locale.gen
-echo "LANG=en_US.UTF-8" | sudo tee /etc/locale.conf
-sudo locale-gen
+sed -i 's/#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/g' /etc/locale.gen
+echo "LANG=en_US.UTF-8" | tee /etc/locale.conf
+locale-gen
 
 # Set hostname
-echo "notascam" | sudo tee /etc/hostname
+echo "notascam" | tee /etc/hostname
 
 # Enable parallel downloads
 echo "Enabling parallel downloads"
-sudo sed -i 's/#ParallelDownloads = 5/ParallelDownloads = 5/g'
-sudo sed -i 's/ParallelDownloads = 5/ParallelDownloads = 10/g'
+sed -i 's/#ParallelDownloads = 5/ParallelDownloads = 5/g'
+sed -i 's/ParallelDownloads = 5/ParallelDownloads = 10/g'
 
 # Enable multilib
-echo "[multilib]" | sudo tee -a /etc/pacman.conf
-echo "Include = /etc/pacman.d/mirrorlist" | sudo tee -a /etc/pacman.conf
-sudo pacman -Syu --noconfirm
+echo "[multilib]" | tee -a /etc/pacman.conf
+echo "Include = /etc/pacman.d/mirrorlist" | tee -a /etc/pacman.conf
+pacman -Syu --noconfirm
 
 # Ranking mirrors
 echo "Ranking mirrors"
-sudo pacman -S --noconfirm reflector
-sudo cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
-sudo reflector --latest 50 --sort rate --save /etc/pacman.d/mirrorlist
-sudo pacman -Syu --noconfirm
+pacman -S --noconfirm reflector
+cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
+reflector --latest 50 --sort rate --save /etc/pacman.d/mirrorlist
+pacman -Syu --noconfirm
 
 # Install paru
 echo "Installing git"
-sudo pacman -S --noconfirm git
+pacman -S --noconfirm git
 if [ ! -f /sbin/paru ]; then
 	echo "Installing paru"
-	sudo pacman -S --needed base-devel
+	pacman -S --needed base-devel
 	git clone https://aur.archlinux.org/paru.git
 	cd paru
 	makepkg -si
@@ -55,6 +55,7 @@ else
 fi
 
 PACKAGES=(
+	"sudo"
 	# Audio
 	"pipewire-audio"
 	"pipewire-alsa"
@@ -156,8 +157,8 @@ for PKG in "${PACKAGES[@]}"; do
 	install "$PKG"
 done
 
-sudo systemctl enable --now NetworkManager.service
-sudo systemctl enable sddm.service
+systemctl enable --now NetworkManager.service
+systemctl enable sddm.service
 
 echo "Install your CPU microcode package and run 'grub-mkconfig -o /boot/grub/grub.cfg'"
 echo "It also doesn't hurt to run 'mkinitcpio -P' to ensure there are not problems with the initramfs"
