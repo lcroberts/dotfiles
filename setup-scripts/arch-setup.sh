@@ -4,6 +4,7 @@
 # and the bootloader has been installed. The script will set locale, enable ntp, set the hostname
 # rank pacman mirrors, enable parallel downloads, install the paru aur helper, and install
 # and set up some packages, for audio, virtualization and other things.
+# It is recommended to set up the chaotic aur ahead of running the script.
 
 # Set up time and ntp
 ln -sf /usr/share/zoneinfo/America/New_York /etc/localtime
@@ -20,10 +21,15 @@ sudo locale-gen
 # Set hostname
 echo "notascam" | sudo tee /etc/hostname
 
+# Enable multilib
+echo "[multilib]" | sudo tee -a /etc/pacman.conf
+echo "Include = /etc/pacman.d/mirrorlist" | sudo tee -a /etc/pacman.conf
+sudo pacman -Syu --noconfirm
+
 # Ranking mirrors
 echo "Ranking mirrors"
 sudo pacman -S --noconfirm reflector
-sudo reflector --sort rate --save /etc/pacman.d/mirrorlist
+sudo reflector --latest 150 --sort rate --save /etc/pacman.d/mirrorlist
 sudo pacman -Syu --noconfirm
 # Enable parallel downloads
 echo "Enabling parallel downloads"
@@ -69,6 +75,56 @@ PACKAGES=(
 	"fcitx5-gtk"
 	"fcitx5-mozc"
 	"fcitx5-qt"
+	# Applications
+	"flatpak"
+	"fish"
+	"onedrive-abraunegg-git"
+	"onedrivegui-git"
+	"dolphin"
+	"okular"
+	"obsidian"
+	"floorp"
+	"keepassxc"
+	"filelight"
+	"kitty"
+	"imv"
+	"mpv"
+	"libreoffice-still"
+	"anki-bin" # TODO: Verify package name
+	"vesktop"  # TODO: Verify package name
+	"drawio"   # TODO: Verify package name
+	# DE and Window Managers
+	"sddm"
+	"plasma-meta"
+	"sddm-kcm"
+	"hyprland-git"
+	"xdg-desktop-portal-hyprland-git"
+	"xdg-desktop-portal-gtk"
+	"waybar"
+	"swaylock-effects-git"
+	"swayidle"
+	"swaybg"
+	"grimshot"
+	"wl-clipboard"
+	"brightnessctl"
+	"playerctl"
+	"rofi-lbonn-wayland-git"
+	"kanshi"
+	"xwaylandvideobridge"
+	# Theming
+	"qt5ct"
+	"qt6ct"
+	"gnome-themes-extra"
+	"gtk-engine-murrine"
+	# Neovim and development packages
+	"neovim"
+	"go"
+	"npm"
+	"luajit"
+	"lldb"
+	"make"
+	"ripgrep"
+	"rustup"
 )
 
 install() {
@@ -95,6 +151,7 @@ for PKG in "${PACKAGES[@]}"; do
 done
 
 sudo systemctl enable --now NetworkManager.service
+sudo systemctl enable sddm.service
 
 echo "Install your CPU microcode package and run 'grub-mkconfig -o /boot/grub/grub.cfg'"
 echo "It also doesn't hurt to run 'mkinitcpio -P' to ensure there are not problems with the initramfs"
