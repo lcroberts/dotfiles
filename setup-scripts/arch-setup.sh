@@ -117,10 +117,10 @@ PACKAGES=(
 	"gnome-themes-extra"
 	"gtk-engine-murrine"
 	# Neovim and development packages
+	"luajit"
 	"neovim"
 	"go"
 	"npm"
-	"luajit"
 	"lldb"
 	"make"
 	"ripgrep"
