@@ -21,6 +21,11 @@ sudo locale-gen
 # Set hostname
 echo "notascam" | sudo tee /etc/hostname
 
+# Enable parallel downloads
+echo "Enabling parallel downloads"
+sudo sed -i 's/#ParallelDownloads = 5/ParallelDownloads = 5/g'
+sudo sed -i 's/ParallelDownloads = 5/ParallelDownloads = 10/g'
+
 # Enable multilib
 echo "[multilib]" | sudo tee -a /etc/pacman.conf
 echo "Include = /etc/pacman.d/mirrorlist" | sudo tee -a /etc/pacman.conf
@@ -29,11 +34,9 @@ sudo pacman -Syu --noconfirm
 # Ranking mirrors
 echo "Ranking mirrors"
 sudo pacman -S --noconfirm reflector
+sudo cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
 sudo reflector --latest 150 --sort rate --save /etc/pacman.d/mirrorlist
 sudo pacman -Syu --noconfirm
-# Enable parallel downloads
-echo "Enabling parallel downloads"
-sudo sed -i 's/#ParallelDownloads = 5/ParallelDownloads = 12/g'
 
 # Install paru
 echo "Installing git"
@@ -90,9 +93,9 @@ PACKAGES=(
 	"imv"
 	"mpv"
 	"libreoffice-still"
-	"anki-bin" # TODO: Verify package name
-	"vesktop"  # TODO: Verify package name
-	"drawio"   # TODO: Verify package name
+	"anki-bin"
+	"vesktop-bin"
+	"drawio-desktop-bin"
 	# DE and Window Managers
 	"sddm"
 	"plasma-meta"
@@ -127,6 +130,7 @@ PACKAGES=(
 	"rustup"
 	"valgrind"
 	"gdb"
+	"man-pages"
 )
 
 install() {
