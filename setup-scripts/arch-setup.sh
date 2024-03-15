@@ -52,7 +52,7 @@ PACKAGES=(
 	"qemu-full"
 	"libvirt"
 	"swtpm"
-	"iptables-dft"
+	"iptables"
 	"dnsmasq"
 	"virt-manager"
 	# "virtio-win" cant install aur package as root
@@ -143,14 +143,14 @@ PACKAGES=(
 
 install() {
 	# First lets see if the package is there
-	if paru -Q "$1" &>>/dev/null; then
+	if pacman -Q "$1" &>>/dev/null; then
 		echo -e "$1 is already installed."
 	else
 		# no package found so installing
 		echo -e "Now installing $1 ..."
-		paru -S --noconfirm "$1"
+		pacman -S --noconfirm "$1"
 		# test to make sure package installed
-		if paru -Q "$1" &>>/dev/null; then
+		if pacman -Q "$1" &>>/dev/null; then
 			echo -e "$1 was installed."
 		else
 			# if this is hit then a package is missing
