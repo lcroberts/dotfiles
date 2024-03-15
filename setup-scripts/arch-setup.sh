@@ -8,18 +8,18 @@
 
 # Set up time and ntp
 ln -sf /usr/share/zoneinfo/America/New_York /etc/localtime
-echo "NTP=0.arch.pool.ntp.org 1.arch.pool.ntp.org 2.arch.pool.ntp.org 3.arch.pool.ntp.org" | tee -a /etc/systemd/timesyncd.conf
-echo "FallbackNTP=0.pool.ntp.org 1.pool.ntp.org 0.fr.pool.ntp.org" | tee -a /etc/systemd/timesyncd.conf
+echo "NTP=0.arch.pool.ntp.org 1.arch.pool.ntp.org 2.arch.pool.ntp.org 3.arch.pool.ntp.org" >>/etc/systemd/timesyncd.conf
+echo "FallbackNTP=0.pool.ntp.org 1.pool.ntp.org 0.fr.pool.ntp.org" >>/etc/systemd/timesyncd.conf
 systemctl enable --now systemd-timesyncd.service
 timedatectl set-ntp true
 
 # Set up locale information
 sed -i 's/#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/g' /etc/locale.gen
-echo "LANG=en_US.UTF-8" | tee /etc/locale.conf
+echo "LANG=en_US.UTF-8" >>/etc/locale.conf
 locale-gen
 
 # Set hostname
-echo "notascam" | tee /etc/hostname
+echo "notascam" >/etc/hostname
 
 # Enable parallel downloads
 echo "Enabling parallel downloads"
@@ -27,8 +27,8 @@ sed -i 's/#ParallelDownloads = 5/ParallelDownloads = 5/g'
 sed -i 's/ParallelDownloads = 5/ParallelDownloads = 10/g'
 
 # Enable multilib
-echo "[multilib]" | tee -a /etc/pacman.conf
-echo "Include = /etc/pacman.d/mirrorlist" | tee -a /etc/pacman.conf
+echo "[multilib]" >>/etc/pacman.conf
+echo "Include = /etc/pacman.d/mirrorlist" >>/etc/pacman.conf
 pacman -Syu --noconfirm
 
 # Ranking mirrors
@@ -45,8 +45,8 @@ if [ ! -f /sbin/paru ]; then
 	echo "Installing paru"
 	pacman -S --needed base-devel
 	git clone https://aur.archlinux.org/paru.git
-	cd paru
-	makepkg -si
+	cd paru || exit
+	makepkg -si || exit
 	cd ..
 	rm -r paru
 	paru -Syu --noconfirm
@@ -55,7 +55,13 @@ else
 fi
 
 PACKAGES=(
+	# Misc System Stuff
 	"sudo"
+	"polkit"
+	"polkit-gnome"
+	"mkinitcpio-firmware"
+	"ast-firmware"
+	"sof-firmware"
 	# Audio
 	"pipewire-audio"
 	"pipewire-alsa"
@@ -65,6 +71,7 @@ PACKAGES=(
 	"networkmanager"
 	"network-manager-applet"
 	# Virtualization
+	"qemu-full"
 	"libvirt"
 	"swtpm"
 	"iptables-dft"
@@ -87,7 +94,7 @@ PACKAGES=(
 	"dolphin"
 	"okular"
 	"obsidian"
-	"floorp"
+	"floorp-bin"
 	"keepassxc"
 	"filelight"
 	"kitty"
@@ -97,6 +104,27 @@ PACKAGES=(
 	"anki-bin"
 	"vesktop-bin"
 	"drawio-desktop-bin"
+	"autojump"
+	"bat"
+	"btop"
+	"direnv"
+	"docker"
+	"distrobox"
+	"eza"
+	"ffmpeg"
+	"fwupd"
+	"fzf"
+	"jdk-openjdk"
+	"p7zip"
+	"parallel"
+	"paru-bin"
+	"pavucontrol"
+	"pigz"
+	"starship"
+	"stow"
+	"tmux"
+	"vim"
+	"yt-dlp"
 	# DE and Window Managers
 	"sddm"
 	"plasma-meta"
@@ -120,9 +148,10 @@ PACKAGES=(
 	"qt6ct"
 	"gnome-themes-extra"
 	"gtk-engine-murrine"
+	"noto-fonts-emoji"
 	# Neovim and development packages
 	"luajit"
-	"neovim"
+	"neovim-nightly-bin"
 	"go"
 	"npm"
 	"lldb"
@@ -132,18 +161,19 @@ PACKAGES=(
 	"valgrind"
 	"gdb"
 	"man-pages"
+	"man-db"
 )
 
 install() {
 	# First lets see if the package is there
-	if paru -Q $1 &>>/dev/null; then
+	if paru -Q "$1" &>>/dev/null; then
 		echo -e "$1 is already installed."
 	else
 		# no package found so installing
 		echo -e "Now installing $1 ..."
-		yay -S --noconfirm $1
+		yay -S --noconfirm "$1"
 		# test to make sure package installed
-		if paru -Q $1 &>>/dev/null; then
+		if paru -Q "$1" &>>/dev/null; then
 			echo -e "$1 was installed."
 		else
 			# if this is hit then a package is missing
@@ -163,3 +193,4 @@ systemctl enable sddm.service
 echo "Install your CPU microcode package and run 'grub-mkconfig -o /boot/grub/grub.cfg'"
 echo "It also doesn't hurt to run 'mkinitcpio -P' to ensure there are not problems with the initramfs"
 echo "Use passwd to set a root password and make a user as well"
+echo "Useradd Template: 'useradd -G wheel docker libvirt -s /bin/fish -m logan'"
