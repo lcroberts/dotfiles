@@ -26,11 +26,6 @@ echo "Enabling parallel downloads"
 sed -i 's/#ParallelDownloads = 5/ParallelDownloads = 5/g'
 sed -i 's/ParallelDownloads = 5/ParallelDownloads = 10/g'
 
-# Enable multilib
-echo "[multilib]" >>/etc/pacman.conf
-echo "Include = /etc/pacman.d/mirrorlist" >>/etc/pacman.conf
-pacman -Syu --noconfirm
-
 # Ranking mirrors
 echo "Ranking mirrors"
 pacman -S --noconfirm reflector
