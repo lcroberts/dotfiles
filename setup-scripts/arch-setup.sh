@@ -2,15 +2,15 @@
 # This is a script to automate a lot of the tedious post install stuff for Arch Linux
 # It should be ran after disks are partitioned, you are chrooted, the fstab has been generated,
 # and the bootloader has been installed. The script will set locale, enable ntp, set the hostname
-# rank pacman mirrors, enable parallel downloads, install the paru aur helper, and install
+# rank pacman mirrors,  install the paru aur helper, and install
 # and set up some packages, for audio, virtualization and other things.
-# It is recommended to set up the chaotic aur ahead of running the script.
+# It is recommended to set up the chaotic aur ahead of running the script./
 
 # Set up time and ntp
 ln -sf /usr/share/zoneinfo/America/New_York /etc/localtime
 echo "NTP=0.arch.pool.ntp.org 1.arch.pool.ntp.org 2.arch.pool.ntp.org 3.arch.pool.ntp.org" >>/etc/systemd/timesyncd.conf
 echo "FallbackNTP=0.pool.ntp.org 1.pool.ntp.org 0.fr.pool.ntp.org" >>/etc/systemd/timesyncd.conf
-systemctl enable --now systemd-timesyncd.service
+systemctl enable now systemd-timesyncd.service
 timedatectl set-ntp true
 
 # Set up locale information
@@ -21,33 +21,16 @@ locale-gen
 # Set hostname
 echo "notascam" >/etc/hostname
 
-# Enable parallel downloads
-echo "Enabling parallel downloads"
-sed -i 's/#ParallelDownloads = 5/ParallelDownloads = 5/g'
-sed -i 's/ParallelDownloads = 5/ParallelDownloads = 10/g'
-
 # Ranking mirrors
 echo "Ranking mirrors"
-pacman -S --noconfirm reflector
+pacman -S --noconfirm reflector rsync
 cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
-reflector --latest 50 --sort rate --save /etc/pacman.d/mirrorlist
+reflector --latest 50 --sort rate --save /etc/pacman.d/mirrorlist || exit
 pacman -Syu --noconfirm
 
 # Install paru
 echo "Installing git"
-pacman -S --noconfirm git
-if [ ! -f /sbin/paru ]; then
-	echo "Installing paru"
-	pacman -S --needed base-devel
-	git clone https://aur.archlinux.org/paru.git
-	cd paru || exit
-	makepkg -si || exit
-	cd ..
-	rm -r paru
-	paru -Syu --noconfirm
-else
-	echo "paru found"
-fi
+pacman -S --noconfirm git paru # Only works with chaotic aur
 
 PACKAGES=(
 	# Misc System Stuff
@@ -72,7 +55,7 @@ PACKAGES=(
 	"iptables-dft"
 	"dnsmasq"
 	"virt-manager"
-	"virtio-win"
+	# "virtio-win" cant install aur package as root
 	# Japanese Input
 	"adobe-source-han-sans-jp-fonts"
 	"adobe-source-han-serif-jp-fonts"
@@ -84,21 +67,21 @@ PACKAGES=(
 	# Applications
 	"flatpak"
 	"fish"
-	"onedrive-abraunegg-git"
-	"onedrivegui-git"
+	# "onedrive-abraunegg-git" Can't install aur package as root
+	# "onedrivegui-git" Can't install aur package as root
 	"dolphin"
 	"okular"
 	"obsidian"
-	"floorp-bin"
+	"floorp"
 	"keepassxc"
 	"filelight"
 	"kitty"
 	"imv"
 	"mpv"
 	"libreoffice-still"
-	"anki-bin"
-	"vesktop-bin"
-	"drawio-desktop-bin"
+	"anki"
+	"vesktop"
+	"drawio-desktop"
 	"autojump"
 	"bat"
 	"btop"
@@ -112,7 +95,6 @@ PACKAGES=(
 	"jdk-openjdk"
 	"p7zip"
 	"parallel"
-	"paru-bin"
 	"pavucontrol"
 	"pigz"
 	"starship"
@@ -128,7 +110,7 @@ PACKAGES=(
 	"xdg-desktop-portal-hyprland-git"
 	"xdg-desktop-portal-gtk"
 	"waybar"
-	"swaylock-effects-git"
+	"swaylock-effects"
 	"swayidle"
 	"swaybg"
 	"grimshot"
@@ -166,7 +148,7 @@ install() {
 	else
 		# no package found so installing
 		echo -e "Now installing $1 ..."
-		yay -S --noconfirm "$1"
+		paru -S --noconfirm "$1"
 		# test to make sure package installed
 		if paru -Q "$1" &>>/dev/null; then
 			echo -e "$1 was installed."
@@ -182,10 +164,10 @@ for PKG in "${PACKAGES[@]}"; do
 	install "$PKG"
 done
 
-systemctl enable --now NetworkManager.service
+systemctl enable now NetworkManager.service
 systemctl enable sddm.service
 
 echo "Install your CPU microcode package and run 'grub-mkconfig -o /boot/grub/grub.cfg'"
 echo "It also doesn't hurt to run 'mkinitcpio -P' to ensure there are not problems with the initramfs"
 echo "Use passwd to set a root password and make a user as well"
-echo "Useradd Template: 'useradd -G wheel docker libvirt -s /bin/fish -m logan'"
+echo "Useradd Template: 'useradd -G wheel -s /bin/fish -m logan'"
