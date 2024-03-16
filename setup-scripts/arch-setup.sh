@@ -168,6 +168,6 @@ systemctl enable NetworkManager.service
 systemctl enable sddm.service
 
 echo "Install your CPU microcode package and run 'grub-mkconfig -o /boot/grub/grub.cfg'"
-echo "It also doesn't hurt to run 'mkinitcpio -P' to ensure there are not problems with the initramfs"
+echo "It also doesn't hurt to run 'mkinitcpio -P linux' to ensure there are not problems with the initramfs"
 echo "Use passwd to set a root password and make a user as well"
 echo "Useradd Template: 'useradd -G wheel -s /bin/fish -m logan'"
