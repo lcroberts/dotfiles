@@ -164,7 +164,7 @@ for PKG in "${PACKAGES[@]}"; do
 	install "$PKG"
 done
 
-systemctl enable now NetworkManager.service
+systemctl enable NetworkManager.service
 systemctl enable sddm.service
 
 echo "Install your CPU microcode package and run 'grub-mkconfig -o /boot/grub/grub.cfg'"
