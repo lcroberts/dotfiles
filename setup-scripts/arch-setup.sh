@@ -129,7 +129,7 @@ PACKAGES=(
 	"noto-fonts-emoji"
 	# Neovim and development packages
 	"luajit"
-	"neovim-nightly-bin"
+	"neovim"
 	"go"
 	"npm"
 	"lldb"
