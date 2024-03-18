@@ -121,12 +121,16 @@ PACKAGES=(
 	"rofi-lbonn-wayland-git"
 	"kanshi"
 	"xwaylandvideobridge"
+	"kde-multimedia-meta"
+	"kde-system-meta"
+	"kde-graphics-meta"
 	# Theming
 	"qt5ct"
 	"qt6ct"
 	"gnome-themes-extra"
 	"gtk-engine-murrine"
 	"noto-fonts-emoji"
+	"kvantum"
 	# Neovim and development packages
 	"luajit"
 	"neovim"
