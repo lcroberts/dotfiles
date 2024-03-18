@@ -10,11 +10,11 @@ add_newline = false
 [username]
 show_always = true
 format = '[$user@]($style)'
-style_user = 'magenta'
+style_user = 'red'
 
 [hostname]
 ssh_only = false
-style = 'magenta'
+style = 'red'
 
 [directory]
 truncation_length = 8
@@ -45,4 +45,4 @@ symbol = " "
 [custom.date]
 command = 'date +%a" "%b" "%d" "%H:%M:%S'
 when = true
-style = 'magenta'
+style = 'red'
