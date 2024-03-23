@@ -55,7 +55,6 @@ PACKAGES=(
 	"iptables"
 	"dnsmasq"
 	"virt-manager"
-	# "virtio-win" cant install aur package as root
 	# Japanese Input
 	"adobe-source-han-sans-jp-fonts"
 	"adobe-source-han-serif-jp-fonts"
@@ -67,8 +66,6 @@ PACKAGES=(
 	# Applications
 	"flatpak"
 	"fish"
-	# "onedrive-abraunegg-git" Can't install aur package as root
-	# "onedrivegui-git" Can't install aur package as root
 	"dolphin"
 	"okular"
 	"obsidian"
@@ -78,7 +75,6 @@ PACKAGES=(
 	"kitty"
 	"imv"
 	"mpv"
-	"libreoffice-still"
 	"anki"
 	"vesktop"
 	"drawio-desktop"
@@ -103,6 +99,12 @@ PACKAGES=(
 	"tmux"
 	"vim"
 	"yt-dlp"
+	# Libre office and associated packages
+	"libreoffice-still"
+	"hyphen-en"
+	"libmythes"
+	"mythes-en"
+	"hunspell-en_us"
 	# DE and Window Managers
 	"sddm"
 	"plasma-meta"
