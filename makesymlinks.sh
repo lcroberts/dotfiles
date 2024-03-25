@@ -24,6 +24,7 @@ files=(
 	".config/qt6ct"
 	".config/starship.toml"
 	".config/fish"
+	".config/xdg-desktop-portal"
 	".local/share/fcitx5/themes"
 )
 
