@@ -21,6 +21,10 @@ locale-gen
 # Set hostname
 echo "notascam" >/etc/hostname
 
+# Set vm.max_map_count
+echo "vm.max_map_count=2147483642" >>/etc/sysctl.d/99-sysctl.conf
+sysctl -p
+
 # Ranking mirrors
 echo "Ranking mirrors"
 pacman -S --noconfirm reflector rsync
