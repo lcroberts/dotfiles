@@ -17,17 +17,29 @@ files=(
 	".config/qt6ct"
 	".config/starship.toml"
 	".config/fish"
+	".config/zathura"
 	".config/xdg-desktop-portal"
-	".local/share/fcitx5/themes"
+	".local/share/fcitx5"
 )
 
 sudo rm -Ir file-backups
 mkdir -p file-backups/.local/share/fcitx5
+mkdir -p file-backups/.config
 
 for file in "${files[@]}"; do
-	mv "$HOME/""$file" "file-backups/""$file"
+	if [ -L $file ]; then
+		rm $file
+	fi
+	if [ -d $file ]; then
+		mv "$HOME/""$file" "file-backups/""$file"
+	fi
+	if [ -f $file ]; then
+		mv "$HOME/""$file" "file-backups/""$file"
+	fi
 done
 
 stow . --dotfiles -t "$HOME"/
 
-sudo ln -sf "$HOME"/Scripts /usr/local/bin/Scripts
+if [[ ! -L /usr/local/bin/Scripts ]]; then
+	sudo ln -sf "$HOME"/Scripts /usr/local/bin/Scripts
+fi
