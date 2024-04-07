@@ -40,7 +40,7 @@ PACKAGES=(
 	# Misc System Stuff
 	"sudo"
 	"polkit"
-	"polkit-gnome"
+	"polkit-kde-agent"
 	"mkinitcpio-firmware"
 	"ast-firmware"
 	"sof-firmware"
