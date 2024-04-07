@@ -34,5 +34,5 @@ set render-loading-bg rgba(30,30,46,1)
 set render-loading-fg rgba(205,214,244,1)
 
 set highlight-color rgba(87,82,104,0.5)
-set highlight-fg rgba(245,194,231,0.5)
+set highlight-fg rgba(245,194,231,1)
 set highlight-active-color rgba(245,194,231,0.5)
