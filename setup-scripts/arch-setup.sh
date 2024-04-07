@@ -72,6 +72,11 @@ PACKAGES=(
 	"fish"
 	"dolphin"
 	"okular"
+	"zathura"
+	"zathura-cb"
+	"zathura-djvu"
+	"zathura-pdf-mupdf"
+	"zathura-ps"
 	"obsidian"
 	"floorp"
 	"keepassxc"
@@ -178,6 +183,9 @@ done
 
 systemctl enable NetworkManager.service
 systemctl enable sddm.service
+
+xdg-mime default org.pwmt.zathura.desktop application/pdf
+xdg-settings set default-web-browser floorp.desktop
 
 echo "Install your CPU microcode package and run 'grub-mkconfig -o /boot/grub/grub.cfg'"
 echo "It also doesn't hurt to run 'mkinitcpio -P linux' to ensure there are not problems with the initramfs"
