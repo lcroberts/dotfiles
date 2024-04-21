@@ -87,7 +87,6 @@ PACKAGES=(
 	"anki"
 	"vesktop"
 	"drawio-desktop"
-	"autojump"
 	"bat"
 	"btop"
 	"direnv"

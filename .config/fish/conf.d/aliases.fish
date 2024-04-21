@@ -49,10 +49,6 @@ function take --wraps mkdir --description 'Make directory and enter'
     mkdir -p $argv && cd $argv
 end
 
-function j --wraps autojump --description 'cd autojump'
-    cd $(autojump $argv)
-end
-
 function pullall --description "Pull git repos within a subdirectory"
     for dir in $(find . -maxdepth 5  -type d -name .git | sed 's|/.git$||')
         cd $dir
