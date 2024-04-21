@@ -91,6 +91,7 @@ PACKAGES=(
 	"bat"
 	"btop"
 	"direnv"
+	"zoxide"
 	"docker"
 	"distrobox"
 	"eza"
