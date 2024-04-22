@@ -15,6 +15,7 @@ files=(
 	".config/wofi"
 	".config/qt5ct"
 	".config/qt6ct"
+	".config/wezterm"
 	".config/starship.toml"
 	".config/fish"
 	".config/zathura"
