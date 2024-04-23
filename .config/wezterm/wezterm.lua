@@ -8,5 +8,13 @@ local config = wezterm.config_builder()
 -- For example, changing the color scheme:
 config.color_scheme = "Catppuccin Mocha"
 config.enable_wayland = false
+
+config.font = wezterm.font({
+	family = "JetBrainsMono NFM",
+})
+
+config.enable_tab_bar = false
+config.window_background_opacity = 0.85
+
 -- and finally, return the configuration to wezterm
 return config
