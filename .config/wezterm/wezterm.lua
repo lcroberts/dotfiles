@@ -10,12 +10,12 @@ else
 	config.enable_wayland = true
 end
 
-config.font = wezterm.font({
-	family = "JetBrainsMono NFM",
-})
+config.font = wezterm.font({ family = "JetBrainsMono NFM" })
 config.font_size = 12
 
 config.enable_tab_bar = false
 config.window_background_opacity = 0.85
+
+config.disable_default_mouse_bindings = true
 
 return config
