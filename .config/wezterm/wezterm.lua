@@ -9,7 +9,7 @@ config.enable_wayland = false
 config.font = wezterm.font({
 	family = "JetBrainsMono NFM",
 })
-config.font_size = 14
+config.font_size = 12
 
 config.enable_tab_bar = false
 config.window_background_opacity = 0.85
