@@ -22,7 +22,7 @@ _darcs
 ^/COPYING
 
 ^/file-backups
-^/firefox-profile
+^/app-configs
 ^/nvim-custom
 ^/setup-scripts
 ^/makesymlinks.*
