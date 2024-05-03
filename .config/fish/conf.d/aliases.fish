@@ -3,6 +3,7 @@ abbr vim nvim
 abbr upgrade paru -Syu
 # Alias to enter generic tmux session
 abbr tenter tmux new -As main
+abbr deventer tmux new -As main -L dev
 # Hibernate alias
 abbr hibernate systemctl hibernate
 # rm interactive mode alias
