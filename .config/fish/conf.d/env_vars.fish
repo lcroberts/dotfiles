@@ -1,10 +1,9 @@
-set -gx PATH $PATH $HOME/Scripts
-set -gx PATH $PATH $HOME/.local/bin
-set -gx PATH $PATH $HOME/.cargo/bin
-set -gx PATH $PATH $HOME/go/bin
-set -gx PATH $PATH /home/linuxbrew/.linuxbrew/bin/
-set -gx GOPATH $HOME/go
-set -gx PATH $PATH $GOPATH/bin
+fish_add_path $HOME/Scripts
+fish_add_path $HOME/.local/bin
+fish_add_path $HOME/.cargo/bin
+fish_add_path /home/linuxbrew/.linuxbrew/bin
+set -gx GOPATH $HOME/.local/share/go
+fish_add_path $GOPATH/bin
 
 set -gx MANGOHUD 1
 
