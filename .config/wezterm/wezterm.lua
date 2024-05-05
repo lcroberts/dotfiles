@@ -6,13 +6,6 @@ local mux = wezterm.mux
 config.color_scheme = "Catppuccin Mocha"
 config.use_ime = false
 
--- Disable wayland b/c, it doesn't work on hyprland
-if os.getenv("XDG_CURRENT_DESKTOP") == "Hyprland" then
-	config.enable_wayland = false
-else
-	config.enable_wayland = true
-end
-
 config.font = wezterm.font({ family = "JetBrainsMono NFM" })
 if os.getenv("HOSTNAME") == "notascam-mobile" then
 	config.font_size = 14
@@ -67,21 +60,17 @@ for i = 1, 9 do
 end
 
 wezterm.on("gui-startup", function(cmd)
-	if os.getenv("HOSTNAME") == "notascam" then
-		local tab, pane, window = mux.spawn_window({
-			args = { "tmux", "new", "-As", "main" },
-		})
-		window:spawn_tab({
-			args = {
-				"fish",
-				"-c",
-				"deventer",
-			},
-		})
-		tab:activate()
-	else
-		local tab, pane, window = mux.spawn_window(cmd or {})
-	end
+	local tab, pane, window = mux.spawn_window({
+		args = { "tmux", "new", "-As", "main" },
+	})
+	window:spawn_tab({
+		args = {
+			"fish",
+			"-c",
+			"deventer",
+		},
+	})
+	tab:activate()
 end)
 
 return config
