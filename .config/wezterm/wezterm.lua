@@ -49,7 +49,6 @@ config.keys = {
 
 	{ key = "C", mods = "CTRL", action = wezterm.action.CopyTo("ClipboardAndPrimarySelection") },
 	{ key = "V", mods = "CTRL", action = act.PasteFrom("Clipboard") },
-	{ key = "V", mods = "CTRL", action = act.PasteFrom("PrimarySelection") },
 }
 for i = 1, 9 do
 	table.insert(config.keys, {
