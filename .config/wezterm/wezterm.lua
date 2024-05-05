@@ -1,6 +1,7 @@
 local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 local act = wezterm.action
+local mux = wezterm.mux
 
 config.color_scheme = "Catppuccin Mocha"
 config.use_ime = false
@@ -64,5 +65,23 @@ for i = 1, 9 do
 		action = act.ActivateTab(i - 1),
 	})
 end
+
+wezterm.on("gui-startup", function(cmd)
+	if os.getenv("HOSTNAME") == "notascam" then
+		local tab, pane, window = mux.spawn_window({
+			args = { "tmux", "new", "-As", "main" },
+		})
+		window:spawn_tab({
+			args = {
+				"fish",
+				"-c",
+				"deventer",
+			},
+		})
+		tab:activate()
+	else
+		local tab, pane, window = mux.spawn_window(cmd or {})
+	end
+end)
 
 return config
