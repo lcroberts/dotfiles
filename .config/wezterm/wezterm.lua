@@ -38,14 +38,14 @@ config.keys = {
 	{ key = "0", mods = "CTRL", action = act.ResetFontSize },
 	{ key = "0", mods = "SHIFT|CTRL", action = act.ResetFontSize },
 
-	{ key = "Tab", mods = "CTRL", action = act.ActivateTabRelative(1) },
-	{ key = "Tab", mods = "SHIFT|CTRL", action = act.ActivateTabRelative(-1) },
+	{ key = "Tab", mods = "ALT", action = act.ActivateTabRelative(1) },
+	{ key = "Tab", mods = "SHIFT|ALT", action = act.ActivateTabRelative(-1) },
 
-	{ key = "T", mods = "CTRL", action = act.SpawnTab("CurrentPaneDomain") },
-	{ key = "T", mods = "SHIFT|CTRL", action = act.SpawnTab("CurrentPaneDomain") },
+	{ key = "T", mods = "ALT", action = act.SpawnTab("CurrentPaneDomain") },
+	{ key = "T", mods = "SHIFT|ALT", action = act.SpawnTab("CurrentPaneDomain") },
 
-	{ key = "R", mods = "CTRL", action = act.CloseCurrentTab({ confirm = false }) },
-	{ key = "R", mods = "SHIFT|CTRL", action = act.CloseCurrentTab({ confirm = false }) },
+	{ key = "R", mods = "ALT", action = act.CloseCurrentTab({ confirm = false }) },
+	{ key = "R", mods = "SHIFT|ALT", action = act.CloseCurrentTab({ confirm = false }) },
 
 	{ key = "C", mods = "CTRL", action = wezterm.action.CopyTo("ClipboardAndPrimarySelection") },
 	{ key = "V", mods = "CTRL", action = act.PasteFrom("Clipboard") },
@@ -53,7 +53,7 @@ config.keys = {
 for i = 1, 9 do
 	table.insert(config.keys, {
 		key = tostring(i),
-		mods = "CTRL",
+		mods = "ALT",
 		action = act.ActivateTab(i - 1),
 	})
 end
