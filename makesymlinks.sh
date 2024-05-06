@@ -19,6 +19,7 @@ files=(
 	".config/starship.toml"
 	".config/fish"
 	".config/zathura"
+	".config/Kvantum"
 	".config/xdg-desktop-portal"
 	".local/share/fcitx5"
 )

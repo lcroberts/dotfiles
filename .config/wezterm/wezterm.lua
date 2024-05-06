@@ -6,6 +6,10 @@ local mux = wezterm.mux
 config.color_scheme = "Catppuccin Mocha"
 config.use_ime = false
 
+if os.getenv("XDG_CURRENT_DESKTOP") == "Hyprland" then
+	-- config.enable_wayland = false
+end
+
 config.font = wezterm.font({ family = "JetBrainsMono NFM" })
 if os.getenv("HOSTNAME") == "notascam-mobile" then
 	config.font_size = 14
