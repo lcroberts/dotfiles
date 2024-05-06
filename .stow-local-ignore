@@ -26,3 +26,4 @@ _darcs
 ^/nvim-custom
 ^/setup-scripts
 ^/makesymlinks.*
+^/distrobox.ini
