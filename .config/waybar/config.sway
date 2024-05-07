@@ -21,20 +21,19 @@
 
     "modules-right": [
         "tray",
-        // "idle_inhibitor",
         "memory",
         "cpu",
         // "custom/keyboard-layout",
         "battery",
         //"custom/PBPbattery",
         // "backlight#icon",
-        // "backlight#value",
+        "backlight#value",
+        "idle_inhibitor",
         "pulseaudio",
         "pulseaudio#microphone",
     ],
 
     // Modules
-
 
     "idle_inhibitor": {
         "format": "{icon} ",
@@ -50,7 +49,7 @@
             "warning": 30,
             "critical": 15
         },
-        "format": "{capacity}% {icon}",
+        "format": "{capacity}% {icon} ",
         "format-charging": "{capacity}% ",
         "format-plugged": "{capacity}% ",
         // "format-good": "", // An empty format will hide the module
@@ -114,33 +113,33 @@
         "tooltip-format": "{ifname}: {ipaddr}/{cidr}",
     },
 
-    "sway/mode": {
+    "hyprland/mode": {
         "format": "{}",
         "tooltip": false
     },
 
-    "sway/window": {
+    "hyprland/window": {
         "format": "{}",
         "max-length": 120
     },
 
-    "sway/workspaces": {
+    "hyprland/workspaces": {
         "disable-scroll": true,
         "disable-markup" : false,
         "all-outputs": false,
         "format": "  {icon}  ",
         //"format":"{icon}",
         "format-icons": {
-            "1": "1 <span font='Font Awesome 5 Free 12'></span>",
-            "2": "2 <span font='Font Awesome 5 Free 12'></span>",
-            "3": "3 <span font='Font Awesome 5 Free 12'></span>",
-            "4": "4 <span font='Font Awesome 5 Free 12'></span>",
-            "5": "5 <span font='Font Awesome 5 Free 12'></span>",
-            "6": "6 <span font='Font Awesome 5 Free 12'></span>",
-            "7": "7 <span font='Font Awesome 5 Free 12'></span>",
-            "8": "8 <span font='Font Awesome 5 Free 12'></span>",
-            "9": "9 <span font='Font Awesome 5 Free 12'></span>",
-            "10": "0 <span font='Font Awesome 5 Free 12'></span>"
+            "1": "1",
+            "2": "2",
+            "3": "3",
+            "4": "4",
+            "5": "5",
+            "6": "6",
+            "7": "7",
+            "8": "8",
+            "9": "9",
+            "10": "0"
         },
     },
 
@@ -198,7 +197,7 @@
     },
 
     "backlight#value" :{
-         "format": "{percent}%",
+         "format": " {percent}%",
          "on-scroll-down": "brightnessctl -c backlight set 1%-",
          "on-scroll-up": "brightnessctl -c backlight set +1%"
     },
