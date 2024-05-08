@@ -13,7 +13,6 @@ exec "export SWAYSOCK=/run/user/$(id -u)/sway-ipc.$(id -u).$(pgrep -x sway).sock
 # Set some useful vars. Use Mod1 for Alt.
 set $mod Mod4
 set $mod2 Mod1
-set $lock_command "~/Scripts/lock.sh"
 set $term wezterm
 set $left h
 set $down j
@@ -29,7 +28,7 @@ exec_always pkill swaybg; swaybg -i $HOME/Pictures/Wallpapers/currentbg
 exec ./autotiling -w 1 2 3 4 5 6 7 8
 
 exec ~/Scripts/startup-sway.sh
-exec swayidle -w before-sleep swaylock
+exec swayidle
 exec fcitx5
 exec nm-applet
 exec_always pkill polkit-kde-authentication-agent1; /usr/libexec/kf6/polkit-kde-authentication-agent-1

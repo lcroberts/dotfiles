@@ -24,6 +24,10 @@ workspace 10 output $main_display
 # to get window class "xprop | grep CLASS"
 assign [class="^(kitty)"] $ws1
 assign [app_id="^(kitty)"] $ws1
+assign [class=".*(wezterm).*"] $ws1
+assign [app_id=".*(wezterm).*"] $ws1
+assign [class=".*(floorp).*"] $ws2
+assign [app_id=".*(floorp).*"] $ws2
 assign [class="^(firefox)"] $ws2
 assign [app_id="^(firefox)"] $ws2
 assign [class="^(discord)"] $ws3
@@ -32,8 +36,6 @@ for_window [class="^(discord)"] move to $ws3
 for_window [app_id="^(discord)"] move to $ws3
 assign [class="^(Spotify|spotify)"] $ws4
 for_window [class="^(Spotify|spotify)"] move to $ws4
-assign [class=".*(KeePassXC|keepassxc).*"] $ws5
-assign [app_id=".*(KeePassXC|keepassxc).*"] $ws5
 
 assign [class="^(Steam|steam)$"] $ws10
 for_window [class="^(Steam|steam)$"] move to $ws10

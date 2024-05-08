@@ -20,6 +20,8 @@ files=(
 	".config/fish"
 	".config/zathura"
 	".config/Kvantum"
+	".config/swaylock"
+	".config/swayidle"
 	".config/xdg-desktop-portal"
 	".local/share/fcitx5"
 )
