@@ -58,7 +58,7 @@ floating_modifier $mod normal
 bindsym $mod+Shift+c reload
 
 # Exit sway (logs you out of your Wayland session)
-bindsym $mod+Shift+Control+m exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+bindsym $mod+Shift+Control+m exec fish -c "set -gx QT_QPA_PLATFORMTHEME \"\" && set -gx QT_STYLE_OVERRIDE \"\" && systemctl --user import-environment QT_QPA_PLATFORMTHEME && dbus-update-activation-environment --systemd QT_QPA_PLATFORMTHEME && systemctl --user import-environment QT_STYLE_OVERRIDE && dbus-update-activation-environment --systemd QT_STYLE_OVERRIDE && swaymsg exit"
 
 # Move your focus around
 bindsym $mod+$left focus left
