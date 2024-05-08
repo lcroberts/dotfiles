@@ -14,7 +14,7 @@ exec "export SWAYSOCK=/run/user/$(id -u)/sway-ipc.$(id -u).$(pgrep -x sway).sock
 set $mod Mod4
 set $mod2 Mod1
 set $lock_command "~/Scripts/lock.sh"
-set $term kitty
+set $term wezterm
 set $left h
 set $down j
 set $up k
@@ -26,13 +26,13 @@ exec_always pkill kanshi; exec kanshi
 exec_always pkill swaybg; swaybg -i $HOME/Pictures/Wallpapers/currentbg
 
 # Sway autotiling extension
-exec autotiling
+exec ./autotiling -w 1 2 3 4 5 6 7 8
 
 exec ~/Scripts/startup-sway.sh
-exec swayidle -w before-sleep "$HOME/Scripts/lock.sh"
+exec swayidle -w before-sleep swaylock
 exec fcitx5
 exec nm-applet
-exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec_always pkill polkit-kde-authentication-agent1; /usr/libexec/kf6/polkit-kde-authentication-agent-1
 exec ~/.screenlayout/test.sh
 exec_always pkill waybar; waybar -c $HOME/.config/waybar/config.sway
 

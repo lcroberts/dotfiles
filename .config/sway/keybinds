@@ -1,8 +1,7 @@
 # Set some useful vars. Use Mod1 for Alt.
 set $mod Mod4
 set $mod2 Mod1
-set $lock_command "~/Scripts/lock.sh"
-set $term kitty
+set $term wezterm
 set $left h
 set $down j
 set $up k
@@ -20,7 +19,8 @@ bindsym $mod+Shift+q kill
 # Start your launcher
 bindsym $mod2+d exec rofi -no-lazy-grab -show drun
 # Lock
-bindsym Control+Shift+l exec ~/Scripts/lock.sh
+# bindsym Control+Shift+l exec ~/Scripts/lock.sh
+bindsym Control+Shift+l exec swaylock -f
 # Sleep
 bindsym $mod+Control+Shift+s exec systemctl suspend
 
