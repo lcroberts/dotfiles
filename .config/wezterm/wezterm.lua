@@ -19,10 +19,7 @@ config.use_fancy_tab_bar = false
 config.tab_max_width = 24
 config.window_background_opacity = 0.85
 
--- TODO: URL Clicking doesnt work atm
-config.disable_default_mouse_bindings = true
-
-config.disable_default_key_bindings = true
+-- config.disable_default_key_bindings = true
 config.keys = {
 	{ key = "+", mods = "CTRL", action = act.IncreaseFontSize },
 	{ key = "+", mods = "SHIFT|CTRL", action = act.IncreaseFontSize },
@@ -50,6 +47,9 @@ config.keys = {
 
 	{ key = "C", mods = "CTRL", action = wezterm.action.CopyTo("ClipboardAndPrimarySelection") },
 	{ key = "V", mods = "CTRL", action = act.PasteFrom("Clipboard") },
+
+	{ key = "X", mods = "CTRL", action = act.ActivateCopyMode },
+	{ key = "X", mods = "SHIFT|CTRL", action = act.ActivateCopyMode },
 }
 for i = 1, 9 do
 	table.insert(config.keys, {
