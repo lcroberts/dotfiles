@@ -9,7 +9,6 @@ files=(
 	".config/MangoHud"
 	".config/polybar"
 	".config/rofi"
-	".config/sway"
 	".config/tmux"
 	".config/waybar"
 	".config/wofi"
