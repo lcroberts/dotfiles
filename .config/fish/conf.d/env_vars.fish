@@ -13,4 +13,6 @@ set -gx SDL_IM_MODULE 'fcitx'
 set -gx XMODIFIERS '@im=fcitx'
 
 set -gx VISUAL "nvim"
-# set -gx BROWSER "floorp"
+
+set -gx BUN_INSTALL "$HOME/.bun"
+fish_add_path $BUN_INSTALL/bin
