@@ -21,6 +21,7 @@ files=(
 	".config/Kvantum"
 	".config/swaylock"
 	".config/swayidle"
+	".config/ags"
 	".local/share/fcitx5"
 )
 
