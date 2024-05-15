@@ -51,8 +51,10 @@ $button-radius: $radius;
   .workspaces button.focused {
     border-bottom: 3px solid $primary-bg;
   }
+
   .workspaces button {
     background-color: $bg;
+    border-bottom: 3px solid $bg;
   }
 
   .media label {
