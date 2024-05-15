@@ -7,7 +7,7 @@ const options = mkOptions(OPTIONS, {
   autotheme: opt(false),
 
   wallpaper: {
-    resolution: opt<import("service/wallpaper").Resolution>(1920),
+    resolution: opt<import("service/wallpaper").Resolution>(3840),
     market: opt<import("service/wallpaper").Market>("random"),
   },
 
@@ -51,7 +51,7 @@ const options = mkOptions(OPTIONS, {
 
     shadows: opt(true),
     padding: opt(7),
-    spacing: opt(12),
+    spacing: opt(4),
     radius: opt(11),
   },
 
@@ -99,7 +99,7 @@ const options = mkOptions(OPTIONS, {
       action: opt(() => App.toggleWindow("launcher")),
     },
     date: {
-      format: opt("%H:%M - %A %e."),
+      format: opt("%a %b %e %Y %H:%M:%S"),
       action: opt(() => App.toggleWindow("datemenu")),
     },
     battery: {
