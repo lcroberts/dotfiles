@@ -176,7 +176,7 @@ const options = mkOptions(OPTIONS, {
     },
     width: opt(380),
     position: opt<"left" | "center" | "right">("right"),
-    networkSettings: opt("gtk-launch gnome-control-center"),
+    networkSettings: opt("nm-connection-editor"),
     media: {
       monochromeIcon: opt(true),
       coverSize: opt(100),
@@ -222,9 +222,9 @@ const options = mkOptions(OPTIONS, {
   },
 
   hyprland: {
-    gaps: opt(2.4),
+    gaps: opt(1),
     inactiveBorder: opt("#282828"),
-    gapsWhenOnly: opt(false),
+    gapsWhenOnly: opt(true),
   },
 });
 
