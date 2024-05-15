@@ -14,17 +14,17 @@ const options = mkOptions(OPTIONS, {
   theme: {
     dark: {
       primary: {
-        bg: opt("#51a4e7"),
-        fg: opt("#141414"),
+        bg: opt("#f2cdcd"),
+        fg: opt("#181825"),
       },
       error: {
-        bg: opt("#e55f86"),
-        fg: opt("#141414"),
+        bg: opt("#F44336"),
+        fg: opt("#FFFFFF"),
       },
-      bg: opt("#171717"),
-      fg: opt("#eeeeee"),
-      widget: opt("#eeeeee"),
-      border: opt("#eeeeee"),
+      bg: opt("#1e1e2e"),
+      fg: opt("#FFFFFF"),
+      widget: opt("#FFFFFF"),
+      border: opt("#FFFFFF"),
     },
     light: {
       primary: {
@@ -58,7 +58,7 @@ const options = mkOptions(OPTIONS, {
   transition: opt(200),
 
   font: {
-    size: opt(13),
+    size: opt(12),
     name: opt("JetBrains Mono"),
   },
 
