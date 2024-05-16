@@ -1,20 +1,23 @@
 {
     "settings": {
-        "notifyAboutUpdates": true,
         "autoUpdate": true,
         "autoUpdateNotification": true,
         "useQuickCss": true,
-        "themeLinks": [],
+        "themeLinks": [
+            "https://catppuccin.github.io/discord/dist/catppuccin-mocha.theme.css"
+        ],
         "enabledThemes": [],
         "enableReactDevtools": false,
         "frameless": false,
         "transparent": false,
         "winCtrlQ": false,
-        "macosTranslucency": false,
         "disableMinSize": false,
         "winNativeTitleBar": false,
         "plugins": {
             "BadgeAPI": {
+                "enabled": true
+            },
+            "ChatInputButtonAPI": {
                 "enabled": true
             },
             "CommandsAPI": {
@@ -24,13 +27,13 @@
                 "enabled": true
             },
             "MemberListDecoratorsAPI": {
-                "enabled": true
+                "enabled": false
             },
             "MessageAccessoriesAPI": {
                 "enabled": false
             },
             "MessageDecorationsAPI": {
-                "enabled": true
+                "enabled": false
             },
             "MessageEventsAPI": {
                 "enabled": true
@@ -44,15 +47,13 @@
             "ServerListAPI": {
                 "enabled": false
             },
-            "SettingsStoreAPI": {
-                "enabled": true
-            },
             "NoTrack": {
-                "enabled": true
+                "enabled": true,
+                "disableAnalytics": true
             },
             "Settings": {
                 "enabled": true,
-                "settingsLocation": "aboveActivity"
+                "settingsLocation": "aboveNitro"
             },
             "SupportHelper": {
                 "enabled": true
@@ -66,6 +67,9 @@
             "AnonymiseFileNames": {
                 "enabled": false
             },
+            "WebRichPresence (arRPC)": {
+                "enabled": false
+            },
             "BANger": {
                 "enabled": false
             },
@@ -75,10 +79,22 @@
             "BetterGifAltText": {
                 "enabled": false
             },
+            "BetterGifPicker": {
+                "enabled": false
+            },
             "BetterNotesBox": {
                 "enabled": false
             },
+            "BetterRoleContext": {
+                "enabled": false
+            },
             "BetterRoleDot": {
+                "enabled": false
+            },
+            "BetterSessions": {
+                "enabled": false
+            },
+            "BetterSettings": {
                 "enabled": false
             },
             "BetterUploadButton": {
@@ -96,6 +112,9 @@
             "ClearURLs": {
                 "enabled": true
             },
+            "ClientTheme": {
+                "enabled": false
+            },
             "ColorSighted": {
                 "enabled": false
             },
@@ -106,6 +125,9 @@
                 "enabled": false
             },
             "CrashHandler": {
+                "enabled": true
+            },
+            "CtrlEnterSend": {
                 "enabled": false
             },
             "CustomRPC": {
@@ -114,12 +136,17 @@
             "Dearrow": {
                 "enabled": false
             },
+            "Decor": {
+                "enabled": false
+            },
+            "DisableCallIdle": {
+                "enabled": false
+            },
             "EmoteCloner": {
-                "enabled": true
+                "enabled": false
             },
             "Experiments": {
-                "enabled": false,
-                "enableIsStaff": false
+                "enabled": false
             },
             "F8Break": {
                 "enabled": false
@@ -127,22 +154,33 @@
             "FakeNitro": {
                 "enabled": true,
                 "enableEmojiBypass": true,
-                "enableStickerBypass": true,
-                "enableStreamQualityBypass": true,
-                "transformStickers": true,
+                "emojiSize": 48,
                 "transformEmojis": true,
-                "transformCompoundSentence": false
+                "enableStickerBypass": true,
+                "stickerSize": 160,
+                "transformStickers": true,
+                "transformCompoundSentence": false,
+                "enableStreamQualityBypass": true,
+                "useHyperLinks": true,
+                "hyperLinkText": "{{NAME}}",
+                "disableEmbedPermissionCheck": false
             },
             "FakeProfileThemes": {
                 "enabled": false
             },
             "FavoriteEmojiFirst": {
-                "enabled": true
+                "enabled": false
             },
             "FavoriteGifSearch": {
                 "enabled": false
             },
+            "FixCodeblockGap": {
+                "enabled": false
+            },
             "FixSpotifyEmbeds": {
+                "enabled": false
+            },
+            "FixYoutubeEmbeds": {
                 "enabled": false
             },
             "ForceOwnerCrown": {
@@ -151,9 +189,11 @@
             "FriendInvites": {
                 "enabled": false
             },
+            "FriendsSince": {
+                "enabled": false
+            },
             "GameActivityToggle": {
-                "enabled": false,
-                "oldIcon": false
+                "enabled": false
             },
             "GifPaste": {
                 "enabled": false
@@ -170,15 +210,14 @@
             "IgnoreActivities": {
                 "enabled": false
             },
+            "ImageLink": {
+                "enabled": false
+            },
             "ImageZoom": {
-                "enabled": true,
-                "size": 238.78205128205127,
-                "zoom": 2.2564102564102564,
-                "nearestNeighbour": false,
-                "square": false,
-                "zoomSpeed": 0.5,
-                "saveZoomValues": true,
-                "invertScroll": true
+                "enabled": true
+            },
+            "ImplicitRelationships": {
+                "enabled": false
             },
             "InvisibleChat": {
                 "enabled": false
@@ -196,6 +235,9 @@
                 "enabled": false
             },
             "MessageClickActions": {
+                "enabled": false
+            },
+            "MessageLatency": {
                 "enabled": false
             },
             "MessageLinkEmbeds": {
@@ -217,14 +259,12 @@
                 "enabled": false
             },
             "Moyai": {
-                "enabled": false,
-                "volume": 0.5,
-                "quality": "Normal",
-                "triggerWhenUnfocused": true,
-                "ignoreBots": true,
-                "ignoreBlocked": true
+                "enabled": false
             },
             "MutualGroupDMs": {
+                "enabled": false
+            },
+            "NewGuildSettings": {
                 "enabled": false
             },
             "NoBlockedMessages": {
@@ -236,13 +276,13 @@
             "NoF1": {
                 "enabled": false
             },
+            "NoMosaic": {
+                "enabled": false
+            },
             "NoPendingCount": {
                 "enabled": false
             },
             "NoProfileThemes": {
-                "enabled": false
-            },
-            "NoRPC": {
                 "enabled": false
             },
             "NoReplyMention": {
@@ -251,13 +291,19 @@
             "NoScreensharePreview": {
                 "enabled": false
             },
-            "NoSystemBadge": {
+            "NoServerEmojis": {
+                "enabled": false
+            },
+            "NoTypingAnimation": {
                 "enabled": false
             },
             "NoUnblockToJump": {
                 "enabled": false
             },
             "NormalizeMessageLinks": {
+                "enabled": false
+            },
+            "NotificationVolume": {
                 "enabled": false
             },
             "NSFWGateBypass": {
@@ -270,9 +316,19 @@
                 "enabled": false
             },
             "OpenInApp": {
-                "enabled": true
+                "enabled": true,
+                "spotify": true,
+                "steam": true,
+                "epic": true,
+                "tidal": true
+            },
+            "OverrideForumDefaults": {
+                "enabled": false
             },
             "Party mode 🎉": {
+                "enabled": false
+            },
+            "PauseInvitesForever": {
                 "enabled": false
             },
             "PermissionFreeWill": {
@@ -294,11 +350,7 @@
                 "enabled": false
             },
             "PlatformIndicators": {
-                "enabled": true,
-                "colorMobileIndicator": true,
-                "list": true,
-                "badges": true,
-                "messages": true
+                "enabled": false
             },
             "PreviewMessage": {
                 "enabled": false
@@ -321,10 +373,19 @@
             "RelationshipNotifier": {
                 "enabled": false
             },
+            "ReplyTimestamp": {
+                "enabled": false
+            },
+            "ResurrectHome": {
+                "enabled": false
+            },
             "RevealAllSpoilers": {
                 "enabled": false
             },
             "ReverseImageSearch": {
+                "enabled": false
+            },
+            "ReviewDB": {
                 "enabled": false
             },
             "RoleColorEverywhere": {
@@ -357,10 +418,13 @@
             "ShowHiddenChannels": {
                 "enabled": false
             },
+            "ShowHiddenThings": {
+                "enabled": false
+            },
             "ShowMeYourName": {
                 "enabled": false
             },
-            "ShowTimeouts": {
+            "ShowTimeoutDuration": {
                 "enabled": false
             },
             "SilentMessageToggle": {
@@ -369,6 +433,7 @@
             "SilentTyping": {
                 "enabled": true,
                 "showIcon": true,
+                "contextMenu": true,
                 "isEnabled": true
             },
             "SortFriendRequests": {
@@ -386,6 +451,12 @@
             "StartupTimings": {
                 "enabled": false
             },
+            "StreamerModeOnStream": {
+                "enabled": false
+            },
+            "SuperReactionTweaks": {
+                "enabled": false
+            },
             "TextReplace": {
                 "enabled": false
             },
@@ -399,12 +470,19 @@
                 "enabled": false
             },
             "TypingIndicator": {
-                "enabled": false
+                "enabled": true,
+                "includeCurrentChannel": true,
+                "includeMutedChannels": false,
+                "includeBlockedUsers": false,
+                "indicatorMode": 3
             },
             "TypingTweaks": {
                 "enabled": false
             },
             "Unindent": {
+                "enabled": false
+            },
+            "UnlockedAvatarZoom": {
                 "enabled": false
             },
             "UnsuppressEmbeds": {
@@ -417,6 +495,9 @@
                 "enabled": false
             },
             "USRBG": {
+                "enabled": false
+            },
+            "ValidReply": {
                 "enabled": false
             },
             "ValidUser": {
@@ -437,59 +518,10 @@
             "ViewRaw": {
                 "enabled": false
             },
+            "VoiceDownload": {
+                "enabled": false
+            },
             "VoiceMessages": {
-                "enabled": false
-            },
-            "VolumeBooster": {
-                "enabled": true,
-                "multiplier": 2
-            },
-            "WhoReacted": {
-                "enabled": false
-            },
-            "Wikisearch": {
-                "enabled": false
-            },
-            "NoMosaic": {
-                "enabled": false
-            },
-            "NoTypingAnimation": {
-                "enabled": false
-            },
-            "SuperReactionTweaks": {
-                "enabled": false
-            },
-            "DisableCallIdle": {
-                "enabled": false
-            },
-            "NewGuildSettings": {
-                "enabled": false
-            },
-            "ChatInputButtonAPI": {
-                "enabled": true
-            },
-            "WebRichPresence (arRPC)": {
-                "enabled": false
-            },
-            "BetterGifPicker": {
-                "enabled": false
-            },
-            "ClientTheme": {
-                "enabled": false
-            },
-            "Decor": {
-                "enabled": false
-            },
-            "FixCodeblockGap": {
-                "enabled": false
-            },
-            "FixYoutubeEmbeds": {
-                "enabled": false
-            },
-            "NotificationVolume": {
-                "enabled": false
-            },
-            "ReviewDB": {
                 "enabled": false
             },
             "WebContextMenus": {
@@ -499,25 +531,16 @@
             "WebKeybinds": {
                 "enabled": true
             },
+            "WebScreenShareFixes": {
+                "enabled": true
+            },
+            "WhoReacted": {
+                "enabled": false
+            },
+            "Wikisearch": {
+                "enabled": false
+            },
             "XSOverlay": {
-                "enabled": false
-            },
-            "BetterRoleContext": {
-                "enabled": false
-            },
-            "ResurrectHome": {
-                "enabled": false
-            },
-            "BetterSettings": {
-                "enabled": true,
-                "disableFade": true,
-                "organizeMenu": true,
-                "eagerLoad": true
-            },
-            "FriendsSince": {
-                "enabled": false
-            },
-            "OverrideForumDefaults": {
                 "enabled": false
             }
         },
@@ -531,8 +554,8 @@
             "authenticated": false,
             "url": "https://api.vencord.dev/",
             "settingsSync": false,
-            "settingsSyncVersion": 1712580937235
+            "settingsSyncVersion": 1715894277659
         }
     },
-    "quickCss": "/**\n * @name Tokyo Night\n * @description Discord Port of Visual Studio Code Theme\n * @author Ashtrath\n * @version 2.0.2\n * @authorId 2354831939099688962\n */\n\n/* DONT TOUCH THIS!!! */\n@import url(\"https://dyzean.github.io/Tokyo-Night/main.css\");\n\n/*  Read this before editing stuff!!!\n*\n*   > To comment or uncomment a line you need to put those \"/\" and \"*\" characters as you can see at the beginning and ending of my comments.\n*      (You don't need to put a * at each line like I do, it's just for readability). See more here : https://developer.mozilla.org/en-US/docs/Web/CSS/Comments\n*\n*   > You can play with the values and see how it goes, don't delete \"px\" after the value if you don't have knowledges in CSS.\n*\n*   > To change the colors, replace the HEX code with the one you picked here : https://htmlcolorcodes.com\n*/\n\n/* ====== Optional Addons ====== */\n@import url(\"https://dyzean.github.io/Tokyo-Night/addons/revert-rebrand.css\");\n@import url(\"https://nyri4.github.io/Discolored/main.css\");\n\n/* VSCode User Area, get Visual Studio like user area (Enabled by default)\n  note: this addons doesn't works well with Compact Mode addon,\n  please disable this when using Compact Mode addon */\n@import url(\"https://dyzean.github.io/Tokyo-Night/addons/vscode-user-area.css\");\n\n/* Syntax Highlight, get hljs styling with Tokyo Night scheme (Enabled by default) */\n@import url(\"https://dyzean.github.io/Tokyo-Night/addons/syntax-highlight.css\");\n\n/* Username Background, get colorful background behind username on chat, works best with Monospace addon. (Disabled by default) */\n/* @import url(\"https://dyzean.github.io/Tokyo-Night/addons/username-background.css\"); */\n\n/* Mac Like Titlebar (windows only), get mac style titlebar on windows client (Enabled by default) */\n@import url(\"https://dyzean.github.io/Tokyo-Night/addons/mac-titlebar.css\");\n\n/* Compact Mode, hide some UI part on specific windows size,\n  <920px Channel sidebar and member list get hidden, <600px Chat window only. (Disabled by default) */\n/* @import url(\"https://dyzean.github.io/Tokyo-Night/addons/compact-mode.css\"); */\n\n/* Monospace, use monospaced font (JetBrains Mono) instead the default one (Disabled by default) */\n/* @import url(\"https://dyzean.github.io/Tokyo-Night/addons/monospace-fonts.css\"); */\n\n/* Square Avatar, get square avatar on chat memberlist and user area (Disabled by default) */\n/* @import url(\"https://dyzean.github.io/Tokyo-Night/addons/square-avatar.css\"); */\n\n\n/* ==== Discord Variables ==== */\n.theme-dark { /* Dark Mode */\n\n  /*  Header Color  */\n  --header-primary: var(--text-normal);\n  --header-secondary: var(--text-muted);\n\n  /*  Text Color  */\n  --text-normal: #b1bae6;\n  --text-muted: #565f89;\n  --interactive-normal: #5f647e;\n  --interactive-hover: #a2a6c2;\n  --interactive-active: #b5bad1;\n  --interactive-muted: #55576b;\n\n  /* Background Color */\n  --background-primary: #1a1b26;\n  --background-secondary: #171722;\n  --background-secondary-alt: #13131a;\n  --background-tertiary: #16161e;\n  --background-tertiary-alt: var(--background-secondary-alt);\n  --background-accent: #434461;\n  --background-floating: #161620;\n  --background-modifier-hover: #212331c0;\n  --background-modifier-active: #282a3680;\n  --background-modifier-selected: #24263171;\n  --background-modifier-accent: #1e1e29;\n  --background-mentioned: #252836;\n  --border-mentioned: #474c64;\n  --background-mentioned-hover: #2f3344;\n  --accent-color: #7aa2f7;\n\n  /* Folder Color */\n  --folder-color: #202332d0;\n  --folder-color-light: #2f3342d0;\n\n  /* Scrollbars Color */\n  --scrollbar-thin-thumb: transparent;\n  --scrollbar-thin-track: transparent;\n  --scrollbar-auto-thumb: #2b2b46af;\n  --scrollbar-auto-thumb-hover: #27273d85;\n  --scrollba-auto-track: transparent;\n  --scrollbar-auto-scrollbar-color-thumb: var(--scrollbar-auto-thumb);\n  --scrollbar-auto-scrollbar-color-track: var(--scrollbar-auto-track);\n\n  /* Chat Box Color */\n  --channeltextarea-background: var(--background-secondary);\n  --channeltextarea-background-hover: var(--background-tertiary);\n\n\t/* Square avatar addons */\n\t--avatar-roundess: 5px;\n\n  /* Mac Titlebar addons */\n  --close-button-color: #e92a2ade;\n  --maximize-button-color: #f7bc1bde;\n  --minimize-button-color: #12db33de;\n}\n\n.theme-light { /* Light Mode */\n\n  /*  Header Color  */\n  --header-primary: var(--text-normal);\n  --header-secondary: var(--text-muted);\n\n  /* Text Color */\n  --text-normal: #2e3338;\n  --text-muted: #747f8d;\n  --interactive-normal: #4c505e;\n  --interactive-hover: #404350;\n  --interactive-active: #373a44;\n  --interactive-muted: #77797c;\n\n  /* Background Color */\n  --background-primary: #d5d6db;\n  --background-secondary: #cecfd4;\n  --background-secondary-alt: #b6b7bd;\n  --background-tertiary: #c5c6cc;\n  --background-tertiary-alt: #bbbbc2;\n  --background-accent: #9ca3bb;\n  --background-floating: #c2c2c9;\n  --background-mentioned: #c4c7da;\n  --background-modifier-hover: #2c2a2a25;\n  --background-modifier-active: #5a525229;\n  --background-modifier-selected: #555e693d;\n  --background-modifier-accent: #06060714;\n  --border-mentioned: #a9afcf;\n  --background-mentioned-hover: #cfd2e9;\n  --accent-color: #365aaa;\n\n  /* Folder Color */\n  --folder-color: #a7a6a6d0;\n  --folder-color-light: #afafafd0;\n\n  /* Input Box Color */\n  --input-box-bg: #c2c2c7;\n  --input-box-border: #b3b4b8;\n  --input-box-border-focus: #959699;\n\n  /* Scrollbars Color */\n  --scrollbar-thin-thumb: transparent;\n  --scrollbar-thin-track: transparent;\n  --scrollbar-auto-thumb: #a0a0a0af;\n  --scrollbar-auto-thumb-hover: #77777785;\n  --scrollbar-auto-track: transparent;\n  --scrollbar-auto-scrollbar-color-thumb: var(--scrollbar-auto-thumb);\n  --scrollbar-auto-scrollbar-color-track: var(--scrollbar-auto-track);\n\n  /* Chat Box Color */\n  --channeltextarea-background: var(--background-secondary);\n  --channeltextarea-background-hover: var(--background-tertiary);\n\n  /* Square avatar addons */\n\t--avatar-roundess: 5px;\n\n  /* Mac Titlebar addons */\n  --close-button-color: #e92a2ade;\n  --maximize-button-color: #f7bc1bde;\n  --minimize-button-color: #12db33de;\n  --button-position: row;\n\n}\n"
+    "quickCss": ""
 }
