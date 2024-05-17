@@ -1,43 +1,10 @@
-import PanelButton from "../PanelButton";
-import options from "options";
-import { sh, range } from "lib/utils";
+import { sh } from "lib/utils";
 
 const hyprland = await Service.import("hyprland");
-const { workspaces } = options.bar.workspaces;
 
 const dispatch = (arg: string | number) => {
   sh(`hyprctl dispatch workspace ${arg}`);
 };
-
-// const Workspaces = (ws: number) =>
-//   Widget.Box({
-//     children: range(ws || 20).map((i) =>
-//       Widget.Label({
-//         attribute: i,
-//         vpack: "center",
-//         label: `${i}`,
-//         setup: (self) =>
-//           self.hook(hyprland, () => {
-//             self.toggleClassName("active", hyprland.active.workspace.id === i);
-//             self.toggleClassName(
-//               "occupied",
-//               (hyprland.getWorkspace(i)?.windows || 0) > 0,
-//             );
-//           }),
-//       }),
-//     ),
-//     setup: (box) => {
-//       if (ws === 0) {
-//         box.hook(hyprland.active.workspace, () =>
-//           box.children.map((btn) => {
-//             btn.visible = hyprland.workspaces.some(
-//               (ws) => ws.id === btn.attribute,
-//             );
-//           }),
-//         );
-//       }
-//     },
-//   });
 
 function Workspaces(monitor = 0) {
   const activeId = hyprland.active.workspace.bind("id");
@@ -49,8 +16,6 @@ function Workspaces(monitor = 0) {
       .map(({ id }) =>
         Widget.Button({
           on_clicked: () => dispatch(id),
-          onScrollUp: () => dispatch("+1"),
-          onScrollDown: () => dispatch("-1"),
           child: Widget.Label(`${id}`),
           class_name: activeId.as((i) => `${i === id ? "focused" : ""}`),
         }),
@@ -63,4 +28,4 @@ function Workspaces(monitor = 0) {
   });
 }
 
-export default (monitor) => Workspaces(monitor);
+export default (monitor: number | undefined) => Workspaces(monitor);
