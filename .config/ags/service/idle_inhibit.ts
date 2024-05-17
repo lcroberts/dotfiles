@@ -18,6 +18,11 @@ class IdleInhibit extends Service {
       Utils.execAsync("sh -c 'hypridle'");
     }
   }
+
+  constructor() {
+    super();
+    Utils.execAsync("sh -c 'pidof hypridle || hypridle'");
+  }
 }
 
 export default new IdleInhibit();
