@@ -1,27 +1,23 @@
 class IdleInhibit extends Service {
-    static {
-        Service.register(this, {}, { "inhibit-status": ["boolean", "rw"] });
-    }
+  static {
+    Service.register(this, {}, { "inhibit-status": ["boolean", "rw"] });
+  }
 
-    #inhibit = Utils.exec("sh -c 'systemd-inhibit sleep 5'");
-    #sleep = Utils.exec("sh -c 'sleep 5'");
-    #inhibit_status = false;
+  #inhibitStatus = false;
 
-    toggle_inhibit() {
-        this.#inhibit_status = !this.#inhibit_status;
-    }
+  get inhibit_status() {
+    return this.#inhibitStatus;
+  }
 
-    #inhibit_loop() {
-        if (this.#inhibit_status) {
-            this.#inhibit;
-        } else {
-            this.#sleep;
-        }
+  toggle_inhibit() {
+    this.#inhibitStatus = !this.#inhibitStatus;
+    this.changed("inhibit-status");
+    if (this.#inhibitStatus) {
+      Utils.execAsync("sh -c 'pkill hypridle'");
+    } else {
+      Utils.execAsync("sh -c 'hypridle'");
     }
-
-    constructor() {
-        super();
-    }
+  }
 }
 
 export default new IdleInhibit();
