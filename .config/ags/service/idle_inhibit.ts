@@ -15,7 +15,7 @@ class IdleInhibit extends Service {
     if (this.#inhibitStatus) {
       Utils.execAsync("sh -c 'pkill hypridle'");
     } else {
-      Utils.execAsync("sh -c 'hypridle'");
+      Utils.execAsync("sh -c 'pidof hypridle || hypridle'");
     }
   }
 
