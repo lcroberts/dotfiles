@@ -13,6 +13,7 @@ set -gx SDL_IM_MODULE 'fcitx'
 set -gx XMODIFIERS '@im=fcitx'
 
 set -gx VISUAL "nvim"
+set -gx EDITOR "nvim"
 
 set -gx BUN_INSTALL "$HOME/.bun"
 fish_add_path $BUN_INSTALL/bin
