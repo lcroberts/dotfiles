@@ -41,8 +41,8 @@ const MicrophoneIndicator = () =>
     .hook(
       audio,
       (self) =>
-        (self.visible =
-          audio.recorders.length > 0 || audio.microphone.is_muted || false),
+      (self.visible =
+        audio.recorders.length > 0 || audio.microphone.is_muted || false),
     )
     .hook(audio.microphone, (self) => {
       const vol = audio.microphone.is_muted ? 0 : audio.microphone.volume;
@@ -112,8 +112,6 @@ export default () =>
     on_scroll_up: () => (audio.speaker.volume += 0.02),
     on_scroll_down: () => (audio.speaker.volume -= 0.02),
     child: Widget.Box([
-      ProfileIndicator(),
-      ModeIndicator(),
       InhibitIndicator(),
       DNDIndicator(),
       BluetoothIndicator(),
