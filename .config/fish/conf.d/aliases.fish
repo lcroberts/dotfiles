@@ -51,16 +51,19 @@ function take --wraps mkdir --description 'Make directory and enter'
 end
 
 function pullall --description "Pull git repos within a subdirectory"
-    for dir in $(find . -maxdepth 5  -type d -name .git | sed 's|/.git$||')
-        cd $dir
-        set_color blue
-        echo "Entered $(pwd)"
-        set_color normal
-        git pull
-        set_color green
-        echo "Finished pull for repo in $dir"
-        set_color normal
-        cd -
+    set dirs "$HOME/Projects/" "$HOME/.config/nvim"
+    for path in $dirs
+        for dir in $(find $path -maxdepth 5  -type d -name .git | sed 's|/.git$||')
+            cd $dir
+            set_color blue
+            echo "Entered $(pwd)"
+            set_color normal
+            git pull
+            set_color green
+            echo "Finished pull for repo in $dir"
+            set_color normal
+            cd -
+        end
     end
 end
 
