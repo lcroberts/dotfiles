@@ -26,6 +26,8 @@ imap <C-b> <Esc>_i
 imap <C-e> <End>
 imap <A-;> <End>;
 imap <A-,> <End>,
+imap <A-o> <Esc>o
+imap <A-S-O> <Esc>O
 
 " Move text around
 xmap A :s/$/ 
@@ -40,8 +42,6 @@ cmap <M-/> \/
 
 " Highlight copied text
 Plug 'machakann/vim-highlightedyank'
-" Commentary plugin
-Plug 'tpope/vim-commentary'
 
 set number
 set relativenumber
