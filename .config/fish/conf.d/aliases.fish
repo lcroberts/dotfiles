@@ -15,9 +15,6 @@ abbr ga git add
 abbr gp git pull
 abbr gc git commit
 
-# tar multithreading
-alias tar="tar --use-compress-program=pigz"
-
 # eza aliases
 set eza_modifiers "--git --icons --color-scale --group-directories-first"
 alias l="eza $eza_modifiers"
