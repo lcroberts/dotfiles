@@ -8,12 +8,24 @@ alias deventer="distrobox-enter dev -- tmux -f /home/logan/.config/tmux/tmux-dev
 abbr hibernate systemctl hibernate
 # rm interactive mode alias
 abbr rm rm -I
+
 # git aliases
 abbr gs git status
 abbr gl git log
+abbr glo git log --oneline
 abbr ga git add
-abbr gp git pull
-abbr gc git commit
+abbr gaa git add .
+abbr gp git push
+abbr gpu git pull
+abbr gc --set-cursor "git commit -m \"%\""
+abbr gco git checkout
+abbr gd git diff
+abbr gb git branch
+
+function last_history_item
+    echo $history[1]
+end
+abbr -a !! --position anywhere --function last_history_item
 
 # eza aliases
 set eza_modifiers "--git --icons --color-scale --group-directories-first"
