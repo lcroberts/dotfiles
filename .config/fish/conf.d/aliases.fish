@@ -10,6 +10,7 @@ abbr hibernate systemctl hibernate
 abbr rm rm -I
 
 # git aliases
+abbr g git
 abbr gs git status
 abbr gl git log
 abbr glo git log --oneline
