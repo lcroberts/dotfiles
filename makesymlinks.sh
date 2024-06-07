@@ -3,6 +3,7 @@
 files=(
 	".zshrc"
 	".zshenv"
+	".npmrc"
 	"Scripts"
 	".config/fastfetch"
 	".config/fcitx5"
