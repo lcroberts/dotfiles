@@ -33,7 +33,7 @@ App.config({
     ...forMonitors(ScreenCorners),
     ...forMonitors(OSD),
     Launcher(),
-    Overview(),
+    // Overview(), // Overview breaks responsiveness of workspaces widget
     PowerMenu(),
     SettingsDialog(),
     Verification(),
