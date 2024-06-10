@@ -100,7 +100,8 @@ export default {
     screen: "display-brightness-symbolic",
   },
   powermenu: {
-    sleep: "weather-clear-night-symbolic",
+    sleep: "daytime-sunset-symbolic",
+    // sleep: "weather-clear-night-symbolic",
     reboot: "system-reboot-symbolic",
     logout: "system-log-out-symbolic",
     shutdown: "system-shutdown-symbolic",
