@@ -6,7 +6,6 @@ import Bar from "widget/bar/Bar";
 import Launcher from "widget/launcher/Launcher";
 import NotificationPopups from "widget/notifications/NotificationPopups";
 import OSD from "widget/osd/OSD";
-import Overview from "widget/overview/Overview";
 import PowerMenu from "widget/powermenu/PowerMenu";
 import ScreenCorners from "widget/bar/ScreenCorners";
 import SettingsDialog from "widget/settings/SettingsDialog";
@@ -33,7 +32,6 @@ App.config({
     ...forMonitors(ScreenCorners),
     ...forMonitors(OSD),
     Launcher(),
-    // Overview(), // Overview breaks responsiveness of workspaces widget
     PowerMenu(),
     SettingsDialog(),
     Verification(),
