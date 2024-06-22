@@ -1,4 +1,4 @@
-abbr vim nvim
+abbr vi nvim
 # Archlinux update
 abbr upgrade paru -Syu
 # Alias to enter generic tmux session
