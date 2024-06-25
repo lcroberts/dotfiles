@@ -38,6 +38,8 @@ alias lt="eza $eza_modifiers --tree"
 alias llt="eza $eza_modifiers --tree -a"
 alias lx="eza $eza_modifiers -lbhHgmUa"
 
+alias emacs="emacs --no-window-system"
+
 # Movement aliases
 abbr - cd -
 abbr .. cd ..
