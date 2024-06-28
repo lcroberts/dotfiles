@@ -16,8 +16,8 @@ abbr gl git log
 abbr glo git log --oneline
 abbr ga git add
 abbr gaa git add .
-abbr gp git push
-abbr gpu git pull
+abbr gpu git push
+abbr gp git pull
 abbr gc --set-cursor "git commit -m \"%\""
 abbr gco git checkout
 abbr gd git diff
