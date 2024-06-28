@@ -23,6 +23,7 @@ files=(
 	".config/swaylock"
 	".config/swayidle"
 	".config/ags"
+	".config/kmonad"
 	".local/share/fcitx5"
 )
 
