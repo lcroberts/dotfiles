@@ -23,10 +23,10 @@ fi
 
 case "$1" in
 "general")
-	symlink ./stow/
+	symlink ./configs/
 	;;
 "desktop")
-	echo "desktop"
+	symlink ./configs-desktop/
 	;;
 "laptop")
 	echo "laptop"
