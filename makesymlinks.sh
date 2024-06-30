@@ -29,7 +29,7 @@ case "$1" in
 	symlink ./configs-desktop/
 	;;
 "laptop")
-	echo "laptop"
+	symlink ./configs-laptop/
 	;;
 *)
 	usage

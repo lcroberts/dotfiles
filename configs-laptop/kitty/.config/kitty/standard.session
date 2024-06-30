@@ -1,0 +1,4 @@
+launch tmux new -As main
+
+new_tab
+launch fish -c "deventer"
