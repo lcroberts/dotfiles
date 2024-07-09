@@ -2,6 +2,11 @@ return {
   {
     'folke/lazydev.nvim',
     ft = 'lua', -- only load on lua files
+    dependencies = {
+      {
+        'Bilal2453/luvit-meta',
+      }, -- optional `vim.uv` typings
+    },
     opts = {
       library = {
         -- See the configuration section for more details
@@ -10,7 +15,4 @@ return {
       },
     },
   },
-  {
-    'Bilal2453/luvit-meta',
-  }, -- optional `vim.uv` typings
 }

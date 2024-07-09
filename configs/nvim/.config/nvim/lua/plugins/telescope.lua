@@ -82,8 +82,7 @@ return {
         end
 
         -- Find the Git root directory from the current file's path
-        local git_root = vim.fn.systemlist('git -C ' .. vim.fn.escape(current_dir, ' ') .. ' rev-parse --show-toplevel')
-        [1]
+        local git_root = vim.fn.systemlist('git -C ' .. vim.fn.escape(current_dir, ' ') .. ' rev-parse --show-toplevel')[1]
         if vim.v.shell_error ~= 0 then
           print 'Not a git repository. Searching on current working directory'
           return cwd
@@ -106,7 +105,7 @@ return {
       -- Custom live_grep function to search in git root
       local function enter_config()
         local config_dir = vim.fn.stdpath 'config'
-        vim.api.nvim_exec('cd ' .. config_dir, {})
+        vim.cmd([[cd ]] .. config_dir)
         require('telescope.builtin').find_files { cwd = config_dir }
       end
 
@@ -119,8 +118,7 @@ return {
         }
       end
 
-      vim.keymap.set({ 'n' }, '<leader>fo', require('telescope.builtin').oldfiles,
-        { desc = '[f]ind recently [o]pened files' })
+      vim.keymap.set({ 'n' }, '<leader>fo', require('telescope.builtin').oldfiles, { desc = '[f]ind recently [o]pened files' })
       vim.keymap.set({ 'n' }, '<leader>fb', require('telescope.builtin').buffers, { desc = '[f]ind existing [b]uffers' })
       vim.keymap.set({ 'n' }, '<leader>ff', require('telescope.builtin').find_files, { desc = '[f]ind [f]iles' })
       vim.keymap.set({ 'n' }, '<leader>ft', telescope_live_grep_open_files, { desc = '[f]ind [t]ext' })

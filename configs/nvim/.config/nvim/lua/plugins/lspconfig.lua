@@ -2,6 +2,7 @@ local vim = vim
 
 return {
   'neovim/nvim-lspconfig',
+  event = 'VeryLazy',
   dependencies = {
     {
       'williamboman/mason.nvim',
@@ -121,6 +122,7 @@ return {
       pyright = {},
       bashls = {},
       typos_lsp = {},
+      zls = {},
     }
 
     require('mason').setup()
