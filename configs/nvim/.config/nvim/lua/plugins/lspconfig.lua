@@ -100,15 +100,27 @@ return {
 
     local capabilities = vim.lsp.protocol.make_client_capabilities()
     capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
-    -- local capabilities = vim.lsp.protocol.make_client_capabilities()
-    -- capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
     local servers = {
+      lua_ls = {
+        -- cmd = {...},
+        -- filetypes = { ...},
+        -- capabilities = {},
+        settings = {
+          Lua = {
+            completion = {
+              callSnippet = 'Replace',
+            },
+            -- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
+            diagnostics = { disable = { 'missing-fields' } },
+          },
+        },
+      },
       clangd = {},
       gopls = {},
-      lua_ls = {},
       pyright = {},
       bashls = {},
+      typos_lsp = {},
     }
 
     require('mason').setup()
