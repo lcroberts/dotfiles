@@ -108,6 +108,7 @@ return {
       gopls = {},
       lua_ls = {},
       pyright = {},
+      bashls = {},
     }
 
     require('mason').setup()
@@ -116,6 +117,7 @@ return {
       'stylua', -- Used to format Lua code
       'black',
       'isort',
+      'shfmt',
     })
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }
     require('mason-lspconfig').setup {
