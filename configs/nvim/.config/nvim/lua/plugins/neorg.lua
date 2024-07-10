@@ -59,7 +59,7 @@ return {
                 notes = '~/OneDrive/neorg/notes',
                 todo = '~/OneDrive/neorg/todo',
               },
-              default_workspace = 'notes',
+              default_workspace = 'todo',
             },
           },
           ['core.export'] = {},
