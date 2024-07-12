@@ -122,19 +122,23 @@ return {
       pyright = {},
       bashls = {},
       typos_lsp = {},
+      lexical = {},
     }
 
     require('mason').setup()
     local ensure_installed = vim.tbl_keys(servers or {})
     vim.list_extend(ensure_installed, {
-      'stylua', -- Used to format Lua code
+      'stylua',
       'black',
       'isort',
       'shfmt',
       'delve',
       'codelldb',
     })
-    require('mason-tool-installer').setup { ensure_installed = ensure_installed }
+    require('mason-tool-installer').setup {
+      ensure_installed = ensure_installed,
+      auto_update = true,
+    }
     require('mason-lspconfig').setup {
       handlers = {
         function(server_name)
