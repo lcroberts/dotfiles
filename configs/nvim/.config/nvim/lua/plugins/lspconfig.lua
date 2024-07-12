@@ -122,7 +122,6 @@ return {
       pyright = {},
       bashls = {},
       typos_lsp = {},
-      zls = {},
     }
 
     require('mason').setup()
@@ -148,5 +147,6 @@ return {
         end,
       },
     }
+    vim.cmd [[filetype detect]]
   end,
 }
