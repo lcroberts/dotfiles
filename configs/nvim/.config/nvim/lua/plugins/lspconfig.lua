@@ -122,7 +122,6 @@ return {
       pyright = {},
       bashls = {},
       typos_lsp = {},
-      lexical = {},
     }
 
     require('mason').setup()
