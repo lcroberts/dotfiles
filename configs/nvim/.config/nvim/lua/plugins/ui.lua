@@ -110,28 +110,25 @@ return {
       vim.o.timeout = true
       vim.o.timeoutlen = 300
     end,
-    config = function()
-      require('which-key').register {
-        ['<leader>c'] = { name = '[C]ode', _ = 'which_key_ignore' },
-        ['<leader>d'] = { name = '[D]ebug and [D]iagnostics', _ = 'which_key_ignore' },
-        ['<leader>g'] = { name = '[G]it and [G]oto', _ = 'which_key_ignore' },
-        ['<leader>h'] = { name = '[H]arpoon and Git [H]unk', _ = 'which_key_ignore' },
-        ['<leader>r'] = { name = '[R]ename and [R]ust', _ = 'which_key_ignore' },
-        ['<leader>f'] = { name = '[F]ind and [F]ormat', _ = 'which_key_ignore' },
-        ['<leader>t'] = { name = '[T]oggle and [T]rouble', _ = 'which_key_ignore' },
-        ['<leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
-        ['<leader>b'] = { name = '[B]lock', _ = 'which_key_ignore' },
-      }
-
-      -- register which-key VISUAL mode
-      -- required for visual <leader>hs (hunk stage) to work
-      require('which-key').register({
-        ['<leader>'] = { name = 'VISUAL <leader>' },
-        ['<leader>b'] = { name = '[B]lock', _ = 'which_key_ignore' },
-        ['<leader>h'] = { 'Git [H]unk' },
-      }, { mode = 'v' })
-      require('which-key').setup {}
-    end,
+    opts = {
+      spec = {
+        { '<leader>c', desc = '[C]ode' },
+        { '<leader>d', desc = '[D]ebug and [D]iagnostics' },
+        { '<leader>g', desc = '[G]it and [G]oto' },
+        { '<leader>h', desc = '[H]arpoon and Git [H]unk' },
+        { '<leader>r', desc = '[R]ename and [R]ust' },
+        { '<leader>f', desc = '[F]ind and [F]ormat' },
+        { '<leader>t', desc = '[T]oggle and [T]rouble' },
+        { '<leader>w', desc = '[W]orkspace' },
+        { '<leader>b', desc = '[B]lock' },
+        {
+          mode = { 'v' },
+          { '<leader>', desc = 'VISUAL <leader>' },
+          { '<leader>b', desc = '[B]lock' },
+          { '<leader>h', desc = 'Git [H]unk' },
+        },
+      },
+    },
   },
 
   -- Adds git related signs to the gutter, as well as utilities for managing changes
