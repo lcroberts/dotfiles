@@ -112,20 +112,26 @@ return {
     end,
     opts = {
       spec = {
-        { '<leader>c', desc = '[C]ode' },
-        { '<leader>d', desc = '[D]ebug and [D]iagnostics' },
-        { '<leader>g', desc = '[G]it and [G]oto' },
-        { '<leader>h', desc = '[H]arpoon and Git [H]unk' },
-        { '<leader>r', desc = '[R]ename and [R]ust' },
-        { '<leader>f', desc = '[F]ind and [F]ormat' },
-        { '<leader>t', desc = '[T]oggle and [T]rouble' },
-        { '<leader>w', desc = '[W]orkspace' },
-        { '<leader>b', desc = '[B]lock' },
+        { '<leader>c', group = '[C]ode' },
+        { '<leader>d', group = '[D]ebug and [D]iagnostics' },
+        { '<leader>g', group = '[G]it and [G]oto' },
+        { '<leader>h', group = '[H]arpoon and Git [H]unk' },
+        { '<leader>r', group = '[R]ename and [R]ust' },
+        { '<leader>f', group = '[F]ind and [F]ormat' },
+        { '<leader>t', group = '[T]oggle and [T]rouble' },
+        { '<leader>w', group = '[W]orkspace' },
+        { '<leader>b', group = '[B]lock' },
+        { '<leader>n', group = '[N]eorg' },
+        { '<leader>1', hidden = true },
+        { '<leader>2', hidden = true },
+        { '<leader>3', hidden = true },
+        { '<leader>4', hidden = true },
+        { '<leader>5', hidden = true },
         {
           mode = { 'v' },
-          { '<leader>', desc = 'VISUAL <leader>' },
-          { '<leader>b', desc = '[B]lock' },
-          { '<leader>h', desc = 'Git [H]unk' },
+          { '<leader>', group = 'VISUAL <leader>' },
+          { '<leader>b', group = '[B]lock' },
+          { '<leader>h', group = 'Git [H]unk' },
         },
       },
     },
@@ -144,26 +150,7 @@ return {
         changedelete = { text = '~' },
         untracked = { text = '│' },
       }, -- See `:help gitsigns.txt`
-      on_attach = function(bufnr)
-        -- vim.keymap.set({ 'n' }, ']c', function()
-        --   if vim.wo.diff then
-        --     return ']c'
-        --   end
-        --   vim.schedule(function()
-        --     package.loaded.gitsigns.next_hunk()
-        --   end)
-        --   return '<Ignore>'
-        -- end, { desc = 'Jump to next hunk' })
-        -- vim.keymap.set({ 'n' }, '[c', function()
-        --   if vim.wo.diff then
-        --     return ']c'
-        --   end
-        --   vim.schedule(function()
-        --     package.loaded.gitsigns.prev_hunk()
-        --   end)
-        --   return '<Ignore>'
-        -- end, { desc = 'Jump to prev hunk' })
-
+      on_attach = function()
         vim.keymap.set({ 'n' }, '<leader>hs', package.loaded.gitsigns.stage_hunk, { desc = 'git stage hunk' })
         vim.keymap.set({ 'n' }, '<leader>hr', package.loaded.gitsigns.reset_hunk, { desc = 'git reset hunk' })
         vim.keymap.set({ 'n' }, '<leader>hS', package.loaded.gitsigns.stage_buffer, { desc = 'git Stage buffer' })
