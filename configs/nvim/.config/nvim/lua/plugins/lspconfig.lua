@@ -123,6 +123,7 @@ return {
       pyright = {},
       bashls = {},
       typos_lsp = {},
+      ocamllsp = {},
     }
 
     require('mason').setup()
