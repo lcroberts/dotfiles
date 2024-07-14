@@ -11,6 +11,7 @@ return {
   },
   {
     'nvim-neorg/neorg',
+    version = "*",
     event = 'VeryLazy',
     dependencies = {
       'luarocks.nvim',
