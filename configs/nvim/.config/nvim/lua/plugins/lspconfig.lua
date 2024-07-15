@@ -123,11 +123,21 @@ return {
       pyright = {},
       bashls = {},
       typos_lsp = {},
-      ocamllsp = {},
+      gleam = {
+        manual_install = true,
+      },
     }
-
     require('mason').setup()
-    local ensure_installed = vim.tbl_keys(servers or {})
+
+    local ensure_installed = vim.tbl_filter(function(key)
+      local t = servers[key]
+      if type(t) == 'table' then
+        return not t.manual_install
+      else
+        return t
+      end
+    end, vim.tbl_keys(servers))
+
     vim.list_extend(ensure_installed, {
       'stylua',
       'black',
@@ -140,18 +150,19 @@ return {
       ensure_installed = ensure_installed,
       auto_update = true,
     }
-    require('mason-lspconfig').setup {
-      handlers = {
-        function(server_name)
-          local server = servers[server_name] or {}
-          -- This handles overriding only values explicitly passed
-          -- by the server configuration above. Useful when disabling
-          -- certain features of an LSP (for example, turning off formatting for tsserver)
-          server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
-          require('lspconfig')[server_name].setup(server)
-        end,
-      },
-    }
+    vim.cmd [[MasonToolsInstall]]
+
+    local lspconfig = require 'lspconfig'
+    for name, config in pairs(servers) do
+      if config == true then
+        config = {}
+      end
+      config = vim.tbl_deep_extend('force', {}, {
+        capabilities = capabilities,
+      }, config)
+
+      lspconfig[name].setup(config)
+    end
 
     require('lsp_lines').setup()
     vim.diagnostic.config { virtual_text = false }
