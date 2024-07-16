@@ -64,6 +64,12 @@ return {
             },
           },
           ['core.export'] = {},
+          ['core.esupports.metagen'] = {
+            config = {
+              author = 'Logan Roberts',
+              update_date = true,
+            },
+          },
           ['core.keybinds'] = {
             config = {
               hook = function(keybinds)
@@ -85,11 +91,6 @@ return {
       vim.keymap.set({ 'n' }, '<leader>nr', '<cmd>Neorg return<cr>', { desc = 'Neorg return' })
       vim.keymap.set('n', '<leader>nw', '<cmd>Telescope neorg switch_workspace<cr>', { desc = 'Telescope neorg workspace' })
       vim.keymap.set({ 'n' }, '<leader>fn', '<cmd>Telescope neorg find_norg_files<cr>', { desc = 'Find norg files' })
-      vim.api.nvim_create_autocmd('BufWritePre', {
-        pattern = { '*.norg' },
-        group = vim.api.nvim_create_augroup('Update Metadata', { clear = true }),
-        command = 'Neorg update-metadata',
-      })
     end,
   },
 }
