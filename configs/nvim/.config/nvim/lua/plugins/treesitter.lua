@@ -2,8 +2,8 @@ local vim = vim
 
 return {
   {
-    "nvim-treesitter/nvim-treesitter",
-    event = "VeryLazy",
+    'nvim-treesitter/nvim-treesitter',
+    event = 'VeryLazy',
     dependencies = {
       'nvim-treesitter/nvim-treesitter-textobjects',
       'JoosepAlviste/nvim-ts-context-commentstring',
@@ -84,6 +84,6 @@ return {
 
       require('ts_context_commentstring').setup {}
       require('nvim-ts-autotag').setup {}
-    end
+    end,
   },
 }

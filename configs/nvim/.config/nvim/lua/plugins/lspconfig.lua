@@ -122,6 +122,7 @@ return {
       pyright = {},
       bashls = {},
       typos_lsp = {},
+      zls = {},
       gleam = {
         manual_install = true,
       },
