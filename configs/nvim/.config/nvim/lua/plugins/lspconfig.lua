@@ -10,7 +10,6 @@ return {
     },
     'williamboman/mason-lspconfig.nvim',
     'WhoIsSethDaniel/mason-tool-installer.nvim',
-    { 'https://git.sr.ht/~whynothugo/lsp_lines.nvim' },
     {
       'j-hui/fidget.nvim',
       event = 'VeryLazy',
@@ -163,9 +162,6 @@ return {
 
       lspconfig[name].setup(config)
     end
-
-    require('lsp_lines').setup()
-    vim.diagnostic.config { virtual_text = false }
 
     vim.cmd [[filetype detect]]
   end,
