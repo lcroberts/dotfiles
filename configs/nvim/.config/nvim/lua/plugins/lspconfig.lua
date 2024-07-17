@@ -123,8 +123,8 @@ return {
       bashls = {},
       typos_lsp = {},
       zls = {},
-      gleam = {
-        manual_install = true,
+      lexical = {
+        cmd = { vim.fn.stdpath 'data' .. '/mason/bin/lexical' },
       },
     }
     require('mason').setup()

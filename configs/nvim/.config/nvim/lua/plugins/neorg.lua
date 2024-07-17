@@ -86,7 +86,6 @@ return {
       }
 
       vim.wo.foldlevel = 99
-      vim.wo.conceallevel = 2
       vim.keymap.set({ 'n' }, '<leader>ni', '<cmd>Neorg index<cr>', { desc = 'Neorg index' })
       vim.keymap.set({ 'n' }, '<leader>nr', '<cmd>Neorg return<cr>', { desc = 'Neorg return' })
       vim.keymap.set('n', '<leader>nw', '<cmd>Telescope neorg switch_workspace<cr>', { desc = 'Telescope neorg workspace' })
