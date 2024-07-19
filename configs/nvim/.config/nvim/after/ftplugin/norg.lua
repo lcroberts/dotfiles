@@ -1,1 +1,12 @@
 vim.wo.conceallevel = 2
+vim.keymap.set('n', '<localleader>id', '<Plug>(neorg.tempus.insert-date)', { buffer = true })
+vim.keymap.set('n', '<localleader>li', '<Plug>(neorg.pivot.list.invert)', { buffer = true })
+vim.keymap.set('n', '<localleader>lt', '<Plug>(neorg.pivot.list.toggle)', { buffer = true })
+vim.keymap.set('n', '<localleader>td', '<Plug>(neorg.qol.todo-items.todo.task-ambiguous)', { buffer = true })
+vim.keymap.set('n', '<localleader>tc', '<Plug>(neorg.qol.todo-items.todo.task-cancelled)', { buffer = true })
+vim.keymap.set('n', '<localleader>td', '<Plug>(neorg.qol.todo-items.todo.task-done)', { buffer = true })
+vim.keymap.set('n', '<localleader>th', '<Plug>(neorg.qol.todo-items.todo.task-on-hold)', { buffer = true })
+vim.keymap.set('n', '<localleader>ti', '<Plug>(neorg.qol.todo-items.todo.task-important)', { buffer = true })
+vim.keymap.set('n', '<localleader>tp', '<Plug>(neorg.qol.todo-items.todo.task-pending)', { buffer = true })
+vim.keymap.set('n', '<localleader>tr', '<Plug>(neorg.qol.todo-items.todo.task-recurring)', { buffer = true })
+vim.keymap.set('n', '<localleader>tu', '<Plug>(neorg.qol.todo-items.todo.task-undone)', { buffer = true })
