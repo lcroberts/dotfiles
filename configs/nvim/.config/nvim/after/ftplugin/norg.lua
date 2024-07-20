@@ -10,3 +10,5 @@ vim.keymap.set('n', '<localleader>ti', '<Plug>(neorg.qol.todo-items.todo.task-im
 vim.keymap.set('n', '<localleader>tp', '<Plug>(neorg.qol.todo-items.todo.task-pending)', { buffer = true })
 vim.keymap.set('n', '<localleader>tr', '<Plug>(neorg.qol.todo-items.todo.task-recurring)', { buffer = true })
 vim.keymap.set('n', '<localleader>tu', '<Plug>(neorg.qol.todo-items.todo.task-undone)', { buffer = true })
+vim.keymap.set('i', '{', '{', { buffer = true })
+vim.keymap.set('i', '[', '[', { buffer = true })
