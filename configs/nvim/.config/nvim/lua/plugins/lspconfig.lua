@@ -88,7 +88,7 @@ return {
         map('<leader>df', vim.diagnostic.open_float, 'floating diagnostic message')
         map('<leader>dl', vim.diagnostic.setloclist, 'Open diagnostics list')
 
-        imap('<C-d>', vim.lsp.buf.signature_help, 'Show signature help')
+        imap('<M-h>', vim.lsp.buf.signature_help, 'Show signature help')
 
         local client = vim.lsp.get_client_by_id(event.data.client_id)
         if client and client.server_capabilities.inlayHintProvider and vim.lsp.inlay_hint then
