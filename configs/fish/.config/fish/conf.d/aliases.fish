@@ -107,3 +107,7 @@ function sd
     [ -d $dirr ] && cd $dirr && return
     [ -f $dirr ] && nvim $dirr && return
 end
+
+function gamescope_command --description "Echo used gamescope command"
+    echo "gamescope -W 3840 -H 2160 -r 144 -f -- %command%"
+end
