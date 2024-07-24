@@ -109,5 +109,5 @@ function sd
 end
 
 function gamescope_command --description "Echo used gamescope command"
-    echo "gamescope -W 3840 -H 2160 -r 144 -f -- %command%"
+    echo "gamescope -W 3840 -H 2160 -r 144 -f -e -s 2.0 -- %command%"
 end
