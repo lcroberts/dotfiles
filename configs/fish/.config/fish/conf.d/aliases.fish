@@ -109,5 +109,6 @@ function sd
 end
 
 function gamescope_command --description "Echo used gamescope command"
-    echo "gamescope -W 3840 -H 2160 -r 144 -f -e -s 2.0 -- %command%"
+    echo "gamescope -f -w 3840 -h 2160 -W 3840 -H 2160 -e -s 2.0 --adaptive-sync -- %command%"
+    echo "If controller is not working try disabling steam input." 1>&2
 end
