@@ -70,18 +70,7 @@ return {
               update_date = true,
             },
           },
-          ['core.keybinds'] = {
-            config = {
-              hook = function(keybinds)
-                keybinds.remap_event('norg', 'n', '<localleader>ne', 'core.looking-glass.magnify-code-block')
-                keybinds.map('norg', 'n', '<M-s>', '<cmd>Telescope neorg find_linkable<cr>')
-                keybinds.map('norg', 'i', '<M-i>', '<cmd>Telescope neorg insert_link<cr>')
-                keybinds.map('norg', 'n', '<leader>nt', '<cmd>Neorg toc<cr>')
-                keybinds.map('norg', 'n', '<leader>mi', '<cmd>Neorg inject-metadata<cr>')
-                keybinds.map('norg', 'n', '<leader>mu', '<cmd>Neorg update-metadata<cr>')
-              end,
-            },
-          },
+          ['core.keybinds'] = {},
         },
       }
 

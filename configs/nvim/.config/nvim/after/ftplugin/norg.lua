@@ -12,3 +12,10 @@ vim.keymap.set('n', '<localleader>tr', '<Plug>(neorg.qol.todo-items.todo.task-re
 vim.keymap.set('n', '<localleader>tu', '<Plug>(neorg.qol.todo-items.todo.task-undone)', { buffer = true })
 vim.keymap.set('i', '{', '{', { buffer = true })
 vim.keymap.set('i', '[', '[', { buffer = true })
+
+vim.keymap.set('n', '<localleader>ne', '<Plug>(neorg.looking-glass.magnify-code-block)', { buffer = true })
+vim.keymap.set('n', '<M-s>', '<cmd>Telescope neorg find_linkable<cr>', { buffer = true })
+vim.keymap.set('i', '<M-i>', '<cmd>Telescope neorg insert_link<cr>', { buffer = true })
+vim.keymap.set('n', '<leader>nt', '<cmd>Neorg toc<cr>', { buffer = true })
+vim.keymap.set('n', '<leader>mi', '<cmd>Neorg inject-metadata<cr>', { buffer = true })
+vim.keymap.set('n', '<leader>mu', '<cmd>Neorg update-metadata<cr>', { buffer = true })
