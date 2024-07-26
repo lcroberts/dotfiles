@@ -123,8 +123,8 @@ return {
       bashls = {},
       typos_lsp = {},
       zls = {},
-      lexical = {
-        cmd = { vim.fn.stdpath 'data' .. '/mason/bin/lexical' },
+      elixirls = {
+        cmd = { vim.fn.stdpath 'data' .. '/mason/bin/elixir-ls' },
       },
     }
     require('mason').setup()
