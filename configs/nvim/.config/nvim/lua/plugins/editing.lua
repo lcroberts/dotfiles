@@ -1,13 +1,12 @@
 local vim = vim
 
 return {
-  {
-    url = 'https://gitlab.com/HiPhish/rainbow-delimiters.nvim',
-    event = 'VeryLazy',
-    config = function()
-      require('rainbow-delimiters.setup').setup {}
-    end,
-  },
+  -- Plugin causes lag issues in zig files
+  -- {
+  --   'HiPhish/rainbow-delimiters.nvim',
+  --   event = 'VeryLazy',
+  --   opts = {},
+  -- },
 
   'mg979/vim-visual-multi',
   'tpope/vim-eunuch',
