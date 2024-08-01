@@ -2,11 +2,15 @@ local vim = vim
 
 return {
   -- Plugin causes lag issues in zig files
-  -- {
-  --   'HiPhish/rainbow-delimiters.nvim',
-  --   event = 'VeryLazy',
-  --   opts = {},
-  -- },
+  {
+    'HiPhish/rainbow-delimiters.nvim',
+    event = 'VeryLazy',
+    config = function()
+      vim.g.rainbow_delimiters = {
+        blacklist = { 'zig' },
+      }
+    end,
+  },
 
   'mg979/vim-visual-multi',
   'tpope/vim-eunuch',
