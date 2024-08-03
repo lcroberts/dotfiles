@@ -75,5 +75,8 @@ opt.nrformats = 'bin,hex,alpha'
 opt.undofile = true
 opt.confirm = true
 
+vim.wo.conceallevel = 2
+vim.wo.concealcursor = 'nv'
+
 -- disable nvim intro
 opt.shortmess:append 'sI'
