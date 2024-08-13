@@ -145,10 +145,20 @@ return {
       { 'g,', '<cmd>TSJToggle <cr>', desc = 'Toggle line split' },
     },
     -- dependencies = { name = 'nvim-treesiter' }, -- if you install parsers with `nvim-treesitter`
-    opts = {
-      max_join_length = 240,
-    },
-    config = function(_, opts)
+    config = function()
+      local lang_utils = require 'treesj.langs.utils'
+
+      local langs = {
+        zig = {
+          InitList = lang_utils.set_preset_for_dict(),
+          FnCallArguments = lang_utils.set_preset_for_args(),
+          ParamDeclList = lang_utils.set_preset_for_dict(),
+        },
+      }
+      local opts = {
+        max_join_length = 240,
+        langs = langs,
+      }
       require('treesj').setup(opts)
     end,
   },
