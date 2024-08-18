@@ -30,5 +30,4 @@ org.prismlauncher.PrismLauncher
 org.qbittorrent.qBittorrent
 org.tenacityaudio.Tenacity
 org.torproject.torbrowser-launcher
-org.vinegarhq.Sober
 us.zoom.Zoom
