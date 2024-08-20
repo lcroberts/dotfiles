@@ -145,6 +145,7 @@ return {
       'shfmt',
       'delve',
       'codelldb',
+      'rust_analyzer',
     })
     require('mason-tool-installer').setup {
       ensure_installed = ensure_installed,
