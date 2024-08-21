@@ -37,16 +37,16 @@ esac
 case "$2" in
 "latex")
     echo "This program is going to $1 packages for $2"
-    sudo dnf $1 zathura zathura-plugins-all texlive-scheme-basic latexmk texstudio
+    sudo dnf $1 zathura zathura-plugins-all texlive-scheme-basic latexmk texstudio || exit
     ;;
 "postgres")
     echo "This program is going to $1 packages for $2"
     case "$1" in
     "install")
-        sudo dnf $1 postgresql-server postgresql-contrib
-        sudo systemctl enable postgresql
-        sudo postgresql-setup --initdb --unit postgresql
-        sudo systemctl start postgresql
+        sudo dnf $1 postgresql-server postgresql-contrib || exit
+        sudo systemctl enable postgresql || exit
+        sudo postgresql-setup --initdb --unit postgresql || exit
+        sudo systemctl start postgresql || exit
         echo -e "$Blue"
         echo "A password can be created for the postgres user by performing the following steps:"
         echo "- Run 'sudo -u postgres psql' to connect to the database"
@@ -57,8 +57,8 @@ case "$2" in
         echo -e "$NC"
         ;;
     "remove")
-        sudo systemctl disable --now postgresql
-        sudo dnf $1 postgresql-server postgresql-contrib
+        sudo systemctl disable --now postgresql || exit
+        sudo dnf $1 postgresql-server postgresql-contrib || exit
         ;;
     esac
     ;;
