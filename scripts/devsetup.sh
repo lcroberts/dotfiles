@@ -37,7 +37,7 @@ esac
 case "$2" in
 "latex")
     echo "This program is going to $1 packages for $2"
-    sudo dnf $1 zathura zathura-plugins-all texlive-scheme-basic latexmk texstudio || exit
+    sudo dnf $1 zathura zathura-plugins-all texlive-scheme-full latexmk texstudio || exit
     ;;
 "postgres")
     echo "This program is going to $1 packages for $2"
