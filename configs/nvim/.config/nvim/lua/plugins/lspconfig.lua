@@ -122,10 +122,12 @@ return {
       pyright = {},
       bashls = {},
       typos_lsp = {},
-      zls = {},
+      zls = { manual_install = true },
       elixirls = {
+        manual_install = true,
         cmd = { vim.fn.stdpath 'data' .. '/mason/bin/elixir-ls' },
       },
+      texlab = {},
     }
     require('mason').setup()
 
