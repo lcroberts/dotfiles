@@ -113,6 +113,7 @@ function gamescope_command --description "Echo used gamescope command"
     echo "If controller is not working try disabling steam input." 1>&2
 end
 
+abbr y yazi
 function yy
 	set tmp (mktemp -t "yazi-cwd.XXXXXX")
 	yazi $argv --cwd-file="$tmp"
