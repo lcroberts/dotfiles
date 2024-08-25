@@ -112,3 +112,12 @@ function gamescope_command --description "Echo used gamescope command"
     echo "gamescope -f -w 3840 -h 2160 -W 3840 -H 2160 -e -s 2.0 --adaptive-sync -- %command%"
     echo "If controller is not working try disabling steam input." 1>&2
 end
+
+function yy
+	set tmp (mktemp -t "yazi-cwd.XXXXXX")
+	yazi $argv --cwd-file="$tmp"
+	if set cwd (command cat -- "$tmp"); and [ -n "$cwd" ]; and [ "$cwd" != "$PWD" ]
+		cd -- "$cwd"
+	end
+	rm -f -- "$tmp"
+end
