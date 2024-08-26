@@ -2,6 +2,26 @@
 # If you encounter any issues, please make an issue at https://github.com/yazi-rs/schemas.
 "$schema" = "https://yazi-rs.github.io/schemas/keymap.json"
 
+[[manager.prepend_keymap]]
+on = [ "m" ]
+run = "plugin bookmarks --args=save"
+desc = "Save current position as a bookmark"
+
+[[manager.prepend_keymap]]
+on = [ "'" ]
+run = "plugin bookmarks --args=jump"
+desc = "Jump to a bookmark"
+
+[[manager.prepend_keymap]]
+on = [ "b", "d" ]
+run = "plugin bookmarks --args=delete"
+desc = "Delete a bookmark"
+
+[[manager.prepend_keymap]]
+on = [ "b", "D" ]
+run = "plugin bookmarks --args=delete_all"
+desc = "Delete all bookmarks"
+
 [manager]
 
 keymap = [
@@ -123,6 +143,7 @@ keymap = [
 	{ on = [ "g", "c" ],       run = "cd ~/.config",     desc = "Go to the config directory" },
 	{ on = [ "g", "d" ],       run = "cd ~/Downloads",   desc = "Go to the downloads directory" },
 	{ on = [ "g", "p" ],       run = "cd ~/Projects",   desc = "Go to the projects directory" },
+	{ on = [ "g", "t" ],       run = "cd ~/.local/share/Trash",   desc = "Go to the trash" },
 	{ on = [ "g", "<Space>" ], run = "cd --interactive", desc = "Go to a directory interactively" },
 
 	# Tabs
