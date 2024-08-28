@@ -22,6 +22,11 @@ on = [ "b", "D" ]
 run = "plugin bookmarks --args=delete_all"
 desc = "Delete all bookmarks"
 
+[[manager.prepend_keymap]]
+on   = "l"
+run  = "plugin --sync smart-enter"
+desc = "Enter the child directory, or open the file"
+
 [manager]
 
 keymap = [
