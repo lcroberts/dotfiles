@@ -17,6 +17,13 @@ return {
       'luarocks.nvim',
       'nvim-neorg/neorg-telescope',
       'nvim-lua/plenary.nvim',
+      {
+        'jmbuhr/otter.nvim',
+        dependencies = {
+          'nvim-treesitter/nvim-treesitter',
+        },
+        opts = {},
+      },
     },
     config = function()
       require('neorg').setup {
@@ -71,6 +78,7 @@ return {
             },
           },
           ['core.keybinds'] = {},
+          ['core.integrations.otter'] = {},
         },
       }
 
@@ -79,6 +87,7 @@ return {
       vim.keymap.set({ 'n' }, '<leader>nr', '<cmd>Neorg return<cr>', { desc = 'Neorg return' })
       vim.keymap.set('n', '<leader>nw', '<cmd>Telescope neorg switch_workspace<cr>', { desc = 'Telescope neorg workspace' })
       vim.keymap.set({ 'n' }, '<leader>fn', '<cmd>Telescope neorg find_norg_files<cr>', { desc = 'Find norg files' })
+      vim.keymap.set({ 'n' }, '<leader>oa', require('otter').activate, { desc = 'Activate otter.nvim' })
     end,
   },
 }
