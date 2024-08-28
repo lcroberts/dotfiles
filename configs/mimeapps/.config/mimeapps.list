@@ -1,0 +1,24 @@
+[Default Applications]
+x-scheme-handler/jetbrains=jetbrains-toolbox.desktop
+text/html=io.github.zen_browser.zen.desktop
+x-scheme-handler/http=io.github.zen_browser.zen.desktop
+x-scheme-handler/https=io.github.zen_browser.zen.desktop
+x-scheme-handler/about=io.github.zen_browser.zen.desktop
+x-scheme-handler/unknown=io.github.zen_browser.zen.desktop
+x-scheme-handler/eclipse+command=_usr_share_dbeaver-ce_.desktop
+application/pdf=org.pwmt.zathura.desktop
+image/apng=imv.desktop
+image/avif=imv.desktop
+image/bmp=imv.desktop
+image/gif=imv.desktop
+image/jpeg=imv.desktop
+image/png=imv.desktop
+image/svg+xml=imv.desktop
+image/tiff=imv.desktop
+image/webp=imv.desktop
+video/x-msvideo=io.mpv.Mpv.desktop
+video/mp4=io.mpv.Mpv.desktop
+video/mpeg=io.mpv.Mpv.desktop
+video/ogg=io.mpv.Mpv.desktop
+video/mp2t=io.mpv.Mpv.desktop
+video/webm=io.mpv.Mpv.desktop
