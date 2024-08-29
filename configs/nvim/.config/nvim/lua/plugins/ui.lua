@@ -60,10 +60,10 @@ return {
         config = {
           header = vim.split(logo, '\n'),
           center = {
-            { action = 'Telescope find_files', desc = ' Find file', icon = ' ', key = 'f' },
+            { action = 'Telescope find_files', desc = ' Search files', icon = ' ', key = 's' },
             { action = 'ene | startinsert', desc = ' New file', icon = ' ', key = 'n' },
             { action = 'Telescope oldfiles', desc = ' Recent files', icon = ' ', key = 'r' },
-            { action = 'Telescope live_grep', desc = ' Find text', icon = ' ', key = 'g' },
+            { action = 'Telescope live_grep', desc = ' Grep text', icon = ' ', key = 'g' },
             { action = 'Lazy', desc = ' Lazy', icon = '󰒲 ', key = 'l' },
             { action = 'EnterConfig', desc = ' Config', icon = ' ', key = 'c' },
             { action = 'qa', desc = ' Quit', icon = ' ', key = 'q' },
@@ -167,8 +167,7 @@ return {
           package.loaded.gitsigns.diffthis '~'
         end, { desc = 'git diff against last commit' })
 
-        vim.keymap.set({ 'n' }, '<leader>tb', package.loaded.gitsigns.toggle_current_line_blame, { desc = 'toggle git blame line' })
-        vim.keymap.set({ 'n' }, '<leader>td', package.loaded.gitsigns.toggle_deleted, { desc = 'toggle git show deleted' })
+        vim.keymap.set({ 'n' }, '<leader>gd', package.loaded.gitsigns.toggle_deleted, { desc = 'toggle [g]it show [d]eleted' })
         vim.keymap.set({ 'n' }, ']c', function()
           if vim.wo.diff then
             return ']c'

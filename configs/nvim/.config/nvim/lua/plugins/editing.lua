@@ -32,7 +32,7 @@ return {
     'mbbill/undotree',
     event = 'VeryLazy',
     config = function()
-      vim.keymap.set({ 'n' }, '<leader>tu', vim.cmd.UndotreeToggle, { desc = 'Toggle undo tree' })
+      vim.keymap.set({ 'n' }, '<leader>ut', vim.cmd.UndotreeToggle, { desc = 'Undotree Toggle' })
     end,
   },
 
@@ -81,7 +81,6 @@ return {
         modes = { insert = true, command = false, terminal = false },
       }
 
-      -- vim.keymap.set('n', 's', '<Nop>', {})
       require('mini.surround').setup()
       require('mini.ai').setup()
 
@@ -134,7 +133,7 @@ return {
     },
     config = function(_, opts)
       require('todo-comments').setup(opts)
-      vim.keymap.set({ 'n' }, '<leader>tc', '<cmd>TodoQuickFix<cr>', { desc = 'Todo Quick Fix' })
+      vim.keymap.set({ 'n' }, '<leader>ct', '<cmd>TodoQuickFix<cr>', { desc = 'Todo Quick Fix' })
     end,
   },
 
@@ -156,6 +155,7 @@ return {
         },
       }
       local opts = {
+        use_default_keymaps = false,
         max_join_length = 240,
         langs = langs,
       }
