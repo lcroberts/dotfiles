@@ -13,4 +13,5 @@ if status is-interactive
     direnv hook fish | source
     starship init fish | source
     zoxide init fish | source
+    fzf --fish | source
 end
