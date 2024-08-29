@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=Yazi
+MimeType=inode/directory
+Exec=x-terminal-emulator -e /usr/bin/distrobox-enter -n aur -- yazi %U
+Type=Application
+Categories=FileManager

@@ -22,3 +22,5 @@ video/mpeg=io.mpv.Mpv.desktop
 video/ogg=io.mpv.Mpv.desktop
 video/mp2t=io.mpv.Mpv.desktop
 video/webm=io.mpv.Mpv.desktop
+inode/directory=yazi.desktop
+application/x-gnome-saved-search=yazi.desktop
