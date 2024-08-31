@@ -3,7 +3,7 @@
 fcitx5 2>&1 &
 nm-applet 2>&1 &
 kitty 2>&1 &
-flatpak run one.ablaze.floorp 2>&1 &
+flatpak run io.github.zen_browser.zen 2>&1 &
 flatpak run com.spotify.Client 2>&1 &
 flatpak run dev.vencord.Vesktop 2>&1 &
 
