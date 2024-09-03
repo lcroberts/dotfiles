@@ -4,3 +4,5 @@ file-backups/
 **/dot-config/nvim/
 **/lazy-lock.json
 **/cached_layouts
+configs/firefox/.mozilla/firefox/a7vjcx1o.logan
+configs/firefox/.mozilla/firefox/a7vjcx1o.logan/times.json

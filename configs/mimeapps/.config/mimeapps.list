@@ -1,10 +1,10 @@
 [Default Applications]
 x-scheme-handler/jetbrains=jetbrains-toolbox.desktop
-text/html=io.github.zen_browser.zen.desktop
-x-scheme-handler/http=io.github.zen_browser.zen.desktop
-x-scheme-handler/https=io.github.zen_browser.zen.desktop
-x-scheme-handler/about=io.github.zen_browser.zen.desktop
-x-scheme-handler/unknown=io.github.zen_browser.zen.desktop
+text/html=org.mozilla.firefox.desktop
+x-scheme-handler/http=org.mozilla.firefox.desktop
+x-scheme-handler/https=org.mozilla.firefox.desktop
+x-scheme-handler/about=org.mozilla.firefox.desktop
+x-scheme-handler/unknown=org.mozilla.firefox.desktop
 x-scheme-handler/eclipse+command=_usr_share_dbeaver-ce_.desktop
 application/pdf=org.pwmt.zathura.desktop
 image/apng=imv.desktop
@@ -24,3 +24,8 @@ video/mp2t=io.mpv.Mpv.desktop
 video/webm=io.mpv.Mpv.desktop
 inode/directory=yazi.desktop
 application/x-gnome-saved-search=yazi.desktop
+text/html=org.mozilla.firefox.desktop
+x-scheme-handler/http=org.mozilla.firefox.desktop
+x-scheme-handler/https=org.mozilla.firefox.desktop
+x-scheme-handler/about=org.mozilla.firefox.desktop
+x-scheme-handler/unknown=org.mozilla.firefox.desktop

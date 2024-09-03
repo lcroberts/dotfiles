@@ -23,6 +23,7 @@ fi
 
 case "$1" in
 "general")
+    git update-index --assume-unchanged configs/firefox/.mozilla/firefox/a7vjcx1o.logan/times.json
     symlink ./configs/
     ;;
 "desktop")
