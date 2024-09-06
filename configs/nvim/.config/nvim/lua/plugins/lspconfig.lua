@@ -119,7 +119,7 @@ return {
       },
       clangd = {},
       gopls = {},
-      pyright = {},
+      pylsp = {},
       bashls = {},
       typos_lsp = {},
       zls = { manual_install = true },
