@@ -1,6 +1,30 @@
 local vim = vim
 
 return {
+  -- {
+  --   'huggingface/llm.nvim',
+  --   opts = {
+  --     accept_keymap = '<M-n>',
+  --     dismiss_keymap = '<S-M-n>',
+  --     model = 'starcoder2:3b',
+  --     backend = 'ollama',
+  --     context_window = 4096,
+  --     url = 'http://localhost:11434',
+  --     lsp = {
+  --       bin_path = vim.api.nvim_call_function('stdpath', { 'data' }) .. '/llm_nvim/bin',
+  --     },
+  --     request_body = {
+  --       -- Modelfile options for the model you use
+  --       system = 'You are a coding assistant. You want to help complete the line of code that is currently being written based off of the surrounding code. Do not complete more than 1 line at the time and do not hallucinate.',
+  --       options = {
+  --         temperature = 0.4,
+  --         top_p = 0.6,
+  --       },
+  --     },
+  --     enable_suggestions_on_startup = false,
+  --   },
+  -- },
+
   -- Plugin causes lag issues in zig files
   {
     'HiPhish/rainbow-delimiters.nvim',

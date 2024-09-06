@@ -119,8 +119,8 @@ return {
       },
       clangd = {},
       gopls = {},
-      pylsp = {},
       bashls = {},
+      jedi_language_server = {},
       typos_lsp = {},
       zls = { manual_install = true },
       elixirls = {
