@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+sudo mkdir /run/postgresql && sudo chown postgres: /run/postgresql
+sudo systemctl start postgresql.service
