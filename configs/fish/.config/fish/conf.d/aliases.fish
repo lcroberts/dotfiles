@@ -121,3 +121,7 @@ function y
 	end
 	rm -f -- "$tmp"
 end
+
+function frun --description "Fuzzily find and launch flatpaks"
+    flatpak run (flatpak list --app | cut -f2 | fzf)
+end
