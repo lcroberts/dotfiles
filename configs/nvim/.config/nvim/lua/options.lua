@@ -71,6 +71,7 @@ opt.virtualedit = 'block' -- Cursor can move to where there is no character in v
 opt.wildmode = 'longest:full,full' -- Command line completion mode
 opt.winminwidth = 5 -- Minimum window width
 opt.nrformats = 'bin,hex,alpha'
+opt.cursorline = true
 
 opt.undofile = true
 opt.confirm = true

@@ -3,6 +3,12 @@ return {
     'mfussenegger/nvim-dap',
     event = 'VeryLazy',
     config = function()
+      vim.fn.sign_define('DapBreakpoint', { text = '', texthl = 'DapBreakpoint', linehl = 'DapBreakpoint', numhl = 'DapBreakpoint' })
+      vim.fn.sign_define('DapBreakpointCondition', { text = 'ﳁ', texthl = 'DapBreakpoint', linehl = 'DapBreakpoint', numhl = 'DapBreakpoint' })
+      vim.fn.sign_define('DapBreakpointRejected', { text = '', texthl = 'DapBreakpoint', linehl = 'DapBreakpoint', numhl = 'DapBreakpoint' })
+      vim.fn.sign_define('DapLogPoint', { text = '', texthl = 'DapLogPoint', linehl = 'DapLogPoint', numhl = 'DapLogPoint' })
+      vim.fn.sign_define('DapStopped', { text = '', texthl = 'DapStopped', linehl = 'DapStopped', numhl = 'DapStopped' })
+
       vim.keymap.set({ 'n' }, '<leader>db', '<cmd> DapToggleBreakpoint <CR>', { desc = 'Toggle Breakpoint' })
       vim.keymap.set({ 'n' }, '<leader>dc', '<cmd> DapContinue <CR>', { desc = 'Start or continue debugger' })
       vim.keymap.set({ 'n' }, '<leader>dsu', function()
@@ -49,6 +55,7 @@ return {
     dependencies = {
       'mfussenegger/nvim-dap',
     },
+    opts = {},
   },
 
   {
