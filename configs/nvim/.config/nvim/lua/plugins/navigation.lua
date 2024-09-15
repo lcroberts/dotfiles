@@ -3,7 +3,7 @@ local vim = vim
 return {
   {
     'christoomey/vim-tmux-navigator',
-    event = "VeryLazy",
+    event = 'VeryLazy',
   },
   {
     'ThePrimeagen/harpoon',
@@ -49,21 +49,19 @@ return {
 
   {
     'stevearc/oil.nvim',
-    event = 'VeryLazy',
+    ---@module 'oil'
+    ---@type oil.SetupOpts
     opts = {
-      keymaps = {
-        ['<BS>'] = 'actions.parent',
-        ['.'] = 'actions.cd',
-      },
+      default_file_explorer = true,
       view_options = {
         show_hidden = true,
       },
     },
-    -- Optional dependencies
     dependencies = { 'nvim-tree/nvim-web-devicons' },
-    config = function(_, opts)
-      require('oil').setup(opts)
-      vim.keymap.set({ 'n' }, '<leader>fv', '<cmd>Oil<cr>', { desc = 'Open fileview' })
-    end,
+    keymaps = {
+      ['<BS>'] = 'actions.parent',
+      ['.'] = 'actions.cd',
+      { '<leader>fv', '<cmd>Oil<cr>', desc = 'File View' },
+    },
   },
 }
