@@ -3,7 +3,7 @@ abbr vi nvim
 abbr upgrade paru -Syu
 # Alias to enter generic tmux session
 alias tenter="tmux new -As main"
-alias deventer="distrobox-enter dev -- tmux -f /home/logan/.config/tmux/tmux-dev.conf -L dev new -As main"
+alias deventer="distrobox-enter dev -- tmux -L dev new -As main"
 # Hibernate alias
 abbr hibernate systemctl hibernate
 # rm interactive mode alias
