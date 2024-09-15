@@ -103,6 +103,7 @@ return {
     capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
 
     local servers = {
+      typos_lsp = {},
       lua_ls = {
         -- cmd = {...},
         -- filetypes = { ...},
@@ -118,17 +119,22 @@ return {
           },
         },
       },
-      clangd = {},
-      gopls = {},
       bashls = {},
-      jedi_language_server = {},
-      typos_lsp = {},
-      zls = { manual_install = true },
+      pyright = {},
+      gopls = {},
+      clangd = {
+        manual_install = true,
+      },
+      zls = {
+        manual_install = true,
+      },
       elixirls = {
         manual_install = true,
         cmd = { vim.fn.stdpath 'data' .. '/mason/bin/elixir-ls' },
       },
-      texlab = {},
+      texlab = {
+        manual_install = true,
+      },
     }
     require('mason').setup()
 
