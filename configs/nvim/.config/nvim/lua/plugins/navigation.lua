@@ -56,11 +56,13 @@ return {
       view_options = {
         show_hidden = true,
       },
+      keymaps = {
+        ['<BS>'] = 'actions.parent',
+        ['.'] = 'actions.cd',
+      },
     },
     dependencies = { 'nvim-tree/nvim-web-devicons' },
-    keymaps = {
-      ['<BS>'] = 'actions.parent',
-      ['.'] = 'actions.cd',
+    keys = {
       { '<leader>fv', '<cmd>Oil<cr>', desc = 'File View' },
     },
   },
