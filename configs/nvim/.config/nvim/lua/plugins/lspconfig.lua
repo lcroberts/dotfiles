@@ -149,8 +149,6 @@ return {
 
     vim.list_extend(ensure_installed, {
       'stylua',
-      'black',
-      'isort',
       'shfmt',
       'delve',
       'codelldb',
