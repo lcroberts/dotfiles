@@ -32,12 +32,3 @@ nix:
 
 clean-nix:
 	/nix/nix-installer uninstall
-
-gaming-distrobox:
-	distrobox-create --unshare-netns --nvidia --image ghcr.io/ublue-os/bazzite-arch --name bazzite-arch -Y
-	distrobox-enter -n bazzite-arch --  bash -c "distrobox-export --app steam"
-	distrobox-enter -n bazzite-arch --  bash -c "distrobox-export --app lutris"
-	distrobox-enter -n bazzite-arch --  bash -c "distrobox-export --app protontricks"
-	distrobox-enter -n bazzite-arch --  bash -c "mkdir -p ~/.steam && distrobox-export --bin /usr/bin/steamcmd --export-path ~/.steam && mv ~/.steam/steamcmd ~/.steam/steamcmd.sh"
-	distrobox-enter -n bazzite-arch -- bash -c "echo 'distrobox-host-exec distrobox-enter \$@' | sudo tee /usr/bin/distrobox-enter && sudo chmod +x /usr/bin/distrobox-enter"
-	distrobox-enter -n bazzite-arch -- bash -c "echo 'distrobox-host-exec x-terminal-emulator \$@' | sudo tee /usr/bin/x-terminal-emulator && sudo chmod +x /usr/bin/x-terminal-emulator"
