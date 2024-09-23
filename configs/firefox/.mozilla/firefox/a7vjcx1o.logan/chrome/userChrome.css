@@ -13,7 +13,7 @@ See the above repository for updates as well as full license text. */
 #sidebar-box{
   --uc-sidebar-width: 35px;
   --uc-sidebar-hover-width: 275px;
-  --uc-autohide-sidebar-delay: 250ms;
+  --uc-autohide-sidebar-delay: 500ms;
   --uc-autohide-transition-duration: 50ms;
   --uc-autohide-transition-type: linear;
   position: relative;
