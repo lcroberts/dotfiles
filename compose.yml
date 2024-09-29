@@ -1,4 +1,4 @@
-# Run with docker as podman causes too many issues
+# Should be ran with docker as podman causes issues.
 services:
   windows:
     image: dockurr/windows
