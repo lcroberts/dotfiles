@@ -22,6 +22,11 @@ return {
     },
     config = function()
       require('telescope').setup {
+        pickers = {
+          find_files = {
+            follow = true,
+          },
+        },
         defaults = {
           mappings = {
             i = {
@@ -31,6 +36,7 @@ return {
           },
           vimgrep_arguments = {
             'rg',
+            '-L',
             '--color=never',
             '--no-heading',
             '--with-filename',

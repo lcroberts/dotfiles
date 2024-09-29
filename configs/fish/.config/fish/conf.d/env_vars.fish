@@ -1,6 +1,5 @@
 set -gx GOPATH $HOME/.local/share/go
 set -gx MANGOHUD 1
-set -gx GTK_IM_MODULE 'fcitx'
 set -gx QT_IM_MODULE 'fcitx'
 set -gx SDL_IM_MODULE 'fcitx'
 set -gx XMODIFIERS '@im=fcitx'
