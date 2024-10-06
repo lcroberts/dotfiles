@@ -122,6 +122,9 @@ return {
       bashls = {},
       pyright = {},
       gopls = {},
+      ocamllsp = {
+        manual_install = true,
+      },
       clangd = {
         manual_install = true,
       },
