@@ -1,6 +1,4 @@
 abbr vi nvim
-# Archlinux update
-abbr upgrade paru -Syu
 # Alias to enter generic tmux session
 alias tenter="tmux new -As main"
 alias deventer="distrobox-enter dev -- tmux -L dev new -As main"
@@ -125,3 +123,5 @@ end
 function frun --description "Fuzzily find and launch flatpaks"
     flatpak run (flatpak list --app | cut -f2 | fzf)
 end
+
+
