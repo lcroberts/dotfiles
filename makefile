@@ -5,6 +5,7 @@ symlink-general: fcitx5
 	cd ./configs/; for dir in $$(ls); do \
 		stow --target="$$HOME" --adopt "$$dir"; \
 	done
+	git update-index --skip-worktree ./configs/firefox/.mozilla/firefox/a7vjcx1o.logan/times.json
 
 symlink-desktop:
 	cd ./configs-desktop/; for dir in $$(ls); do \
