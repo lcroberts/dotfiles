@@ -5,6 +5,7 @@ symlink-general: fcitx5
 	cd ./configs/; for dir in $$(ls); do \
 		stow --target="$$HOME" --adopt "$$dir"; \
 	done
+	bash -c "./configs/rofi/.config/rofi/install.sh"
 	git update-index --skip-worktree ./configs/firefox/.mozilla/firefox/a7vjcx1o.logan/times.json
 
 symlink-desktop:
