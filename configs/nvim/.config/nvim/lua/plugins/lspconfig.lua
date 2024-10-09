@@ -122,7 +122,7 @@ return {
       bashls = {},
       pyright = {},
       gopls = {},
-      ocamllsp = {
+      ols = {
         manual_install = true,
       },
       clangd = {
