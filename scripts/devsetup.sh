@@ -8,6 +8,7 @@ usage() {
     echo "Here are the available groups:"
     echo "  latex"
     echo "  postgres"
+    echo "  odin-deps"
 }
 
 # Here are some escape sequences for setting text color. Use echo -e for them to work
@@ -61,6 +62,10 @@ case "$2" in
         sudo dnf $1 postgresql-server postgresql-contrib || exit
         ;;
     esac
+    ;;
+"odin-deps")
+    echo "This program is going to $1 packages for $2"
+    sudo dnf $1 llvm17-devel clang || exit
     ;;
 *)
     usage
