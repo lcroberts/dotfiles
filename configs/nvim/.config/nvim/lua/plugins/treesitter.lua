@@ -13,22 +13,7 @@ return {
       vim.g.skip_ts_context_commentstring_module = true
 
       require('nvim-treesitter.configs').setup {
-        -- ensure_installed = 'all',
-        auto_install = true,
-        ensure_installed = {
-          'bash',
-          'c',
-          'diff',
-          'html',
-          'lua',
-          'luadoc',
-          'markdown',
-          'markdown_inline',
-          'query',
-          'vim',
-          'vimdoc',
-        },
-
+        ensure_installed = 'all',
         highlight = {
           enable = true,
           additional_vim_regex_highlighting = true,
