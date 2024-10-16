@@ -57,8 +57,9 @@ return {
         map('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
         map('gi', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
         map('<leader>D', require('telescope.builtin').lsp_type_definitions, 'Type [D]efinition')
-        map('<leader>fs', require('telescope.builtin').lsp_document_symbols, '[F]ind [S]ymbols')
+        map('<leader>ss', require('telescope.builtin').lsp_document_symbols, '[S]earch [S]ymbols')
         map('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
+        map('<leader>rr', '<cmd>LspRestart<cr>', 'Restart LSP')
 
         -- See `:help K` for why this keymap
         map('K', function()
