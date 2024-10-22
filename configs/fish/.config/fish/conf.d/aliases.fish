@@ -24,6 +24,7 @@ abbr gb git branch
 function last_history_item
     echo $history[1]
 end
+
 abbr -a !! --position anywhere --function last_history_item
 
 # eza aliases
@@ -37,6 +38,8 @@ alias llt="eza $eza_modifiers --tree -a"
 alias lx="eza $eza_modifiers -lbhHgmUa"
 
 alias firefox="flatpak run org.mozilla.firefox"
+alias protontricks="flatpak run com.github.Matoking.protontricks"
+alias protontricks-launch="flatpak run --command=protontricks-launch com.github.Matoking.protontricks"
 
 # Movement aliases
 abbr - cd -
