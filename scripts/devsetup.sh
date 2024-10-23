@@ -7,6 +7,7 @@ usage() {
     echo ""
     echo "Here are the available groups:"
     echo "  latex"
+    echo "  laravel"
     echo "  postgres"
     echo "  odin-deps"
 }
@@ -40,6 +41,21 @@ case "$2" in
     echo "This program is going to $1 packages for $2"
     sudo dnf $1 zathura zathura-plugins-all texlive-scheme-full latexmk texstudio || exit
     ;;
+"laravel")
+    case "$1" in
+    "install")
+        echo "This program is going to $1 packages for $2"
+        sudo dnf $1 composer php php-pgsql
+        composer global require laravel/installer
+        ;;
+    "remove")
+        echo "This program is going to $1 packages for $2"
+        composer global remove laravel/installer
+        sudo dnf $1 composer php php-pgsql
+        ;;
+    esac
+    ;;
+
 "postgres")
     echo "This program is going to $1 packages for $2"
     case "$1" in
