@@ -52,7 +52,7 @@ set ignorecase
 nmap <space>fm <Action>(ReformatCode)
 nnoremap zC :action CollapseRegionRecursively<CR>
 nnoremap zO :action ExpandRegionRecursively<CR>
-nmap <space>ff :action GotoFile<CR>
+nmap <space>sf :action GotoFile<CR>
 nmap <space>hl :action ShowHarpoon<CR>
 nmap <space>ha :action AddToHarpoon<CR>
 nmap <space>1 :action GotoHarpoon1<CR>
