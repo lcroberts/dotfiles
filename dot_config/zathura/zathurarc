@@ -1,0 +1,11 @@
+set selection-clipboard clipboard
+set guioptions "sv"
+set font "JetBrainsMono NF 12"
+set statusbar-home-tilde true
+set statusbar-page-percent true
+set window-title-home-tilde true
+
+include catppuccin-mocha
+set recolor-darkcolor "#ffffff"
+set recolor-lightcolor "#000000"
+set recolor-keephue true

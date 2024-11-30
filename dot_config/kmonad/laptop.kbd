@@ -1,0 +1,32 @@
+(defcfg
+  ;; for linux
+  input (device-file "/dev/input/by-path/platform-i8042-serio-0-event-kbd")
+  output (uinput-sink "KMonad output")
+
+  ;; For Windows
+  ;; input  (low-level-hook)
+  ;; output (send-event-sink)
+
+  ;; This option tells KMonad to let non-configured keys act normal
+  fallthrough true
+)
+
+(defsrc
+    esc caps a    s    d    f    g    h    j    k    l    ;
+)
+
+(defalias
+    met_a (tap-hold-next-release 200 a lmet)
+    ctl_s (tap-hold-next-release 200 s lctl)
+    sft_d (tap-hold-next-release 200 d lsft)
+    alt_f (tap-hold-next-release 200 f lalt)
+
+    alt_j (tap-hold-next-release 200 j lalt)
+    sft_k (tap-hold-next-release 200 k rsft)
+    ctl_l (tap-hold-next-release 200 l rctl)
+    met_; (tap-hold-next-release 200 ; rmet)
+)
+
+(deflayer homerowmods
+    caps esc @met_a   @ctl_s   @sft_d   @alt_f   g   h   @alt_j   @sft_k   @ctl_l   @met_;
+)

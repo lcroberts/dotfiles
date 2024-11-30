@@ -1,0 +1,5 @@
+[user]
+	email = logan@lcroberts.dev
+	name = Logan Roberts
+[init]
+	defaultBranch = main

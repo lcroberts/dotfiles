@@ -1,0 +1,34 @@
+# See https://wiki.hyprland.org/Configuring/Monitors/
+# monitor=,preferred,auto,auto
+
+{{- if eq .chezmoi.hostname "notascam" }}
+monitor = DP-1, 3840x2160@144, 1920x0, 1.5
+monitor = DP-3, 1920x1080@144, 0x250, 1
+# Set Xwayland screen config
+exec-once = ~/.screenlayout/test.sh
+{{- end }}
+{{- if eq .chezmoi.hostname "notascam-mobile" }}
+monitor=eDP-1,2880x1920@120, 0x0, 1.5
+monitor=,preferred,auto,1
+{{- end }}
+
+xwayland:use_nearest_neighbor = false
+xwayland:force_zero_scaling = true
+
+misc {
+    vrr = 1 
+    # mouse_move_enables_dpms = true
+    # key_press_enables_dpms = true
+}
+
+# Default displays for workspaces
+$main_display=DP-1
+$extra_display=DP-3
+exec-once = ~/.screenlayout/test.sh
+workspace = 1, monitor:$main_display, default:true
+workspace = 2, monitor:$extra_display
+workspace = 3, monitor:$extra_display
+workspace = 4, monitor:$extra_display
+workspace = 5, monitor:$extra_display
+workspace = 9, monitor:$main_display
+workspace = 10, monitor:$main_display
