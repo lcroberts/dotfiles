@@ -1,0 +1,79 @@
+#!/usr/bin/env bash
+usage() {
+    echo "$0 [command] GROUP"
+    echo "Here are the available commands:"
+    echo "  install"
+    echo "  remove"
+    echo ""
+    echo "Here are the available groups:"
+    echo "  latex"
+    echo "  laravel"
+    echo "  odin-deps"
+}
+
+# Here are some escape sequences for setting text color. Use echo -e for them to work
+NC='\033[0m'       # Text Reset
+Red='\033[0;31m'   # Red
+Green='\033[0;32m' # Green
+Blue='\033[0;34m'  # Blue
+
+if [[ -z "$1" ]]; then
+    usage
+    exit 1
+fi
+if [[ -z "$2" ]]; then
+    usage
+    exit 1
+fi
+
+case "$1" in
+"install") ;;
+"remove") ;;
+*)
+    usage
+    exit 1
+    ;;
+esac
+
+link_host_exec() {
+    sudo mkdir -p /usr/local/bin
+    sudo ln -fs /usr/bin/distrobox-host-exec "/usr/local/bin/$1"
+}
+
+case "$2" in
+"latex")
+    echo "This program is going to $1 packages for $2"
+    case "$1" in
+    "install")
+        sudo dnf $1 -y texlive-scheme-full latexmk
+        link_host_exec zathura
+        ;;
+    "remove")
+        sudo dnf $1 -y texlive-scheme-full latexmk
+        sudo rm -rf /usr/local/bin/zathura
+        ;;
+    esac
+    ;;
+"laravel")
+    case "$1" in
+    "install")
+        echo "This program is going to $1 packages for $2"
+        sudo dnf $1 -y composer php php-pgsql
+        composer global require laravel/installer
+        ;;
+    "remove")
+        echo "This program is going to $1 packages for $2"
+        composer global remove laravel/installer
+        sudo dnf $1 composer php php-pgsql
+        ;;
+    esac
+    ;;
+"odin-deps")
+    echo "This program is going to $1 packages for $2"
+    sudo dnf $1 -y llvm17-devel clang
+    ;;
+*)
+    usage
+    exit 1
+    ;;
+esac

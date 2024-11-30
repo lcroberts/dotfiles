@@ -1,0 +1,70 @@
+set scrolloff=5
+" Do incremental searching.
+set incsearch
+" Don't use Ex mode, use Q for formatting.
+map Q gq
+
+" Keep lines centered
+nmap <C-u> <C-u>zz
+nmap <C-d> <C-d>zz
+nmap n nzzzv
+nmap N Nzzzv
+
+" Yank binds
+nmap <space>y "+y
+vmap <space>y "+y
+nmap <space>Y "+Y
+xmap <leader>p "_dP
+xmap <leader>P "_d"+P
+
+" Insert mode movement
+imap <C-l> <right>
+imap <C-h> <left>
+imap <C-j> <down>
+imap <C-k> <up>
+imap <C-b> <Esc>_i
+imap <C-e> <End>
+imap <A-;> <End>;
+imap <A-,> <End>,
+imap <A-o> <Esc>o
+imap <A-S-O> <Esc>O
+
+" Move text around
+xmap A :s/$/ 
+xmap H <gv 
+xmap J :m '>+1<CR>gv=gv 
+xmap K :m '<-2<CR>gv=gv
+xmap L >gv
+
+cmap <M-/> \/
+
+" --- Enable IdeaVim plugins https://jb.gg/ideavim-plugins
+
+" Highlight copied text
+Plug 'machakann/vim-highlightedyank'
+
+set number
+set relativenumber
+set ignorecase
+
+"" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
+"" Map \r to the Reformat Code action
+nmap <space>fm <Action>(ReformatCode)
+nnoremap zC :action CollapseRegionRecursively<CR>
+nnoremap zO :action ExpandRegionRecursively<CR>
+nmap <space>sf :action GotoFile<CR>
+nmap <space>hl :action ShowHarpoon<CR>
+nmap <space>ha :action AddToHarpoon<CR>
+nmap <space>1 :action GotoHarpoon1<CR>
+nmap <space>2 :action GotoHarpoon2<CR>
+nmap <space>3 :action GotoHarpoon3<CR>
+nmap <space>4 :action GotoHarpoon4<CR>
+nmap <space>5 :action GotoHarpoon5<CR>
+nmap <space>/ :action CommentByLineComment<CR>k
+vmap <space>/ :action CommentByLineComment<CR>
+nmap <space>rn :action RenameElement<CR>
+vmap <space>me :action ExtractMethod<CR>
+nmap <space>mi :action Inline<CR>
+nmap <space>ve :action IntroduceVariable<CR>
+nmap <space>ca :action Refactorings.QuickListPopupAction<CR>
+vmap <space>ca :action Refactorings.QuickListPopupAction<CR>

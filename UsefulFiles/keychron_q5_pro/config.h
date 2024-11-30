@@ -1,0 +1,8 @@
+#pragma once
+
+#define DYNAMIC_KEYMAP_LAYER_COUNT 6
+
+#define TAPPING_TERM 200
+#define QUICK_TAP_TERM 150
+#define HOLD_ON_OTHER_KEY_PRESS_PER_KEY
+#define PERMISSIVE_HOLD
