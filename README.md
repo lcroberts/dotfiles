@@ -1,6 +1,8 @@
 # Dotfiles
 
-A repository for my dotfiles that are managed by [chezmoi](https://www.chezmoi.io/).
+A repository for my dotfiles that are managed by
+[chezmoi](https://www.chezmoi.io/). My neovim configuration can be found
+[here](https://github.com/lcroberts/config.nvim).
 
 Once you've installed chezmoi the dotfiles can be loaded with the following command:
 
