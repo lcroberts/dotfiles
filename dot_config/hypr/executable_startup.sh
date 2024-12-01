@@ -9,6 +9,6 @@ flatpak run dev.vencord.Vesktop 2>&1 &
 
 sleep 10
 
-"$HOME/Applications/onedrivegui.appimage" 2>&1 &
+find $HOME/Applications/ -iname "onedrive*.appimage" -exec {} \;
 
 hyprctl keyword windowrule "workspace unset,kitty"
