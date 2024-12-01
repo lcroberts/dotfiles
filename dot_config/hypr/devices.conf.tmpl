@@ -9,11 +9,21 @@ input {
 
     follow_mouse = 1
 
+    {{- if eq .chezmoi.hostname "notascam" }}
     touchpad {
         natural_scroll = false
     }
-
     sensitivity = -0.5 # -1.0 - 1.0, 0 means no modification.
+    {{- end }}
+
+    {{- if eq .chezmoi.hostname "notascam-mobile" }}
+    touchpad {
+        natural_scroll = true
+        scroll_factor = 0.3
+    }
+
+    sensitivity = 0.3 # -1.0 - 1.0, 0 means no modification.
+    {{- end }}
 }
 
 
