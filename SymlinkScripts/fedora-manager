@@ -9,6 +9,7 @@ usage() {
     echo "  latex"
     echo "  laravel"
     echo "  odin-deps"
+    echo "  elixir"
 }
 
 # Here are some escape sequences for setting text color. Use echo -e for them to work
@@ -71,6 +72,10 @@ case "$2" in
 "odin-deps")
     echo "This program is going to $1 packages for $2"
     sudo dnf $1 -y llvm17-devel clang
+    ;;
+"elixir")
+    echo "This program is going to $1 packages for $2"
+    sudo dnf $1 -y elixir erlang erlang-dialyzer erlang-edoc
     ;;
 *)
     usage
