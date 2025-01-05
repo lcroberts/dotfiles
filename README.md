@@ -7,7 +7,7 @@ A repository for my dotfiles that are managed by
 Once you've installed chezmoi the dotfiles can be loaded with the following command:
 
 ```bash
-chezmoi init --apply lcroberts
+chezmoi init --apply git@github.com:lcroberts/dotfiles.git
 ```
 
 Updating can be done with:
