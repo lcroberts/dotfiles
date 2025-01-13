@@ -79,7 +79,7 @@
     },
     "pulseaudio": {
         "scroll-step": 1, // %, can be a float
-        "format": "{icon}{volume}%",
+        "format": "{icon} {volume}%",
         "format-muted": "",
         "format-icons": {
             "default": ["", "", " "]
@@ -91,7 +91,7 @@
     },
     "pulseaudio#microphone": {
         "format": "{format_source}",
-        "format-source": "{volume}%",
+        "format-source": " {volume}%",
         "format-source-muted": "",
         "on-click": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
         "on-click-right": "pavucontrol",
