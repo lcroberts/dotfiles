@@ -2,7 +2,7 @@
     "layer": "top", // Waybar at top layer
     "position": "top", // Waybar position (top|bottom|left|right)
     "modules-left": ["hyprland/workspaces"],
-    "modules-center": ["clock"],
+    "modules-center": ["custom/notification", "clock"],
     "modules-right": [
         "tray",
         "idle_inhibitor",
@@ -10,7 +10,6 @@
         "pulseaudio#microphone",
         "backlight#value",
         "battery",
-        "custom/notification"
     ],
     "hyprland/workspaces": {
         "icon-size": 32,
@@ -42,6 +41,7 @@
         "interval": 1,
         "tooltip-format": "<tt><small>{calendar}</small></tt>",
         "format": "{:%e %b %Y %H:%M:%S}",
+        "on-click": "swaync-client -t -sw",
         "calendar": {
             "mode": "year",
             "mode-mon-col": 3,
@@ -101,7 +101,7 @@
     },
     "custom/notification": {
         "tooltip": false,
-        "format": "{icon} ",
+        "format": "{icon}",
         "format-icons": {
             "notification": "<span foreground='red'><sup></sup></span>",
             "none": "",

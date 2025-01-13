@@ -14,10 +14,11 @@
   color: @text;
 }
 
+#custom-notification,
 #tray,
 #backlight,
-#clock,
 #battery,
+#idle_inhibitor,
 #pulseaudio {
   margin: 0.5rem 0;
 }
@@ -34,11 +35,44 @@
 }
 
 #workspaces button:hover {
-  background: @overlay0;
+  background: @mantle;
 }
 
 #pulseaudio, #custom-notification, #idle_inhibitor {
+  border-radius: 0.5rem;
   margin: 0 0.5rem;
+}
+
+#pulseaudio{
+  padding: 0 0.5rem;
+  margin-left: 0;
+}
+#pulseaudio:hover {
+  background: @mantle;
+}
+
+#idle_inhibitor {
+  padding-right: 0.5rem;
+}
+#idle_inhibitor:hover {
+  background: @mantle;
+}
+
+#clock {
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+}
+
+#custom-notification {
+  padding: 0 0.75rem;
+  padding-right: 1.25rem;
+}
+
+#clock:hover {
+  background: @mantle;
+}
+#custom-notification:hover {
+  background: @mantle;
 }
 
 #tray {
