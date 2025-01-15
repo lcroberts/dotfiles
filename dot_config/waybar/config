@@ -66,16 +66,14 @@
          "on-scroll-down": "brightnessctl -c backlight set 1%-",
          "on-scroll-up": "brightnessctl -c backlight set +1%"
     },
-    "battery": {
-        "states": {
-            "warning": 30,
-            "critical": 15
-        },
-        "format": "{icon}",
-        "format-charging": "",
-        "format-plugged": "",
-        "format-alt": "{icon}",
-        "format-icons": ["", "",  "", "", "", "", "", "", "", "", "", ""]
+     "battery": {
+         "states": {
+             "warning": 30,
+             "critical": 15
+         },
+         "format": "{capacity}% {icon}",
+         "format-charging": "{capacity}% 󰂄",
+         "format-icons": ["", "", "", "", ""]
     },
     "pulseaudio": {
         "scroll-step": 1, // %, can be a float
