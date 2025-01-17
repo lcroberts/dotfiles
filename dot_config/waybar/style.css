@@ -30,9 +30,8 @@
 
 #workspaces button {
   color: @text;
-  padding: 0 0.6rem;
+  padding: 0 0.75rem;
   border-radius: 0.5rem;
-  border: 3px;
   border-bottom: 2px solid @base;
 }
 
@@ -63,7 +62,7 @@
 }
 
 #idle_inhibitor {
-  padding-right: 0.5rem;
+  padding: 0 0.5rem;
 }
 #idle_inhibitor:hover {
   background: @mantle;
@@ -76,7 +75,6 @@
 
 #custom-notification {
   padding: 0 0.75rem;
-  padding-right: 1.25rem;
 }
 
 #clock:hover {
@@ -91,8 +89,6 @@
 }
 
 #tray menu {
-  font-family: "Noto Sans";
-  font-size: 12px;
   background: @base;
   color: @text;
   border-radius: 0.5rem;
@@ -103,6 +99,7 @@
   background-color: @flamingo;
   color: @mantle;
 }
+
 
 #battery {
   color: @green;
