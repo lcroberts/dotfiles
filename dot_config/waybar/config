@@ -24,7 +24,7 @@
     "idle_inhibitor": {
         "format": " {icon} ",
         "format-icons":{
-            "activated": "",
+            "activated": "<span color='#f38ba8'></span>",
             "deactivated": ""
         }
     },
@@ -122,10 +122,10 @@
         "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
         "tooltip": true,
         "format-icons": {
-            "default": "",
-            "performance": "",
-            "balanced": "",
-            "power-saver": ""
+            "default": "<span color='#f38ba8'></span>",
+            "performance": "<span color='#f38ba8'></span>",
+            "balanced": "<span color='#89b4fa'></span>",
+            "power-saver": "<span color='#a6e3a1'></span>"
         }
     },
 }
