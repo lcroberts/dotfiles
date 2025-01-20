@@ -39,6 +39,11 @@
   border-bottom: 2px solid @flamingo;
 }
 
+#workspaces button.urgent {
+  color: @red;
+  background: @mantle;
+}
+
 #workspaces button:hover {
   background: @mantle;
 }
