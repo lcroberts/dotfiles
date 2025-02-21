@@ -3,7 +3,7 @@
 
 {{- if eq .chezmoi.hostname "notascam" }}
 monitor = DP-1, 3840x2160@144, 1920x0, 1.5
-monitor = DP-3, 1920x1080@144, 0x250, 1
+monitor = DP-2, 1920x1080@144, 0x250, 1
 # Set Xwayland screen config
 exec-once = ~/.screenlayout/test.sh
 {{- end }}
@@ -23,7 +23,7 @@ misc {
 
 # Default displays for workspaces
 $main_display=DP-1
-$extra_display=DP-3
+$extra_display=DP-2
 exec-once = ~/.screenlayout/test.sh
 workspace = 1, monitor:$main_display, default:true
 workspace = 2, monitor:$extra_display
