@@ -2,8 +2,8 @@
 # monitor=,preferred,auto,auto
 
 {{- if eq .chezmoi.hostname "notascam" }}
-monitor = DP-1, 3840x2160@144, 1920x0, 1.5
-monitor = DP-2, 1920x1080@144, 0x250, 1
+monitor = DP-1, 3840x2160@144.00, 1920x0, 1.5
+monitor = DP-2, 1920x1080@144.00, 0x250, 1
 # Set Xwayland screen config
 exec-once = ~/.screenlayout/test.sh
 {{- end }}
