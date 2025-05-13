@@ -1,4 +1,5 @@
-//
+user_pref("font.cjk_pref_fallback_order", "ja,zh-cn,zh-hk,zh-tw,ko");
+
 /* You may copy+paste this file and use it as it is.
  *
  * If you make changes to your about:config while the program is running, the
