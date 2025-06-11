@@ -1,0 +1,12 @@
+alias python2=python
+# Added by Toolbox App
+export PATH="$PATH:/var/home/logan/.local/share/JetBrains/Toolbox/scripts"
+. "$HOME/.cargo/env"
+
+export GOPATH=$HOME/.local/share/go
+export QT_IM_MODULE='fcitx'
+export SDL_IM_MODULE='fcitx'
+export XMODIFIERS='@im=fcitx'
+export VISUAL="nvim"
+export BUN_INSTALL="$HOME/.bun"
+export NPM_PACKAGES="$HOME/.npm-packages"
