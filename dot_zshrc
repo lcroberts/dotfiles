@@ -135,7 +135,7 @@ bindkey '^N' autosuggest-accept
 alias vi="nvim"
 # Alias to enter generic tmux session
 alias tenter="tmux new -As main"
-alias deventer="distrobox-enter dev -- tmux -L dev new -As main 'exec fish'"
+alias deventer="distrobox-enter dev -- tmux -L dev new -As main 'exec zsh'"
 # Hibernate alias
 alias hibernate="systemctl hibernate"
 # rm interactive mode alias
