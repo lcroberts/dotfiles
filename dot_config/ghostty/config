@@ -1,0 +1,8 @@
+gtk-titlebar = false
+keybind = alt+shift+t=new_tab
+keybind = alt+shift+r=close_surface
+keybind = super+ctrl+alt+shift+,=reload_config
+theme = catppuccin-mocha
+confirm-close-surface=false
+
+initial-command = tmux new -As main
