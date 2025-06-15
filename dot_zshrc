@@ -143,16 +143,45 @@ alias rm="rm -I"
 
 # git aliases
 alias gs="git status"
-alias gl="git log"
-alias glo="git log --oneline"
+alias gsw="git switch -"
 alias ga="git add"
 alias gaa="git add ."
-alias gpu="git push"
-alias gp="git pull"
 alias gc="git commit"
-alias gco="git checkout"
-alias gd="git diff"
+function gco() {
+    if [[ -z "$1" ]]; then
+        git checkout $(git branch | fzf)
+    else
+        git checkout $@
+    fi
+}
 alias gb="git branch"
+alias gd="git diff"
+alias gp="git pull"
+alias gf="git fetch"
+alias gpu="git push"
+alias gl="git log"
+alias glo="git log --oneline"
+alias glog="git log --oneline --graph"
+alias gw="git worktree"
+function r() {
+    cd $(git rev-parse --show-toplevel)
+}
+function gwa() {
+    if [[ -z "$1" ]]; then
+        echo "Please provide a branch"
+        return 1
+    fi
+    if git show-ref --verify --quiet refs/heads/$1; then
+        echo "Branch exists"
+        git worktree add $1 $1
+    else
+        echo "Branch doesn't exist"
+        git worktree add -b $1 $1
+    fi
+}
+function srcenv() {
+    set -a; source .env; set +a
+}
 
 # eza aliases
 eza_modifiers="--git --icons --color-scale --group-directories-first"
