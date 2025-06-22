@@ -109,6 +109,9 @@ if [[ -e "$HOME/.profile" ]]; then
     . "$HOME/.profile"
 fi
 
+eval $(ssh-agent) > /dev/null 2>&1
+find ~/.ssh -type f -name "*.pem" -o -name "*.key" -exec ssh-add {} > /dev/null 2>&1 \;
+
 typeset -U path PATH # Make path dedupe values
 path+=~/.local/nvim/bin
 path+=~/.local/share/bob/nvim-bin
