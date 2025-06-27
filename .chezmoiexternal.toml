@@ -2,3 +2,7 @@
     type = "git-repo"
     url = "git@github.com:lcroberts/config.nvim.git"
     refreshPeriod = "1h"
+[".oh-my-zsh/custom/plugins/zsh-vi-mode"]
+    type = "git-repo"
+    url = "https://github.com/jeffreytse/zsh-vi-mode"
+    refreshPeriod = "1h"

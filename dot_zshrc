@@ -126,15 +126,6 @@ path+=~/.cargo/bin
 path+=~/.local/bin
 path+=~/Scripts
 
-eval "$(direnv hook zsh)"
-# Set up fzf key bindings and fuzzy completion
-source <(fzf --zsh)
-eval "$(zoxide init zsh)"
-eval "$(starship init zsh)"
-bindkey -v
-source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-bindkey '^N' autosuggest-accept
-
 alias vi="nvim"
 # Alias to enter generic tmux session
 alias tenter="tmux new -As main"
@@ -261,6 +252,22 @@ function y() {
 	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
 	rm -f -- "$tmp"
 }
+
+source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+function before_init() {}
+function after_init() {
+    source <(fzf --zsh)
+    eval "$(zoxide init zsh)"
+    bindkey '\e;' autosuggest-accept
+}
+
+zvm_before_init_commands=(before_init)
+zvm_after_init_commands=(after_init)
+source "$ZSH_CUSTOM/plugins/zsh-vi-mode/zsh-vi-mode.zsh"
+
+eval "$(direnv hook zsh)"
+eval "$(starship init zsh)"
 
 # MUST BE AT END
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
