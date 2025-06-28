@@ -253,7 +253,6 @@ function y() {
 	rm -f -- "$tmp"
 }
 
-source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 function zvm_vi_edit_command_line_custom() {
   local tmp_file=$(mktemp ${ZVM_TMPDIR}/zshXXXXXX.sh)
@@ -280,7 +279,7 @@ function after_init() {
 zvm_before_init_commands=(before_init)
 zvm_after_init_commands=(after_init)
 source "$ZSH_CUSTOM/plugins/zsh-vi-mode/zsh-vi-mode.zsh"
-
+source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 eval "$(direnv hook zsh)"
 eval "$(starship init zsh)"
 
