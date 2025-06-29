@@ -254,9 +254,11 @@ function y() {
 }
 
 function zle-eval {
-    echo -en "\e[2K\r"
+    zle push-input
+    zle -R
+    zle accept-line
+    echo ""
     eval "$@"
-    zle redisplay
 }
 
 function zle-ls {
