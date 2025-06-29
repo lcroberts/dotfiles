@@ -253,6 +253,23 @@ function y() {
 	rm -f -- "$tmp"
 }
 
+function zle-eval {
+    echo -en "\e[2K\r"
+    eval "$@"
+    zle redisplay
+}
+
+function zle-ls {
+    zle-eval l
+}
+zle -N zle-ls
+
+function prepend-sudo {
+  if [[ $BUFFER != "sudo "* ]]; then
+    BUFFER="sudo $BUFFER"; CURSOR+=5
+  fi
+}
+zle -N prepend-sudo
 
 function zvm_vi_edit_command_line_custom() {
   local tmp_file=$(mktemp ${ZVM_TMPDIR}/zshXXXXXX.sh)
@@ -273,7 +290,9 @@ function after_init() {
     eval "$(zoxide init zsh)"
     bindkey '\e;' autosuggest-accept
     zvm_define_widget zvm_vi_edit_command_line_custom
-    zvm_bindkey visual 'v' zvm_vi_edit_command_line_custom
+    zvm_bindkey visual 'v' edit-command-line
+    bindkey '\el' zle-ls
+    bindkey '\es' prepend-sudo
 }
 
 zvm_before_init_commands=(before_init)
