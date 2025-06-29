@@ -2,7 +2,15 @@
     type = "git-repo"
     url = "git@github.com:lcroberts/config.nvim.git"
     refreshPeriod = "1h"
-[".oh-my-zsh/custom/plugins/zsh-vi-mode"]
+[".config/zsh/plugins/zsh-vi-mode"]
     type = "git-repo"
     url = "https://github.com/jeffreytse/zsh-vi-mode"
+    refreshPeriod = "1h"
+[".config/zsh/plugins/zsh-autosuggestions"]
+    type = "git-repo"
+    url = "https://github.com/zsh-users/zsh-autosuggestions.git"
+    refreshPeriod = "1h"
+[".config/zsh/plugins/zsh-syntax-highlighting"]
+    type = "git-repo"
+    url = "https://github.com/zsh-users/zsh-syntax-highlighting.git"
     refreshPeriod = "1h"
