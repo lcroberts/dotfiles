@@ -1,0 +1,3 @@
+emulate -L zsh
+autoload -Uz zle-eval
+zle-eval l

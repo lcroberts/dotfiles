@@ -1,0 +1,3 @@
+if [[ $BUFFER != "sudo "* ]]; then
+    BUFFER="sudo $BUFFER"; CURSOR+=5
+fi

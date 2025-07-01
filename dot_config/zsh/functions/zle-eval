@@ -1,0 +1,6 @@
+emulate -L zsh
+zle push-input
+zle -R
+zle accept-line
+echo ""
+eval "$@"
