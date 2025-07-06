@@ -1,6 +1,9 @@
 emulate -L zsh
-zle push-input
-zle -R
-zle accept-line
+local saved_buffer=$BUFFER
+local saved_cursor=$CURSOR
 echo ""
 eval "$@"
+echo ""
+BUFFER=$saved_buffer
+CURSOR=$saved_cursor
+zle reset-prompt

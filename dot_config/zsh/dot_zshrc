@@ -48,7 +48,7 @@ function after_init() {
     eval "$(zoxide init zsh)"
     bindkey '\e;' autosuggest-accept
     zvm_define_widget zvm_vi_edit_command_line_custom
-    zvm_bindkey visual 'v' edit-command-line
+    zvm_bindkey visual 'v' zvm_vi_edit_command_line_custom 
     bindkey '\el' zle-ls
     bindkey '\es' prepend-sudo
 }
