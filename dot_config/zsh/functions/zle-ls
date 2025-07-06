@@ -1,8 +1,13 @@
 emulate -L zsh
 autoload -Uz zle-eval
-last_word="${LBUFFER##* }"
-dir=.
-if [[ -d $last_word ]]; then
-    dir=$last_word
+local last_word="${LBUFFER##* }"
+local dir=.
+if [[ -n $last_word ]]; then
+    local dirname=$(dirname $last_word)
+    if [[ -d $last_word ]]; then
+        dir=$last_word
+    elif [[ -d $dirname ]]; then
+        dir=$dirname
+    fi
 fi
 zle-eval l $dir
