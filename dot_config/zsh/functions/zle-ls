@@ -1,13 +1,18 @@
 emulate -L zsh
 autoload -Uz zle-eval
-local last_word="${LBUFFER##* }"
+
+local -a words=(${(z)LBUFFER})  # Split LBUFFER into words
+words=("${(@Oa)words}") # Reverse order
+# Find last directory in input
 local dir=.
-if [[ -n $last_word ]]; then
-    local dirname=$(dirname $last_word)
-    if [[ -d $last_word ]]; then
-        dir=$last_word
-    elif [[ -d $dirname ]]; then
-        dir=$dirname
+for curr in $words; do
+    if [[ -d $curr ]]; then
+        dir="$curr"
+        break
+    elif [[ -d $(dirname $curr) && $(dirname $curr) != "." ]]; then
+        dir=$(dirname $curr)
+        break
     fi
-fi
+done
+
 zle-eval l $dir
