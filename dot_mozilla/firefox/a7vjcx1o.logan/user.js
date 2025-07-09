@@ -1,4 +1,7 @@
 user_pref("font.cjk_pref_fallback_order", "ja,zh-cn,zh-hk,zh-tw,ko");
+user_pref("browser.tabs.closeWindowWithLastTab", false);
+user_pref("sidebar.expandOnHover", true);
+user_pref("sidebar.animation.expand-on-hover.duration-ms", 150);
 
 /* You may copy+paste this file and use it as it is.
  *
