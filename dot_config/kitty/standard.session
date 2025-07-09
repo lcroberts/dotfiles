@@ -1,4 +1,4 @@
 launch tmux new -As main
 
 new_tab
-launch zsh -c "deventer"
+launch distrobox-enter dev -- tmux -L dev new -As main 'exec zsh'
