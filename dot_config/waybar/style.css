@@ -67,7 +67,7 @@
 }
 
 #idle_inhibitor {
-  padding: 0 0.5rem;
+  padding-right: 0.75rem;
 }
 #idle_inhibitor:hover {
   background: @mantle;
@@ -80,6 +80,7 @@
 
 #custom-notification {
   padding: 0 0.75rem;
+  padding-right: 1rem;
 }
 
 #clock:hover {
