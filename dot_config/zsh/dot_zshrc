@@ -1,5 +1,9 @@
 export ZSH_PLUGIN_DIR="$ZDOTDIR/plugins/"
 
+export QT_IM_MODULE='fcitx'
+export SDL_IM_MODULE='fcitx'
+export XMODIFIERS='@im=fcitx'
+
 autoload -Uz compinit && compinit
 fpath+=("$ZDOTDIR/functions")
 
@@ -12,6 +16,7 @@ if [[ -n $SSH_CONNECTION ]]; then
 else
   export EDITOR='nvim'
 fi
+export VISUAL="$EDITOR"
 
 alias vi="nvim"
 # Alias to enter generic tmux session
