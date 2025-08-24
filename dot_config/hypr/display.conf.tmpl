@@ -2,8 +2,18 @@
 # monitor=,preferred,auto,auto
 
 {{- if eq .chezmoi.hostname "notascam" }}
-monitor = DP-1, 3840x2160@144.00, 1920x0, 1.5
-monitor = DP-2, 1920x1080@144.00, 0x250, 1
+monitorv2 {
+    output = DP-1
+    mode = 3840x2160@100 # Should be 144 but this monitor has a goofed up edid
+    position = 1920x0
+    scale = 1.5
+}
+monitorv2 {
+    output = DP-2
+    mode = 1920x1080@144
+    position = 0x250
+    scale = 1
+}
 # Set Xwayland screen config
 exec-once = ~/.screenlayout/test.sh
 {{- end }}
@@ -16,7 +26,7 @@ xwayland:use_nearest_neighbor = false
 xwayland:force_zero_scaling = true
 
 misc {
-    vrr = 1 
+    vrr = 1
     # mouse_move_enables_dpms = true
     # key_press_enables_dpms = true
 }
@@ -24,7 +34,6 @@ misc {
 # Default displays for workspaces
 $main_display=DP-1
 $extra_display=DP-2
-exec-once = ~/.screenlayout/test.sh
 workspace = 1, monitor:$main_display, default:true
 workspace = 2, monitor:$extra_display
 workspace = 3, monitor:$extra_display
