@@ -10,7 +10,7 @@ flatpak run dev.vencord.Vesktop || distrobox-enter aur -- vesktop 2>&1 &
 
 sleep 10
 
-find $HOME/Applications/ -iname "onedrive*.appimage" -exec {} \;
+find "$HOME/Applications/" -iname "filen*.appimage" -exec {} \;
 
 hyprctl keyword windowrule "workspace unset,kitty"
 hyprctl keyword windowrule "workspace unset,ghostty"
