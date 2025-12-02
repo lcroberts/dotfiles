@@ -3,13 +3,13 @@
 
 {{- if eq .chezmoi.hostname "notascam" }}
 monitorv2 {
-    output = DP-1
-    mode = 3840x2160@100 # Should be 144 but this monitor has a goofed up edid
+    output = DP-2
+    mode = 3840x2160@144
     position = 1920x0
     scale = 1.5
 }
 monitorv2 {
-    output = DP-2
+    output = DP-3
     mode = 1920x1080@144
     position = 0x250
     scale = 1
@@ -32,8 +32,8 @@ misc {
 }
 
 # Default displays for workspaces
-$main_display=DP-1
-$extra_display=DP-2
+$main_display=DP-2
+$extra_display=DP-3
 workspace = 1, monitor:$main_display, default:true
 workspace = 2, monitor:$extra_display
 workspace = 3, monitor:$extra_display
