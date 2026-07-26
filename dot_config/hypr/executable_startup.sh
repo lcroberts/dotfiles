@@ -8,6 +8,6 @@ flatpak run org.mozilla.firefox 2>&1 &
 
 sleep 10
 
-@filendesktop 2>&1 &
+Filen 2>&1 &
 hyprctl keyword windowrule "workspace unset,kitty"
 hyprctl keyword windowrule "workspace unset,ghostty"
