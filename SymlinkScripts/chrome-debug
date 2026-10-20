@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+set -e
+
+PROFILE_DIR="$HOME/.var/app/com.google.Chrome/cache/debug-profile"
+mkdir -p "$PROFILE_DIR"
+
+exec flatpak run com.google.Chrome \
+  --remote-debugging-port=9222 \
+  --remote-allow-origins="*" \
+  --user-data-dir="$PROFILE_DIR" \
+  "$@"
