@@ -1,11 +1,41 @@
 #!/usr/bin/env bash
 set -e
 
+PORT="${CHROME_DEBUG_PORT:-9222}"
 PROFILE_DIR="$HOME/.var/app/com.google.Chrome/cache/debug-profile"
-mkdir -p "$PROFILE_DIR"
+CONFIG_DIR="$HOME/.config/google-chrome"
 
-exec flatpak run com.google.Chrome \
-  --remote-debugging-port=9222 \
+mkdir -p "$PROFILE_DIR" "$CONFIG_DIR"
+
+# Launch Chrome completely detached with output suppressed
+nohup flatpak run com.google.Chrome \
+  --remote-debugging-port="$PORT" \
   --remote-allow-origins="*" \
   --user-data-dir="$PROFILE_DIR" \
-  "$@"
+  "$@" </dev/null >/dev/null 2>&1 &
+CHROME_PID=$!
+
+# Detached watcher: syncs DevToolsActivePort on startup and cleans it up when Chrome exits
+(
+  for _ in {1..50}; do
+    if json=$(curl -s "http://127.0.0.1:$PORT/json/version" 2>/dev/null); then
+      ws_path=$(echo "$json" | sed -n 's/.*"webSocketDebuggerUrl": *"ws:\/\/[^/]*\([^"]*\)".*/\1/p')
+      if [ -n "$ws_path" ]; then
+        printf "%s\n%s\n" "$PORT" "$ws_path" > "$CONFIG_DIR/DevToolsActivePort"
+        break
+      fi
+    fi
+    sleep 0.2
+  done
+
+  # Wait for Chrome to exit
+  while kill -0 "$CHROME_PID" 2>/dev/null; do
+    sleep 1
+  done
+
+  rm -f "$CONFIG_DIR/DevToolsActivePort"
+) </dev/null >/dev/null 2>&1 &
+
+disown -a 2>/dev/null || true
+
+echo "Chrome debug session launched on port $PORT (PID $CHROME_PID, detached)."
